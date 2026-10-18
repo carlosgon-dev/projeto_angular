@@ -112,8 +112,9 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] Guardar algumas piadas boas para a demo (caso a internet falhe)
 
 ## Fase 4 — Explorar (sex 23) — *opcional*
-- [ ] `public/piadas.json` e `public/adivinhas.json` (em português)
-- [ ] `HubService`: memes (meme-api) + piadas + adivinhas
+- [x] `public/dados/piadas.json` e `adivinhas.json` (em português)
+- [x] `ExplorarService.listarPiadas()` + piadas a aparecer no Explorar (18/10)
+- [ ] `ExplorarService`: `listarAdivinhas()` + `listarMemes()` (memes-internet.json)
 - [ ] 3 filas horizontais, cada uma com "a carregar…" própria
 - [ ] Botão 🔄 Outros
 
