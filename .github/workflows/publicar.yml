@@ -1,0 +1,51 @@
+# Publica a app no GitHub Pages sempre que há um push para o main.
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Copiar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar o Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Compilar a app
+        run: npx ng build --base-href /projeto_angular/
+
+      # Numa SPA, abrir /explorar diretamente tem de devolver a app (e não um erro 404).
+      - name: Criar 404.html
+        run: cp dist/meu-projeto/browser/index.html dist/meu-projeto/browser/404.html
+
+      - name: Preparar os ficheiros
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/meu-projeto/browser
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,1 +1,8 @@
-<p>escrever works!</p>
+<h1>Escolhe um meme</h1>
+
+@for (template of templates(); track template.id) {
+  <div>
+    <img [src]="template.imagem" [alt]="template.nome" width="200">
+    <p>{{ template.nome }}</p>
+  </div>
+}
