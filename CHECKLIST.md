@@ -65,10 +65,11 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] **Publicar já** a versão vazia (para não haver surpresas no fim)
 
 ## Fase 1 — Memes + Criado por ti (seg 19 – ter 20)
-- [ ] Interface `Meme` (TypeScript)
-- [ ] `MemeService` com `@Injectable` + `HttpClient.get` ao Imgflip
-- [ ] `provideHttpClient()` no `app.config.ts`
-- [ ] No Escrever: lista de templates com `@for`, "a carregar…" e erro com `@if`
+- [x] Interfaces `TemplateMeme` e `Meme` (TypeScript)
+- [x] `MemeService` com `@Injectable` + `HttpClient.get` ao `dados/memes.json`
+- [x] `provideHttpClient()` no `app.config.ts`
+- [x] No Escrever: lista de templates com `@for` (com `signal`)
+- [ ] "a carregar…" e erro com `@if`
 - [ ] Pesquisa de templates com `[(ngModel)]`
 - [ ] Componente `CartaoMeme` — `@Input() meme` + `@Output() escolher`
 - [ ] Editor `/meme/:id`: imagem + texto de cima/baixo ao vivo
