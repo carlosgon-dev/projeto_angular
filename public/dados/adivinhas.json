@@ -1,0 +1,110 @@
+[
+  {
+    "id": 101,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que tem dentes mas não morde?",
+    "resposta": "Um pente",
+    "origem": "explorar"
+  },
+  {
+    "id": 102,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Quanto mais se tira, maior fica. O que é?",
+    "resposta": "Um buraco",
+    "origem": "explorar"
+  },
+  {
+    "id": 103,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Tem cidades mas não tem casas, tem rios mas não tem água. O que é?",
+    "resposta": "Um mapa",
+    "origem": "explorar"
+  },
+  {
+    "id": 104,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que sobe e desce sem sair do lugar?",
+    "resposta": "Uma escada",
+    "origem": "explorar"
+  },
+  {
+    "id": 105,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que quanto mais seca, mais molhada fica?",
+    "resposta": "Uma toalha",
+    "origem": "explorar"
+  },
+  {
+    "id": 106,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que tem pescoço mas não tem cabeça?",
+    "resposta": "Uma garrafa",
+    "origem": "explorar"
+  },
+  {
+    "id": 107,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Qual é a coisa que se parte só de dizer o seu nome?",
+    "resposta": "O silêncio",
+    "origem": "explorar"
+  },
+  {
+    "id": 108,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que anda com os pés na cabeça?",
+    "resposta": "O piolho",
+    "origem": "explorar"
+  },
+  {
+    "id": 109,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que corre mas não anda, e tem cama mas não dorme?",
+    "resposta": "Um rio",
+    "origem": "explorar"
+  },
+  {
+    "id": 110,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que está sempre a chegar mas nunca chega?",
+    "resposta": "O dia de amanhã",
+    "origem": "explorar"
+  },
+  {
+    "id": 111,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que tem de se partir antes de se poder usar?",
+    "resposta": "Um ovo",
+    "origem": "explorar"
+  },
+  {
+    "id": 112,
+    "tipo": "adivinha",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que tem teclas mas não abre fechaduras?",
+    "resposta": "Um piano",
+    "origem": "explorar"
+  }
+]

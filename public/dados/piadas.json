@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Porque é que o livro de matemática estava triste?",
+    "remate": "Porque tinha muitos problemas.",
+    "origem": "explorar"
+  },
+  {
+    "id": 2,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Qual é o cúmulo da rapidez?",
+    "remate": "Fechar a gaveta e entalar o fumo.",
+    "origem": "explorar"
+  },
+  {
+    "id": 3,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Porque é que o programador foi ao médico?",
+    "remate": "Tinha um bug no sistema… nervoso.",
+    "origem": "explorar"
+  },
+  {
+    "id": 5,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "O que é que o pato disse à pata?",
+    "remate": "Vem quá!",
+    "origem": "explorar"
+  },
+  {
+    "id": 6,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Qual é o animal mais antigo do mundo?",
+    "remate": "A zebra, porque ainda está a preto e branco.",
+    "origem": "explorar"
+  },
+  {
+    "id": 7,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Como se chama um boomerang que não volta?",
+    "remate": "Um pau.",
+    "origem": "explorar"
+  },
+  {
+    "id": 8,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Qual é o contrário de volátil?",
+    "remate": "Vem cá, sobrinho.",
+    "origem": "explorar"
+  },
+  {
+    "id": 10,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Porque é que o esqueleto não foi à festa?",
+    "remate": "Porque não tinha corpo para isso.",
+    "origem": "explorar"
+  },
+  {
+    "id": 11,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Qual é o café mais perigoso do mundo?",
+    "remate": "O ex-presso.",
+    "origem": "explorar"
+  },
+  {
+    "id": 12,
+    "tipo": "piada",
+    "criado": "2026-10-18T12:00:00",
+    "estrelas": 0,
+    "pergunta": "Qual é a fruta mais paciente?",
+    "remate": "A pera. Está sempre à espera.",
+    "origem": "explorar"
+  }
+]
