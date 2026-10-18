@@ -23,15 +23,48 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 
 ---
 
-## Fase 0 — Base (qui 15 – sex 16)
-- [ ] Criar o projeto: `ng new arena-do-riso --ssr=false`
-- [ ] `ng serve` a funcionar
-- [ ] Componentes vazios: `Header`, páginas `Inicio`, `Explorar`, `Gerador`, `Escrever`, `CriadoPorTi`, `NaoEncontrado`
-- [ ] Rotas em `app.routes.ts` + `<router-outlet />` + menu com `routerLink`
-- [ ] Repositório no GitHub (público)
+## 🗺️ Projeção (fechada a 18/10)
+
+**Models** (`src/app/models/`) ✅ feitos
+`TemplateMeme` · `CriacaoBase` + `Estrelas` · `Meme` · `Piada` · `Adivinha` · `Criacao = Meme | Piada | Adivinha` ·
+enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
+
+**Services** (`src/app/services/`)
+| Service | Métodos | Parte 1 | Parte 2 |
+|---|---|---|---|
+| `MemeService` | `listarTemplates()` | `dados/memes.json` | Imgflip |
+| `ExplorarService` | `listarMemes()`, `listarPiadas()`, `listarAdivinhas()` | `dados/*.json` | backend / meme-api |
+| `CriacoesService` | `listar()`, `criar()`, `avaliar()`, `apagar()` | `localStorage` (via `Armazem<T>`) | backend + BD |
+| `GeradorService` | `gerar(pedido)` | piadas simuladas | Gemini |
+
+**Rotas / páginas** (`src/app/pages/`)
+`/` Inicio · `/explorar` Explorar · `/gerador` Gerador · `/escrever` Escrever · `/meme/:id` EditorMeme ·
+`/criado` CriadoPorTi · `**` NaoEncontrado — `Header` (menu) no `app.html`, fora do `<router-outlet>`
+
+**Componentes reutilizáveis** (`src/app/components/`)
+| Componente | `@Input` | `@Output` | Usado em |
+|---|---|---|---|
+| `CartaoTemplate` | `TemplateMeme` | `escolher` | Escrever |
+| `CartaoMeme` | `Meme` | — | EditorMeme, CriadoPorTi |
+| `CartaoTexto` | `Piada` ou `Adivinha` | — | Escrever, Gerador, Explorar, CriadoPorTi |
+| `Estrelas` | valor 0–5 | `avaliar` | Gerador, CriadoPorTi |
+
+**Pipe** (`src/app/pipes/`): `saudacao`
+**Dados** (`public/`): `dados/memes.json`, `piadas.json`, `adivinhas.json`, `memes-internet.json` · `imagens/memes/`, `imagens/explorar/`
+
+---
+
+## Fase 0 — Base (dom 18)
+- [x] Desligar o SSR (o projeto foi criado com ele; o `localStorage` não existe no servidor)
+- [x] Projeto criado (`meu-projeto`) + repositório GitHub
+- [x] `ng serve` a funcionar
+- [x] Interfaces (models)
+- [ ] Páginas vazias em `pages/`: `Inicio`, `Explorar`, `Gerador`, `Escrever`, `EditorMeme`, `CriadoPorTi`, `NaoEncontrado`
+- [ ] Componente `Header` com o menu (`routerLink`)
+- [ ] Rotas em `app.routes.ts` + `<router-outlet />`
 - [ ] **Publicar já** a versão vazia (para não haver surpresas no fim)
 
-## Fase 1 — Memes + Criado por ti (sáb 17 – dom 18)
+## Fase 1 — Memes + Criado por ti (seg 19 – ter 20)
 - [ ] Interface `Meme` (TypeScript)
 - [ ] `MemeService` com `@Injectable` + `HttpClient.get` ao Imgflip
 - [ ] `provideHttpClient()` no `app.config.ts`
