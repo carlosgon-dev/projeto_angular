@@ -59,9 +59,9 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [x] Projeto criado (`meu-projeto`) + repositório GitHub
 - [x] `ng serve` a funcionar
 - [x] Interfaces (models)
-- [ ] Páginas vazias em `pages/`: `Inicio`, `Explorar`, `Gerador`, `Escrever`, `EditorMeme`, `CriadoPorTi`, `NaoEncontrado`
-- [ ] Componente `Header` com o menu (`routerLink`)
-- [ ] Rotas em `app.routes.ts` + `<router-outlet />`
+- [x] Páginas vazias em `pages/`: `Inicio`, `Explorar`, `Gerador`, `Escrever`, `EditorMeme`, `CriadoPorTi`, `NaoEncontrado`
+- [x] Componente `Header` com o menu (`routerLink`)
+- [x] Rotas em `app.routes.ts` + `<router-outlet />`
 - [ ] **Publicar já** a versão vazia (para não haver surpresas no fim)
 
 ## Fase 1 — Memes + Criado por ti (seg 19 – ter 20)
