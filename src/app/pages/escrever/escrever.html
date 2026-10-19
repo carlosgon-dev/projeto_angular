@@ -1,10 +1,19 @@
 <h1>Escolhe um meme</h1>
+<input [(ngModel)]="pesquisa" placeholder="Pesquisar (ex.: drake)">
 
-@for (template of templates(); track template.id) {
-  <div>
-    <img [src]="template.imagem" [alt]="template.nome" width="200">
-    <p>{{ template.nome }}</p>
-    <a [routerLink]="['/meme', template.id]">Usar este</a>
-
-  </div>
+@if (a_carregar()) {
+  <p>A carregar memes…</p>
+} @else if (erro()) {
+  <p>Não foi possível carregar os memes. Tenta outra vez mais tarde.</p>
+} @else {
+  @for (template of templates_filtrados(); track template.id) {
+    <div>
+      <img [src]="template.imagem" [alt]="template.nome" width="200" />
+      <p>{{ template.nome }}</p>
+      <a [routerLink]="['/meme', template.id]">Usar este</a>
+    </div>
+  }
+   @empty {
+    <p>Nenhum meme com "{{ pesquisa }}".</p>
+  }
 }

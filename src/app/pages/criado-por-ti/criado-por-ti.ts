@@ -4,9 +4,10 @@ import { CriacoesService } from '../../services/criacoes-service';
 import { MemeService } from '../../services/meme-service';
 import { Criacao } from '../../models/criacao';
 import { TemplateMeme } from '../../models/template-meme';
+import { CartaoMeme } from '../../components/cartao-meme/cartao-meme';
 
 @Component({
-  imports: [DatePipe],
+  imports: [DatePipe, CartaoMeme],
   selector: 'app-criado-por-ti',
   styleUrl: './criado-por-ti.css',
   templateUrl: './criado-por-ti.html',
@@ -29,4 +30,12 @@ export class CriadoPorTi implements OnInit {
     const template = this.templates().find((t) => t.id === template_id);
     return template ? template.imagem : '';
   }
+
+    apagar(id: number): void {
+    this.criacoes_service.apagar(id).subscribe((restantes) => {
+      this.criacoes.set(restantes);
+    });
+  }
+
+  
 }
