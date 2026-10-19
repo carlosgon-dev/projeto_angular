@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { ExplorarService} from '../../services/explorar-service';
+import { ExplorarService } from '../../services/explorar-service';
 import { Piada } from '../../models/piada';
 
 @Component({
@@ -9,16 +9,13 @@ import { Piada } from '../../models/piada';
   templateUrl: './explorar.html',
 })
 export class Explorar implements OnInit {
-  templates = signal<Piada[]>([]);                        // ← 2. a caixa começa vazia
+  piadas = signal<Piada[]>([]);
 
-  constructor(private explorarService: ExplorarService) {}
+  constructor(private explorar_service: ExplorarService) {}
 
   ngOnInit(): void {
-    this.explorarService.listarPiadas().subscribe((lista) => {
-      this.templates.set(lista);                                 // ← 3. pôr a lista na caixa
+    this.explorar_service.listar_piadas().subscribe((lista) => {
+      this.piadas.set(lista);
     });
   }
 }
-
-
-

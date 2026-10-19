@@ -1,6 +1,6 @@
 <h1>Piadas</h1>
 
-@for (piada of templates(); track piada.id) {
+@for (piada of piadas(); track piada.id) {
   <div>
     <p><strong>{{ piada.pergunta }}</strong></p>
     <p>{{ piada.remate }}</p>

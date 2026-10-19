@@ -9,7 +9,7 @@ import { Piada } from '../models/piada';
 export class ExplorarService {
   constructor(private http: HttpClient) {}
 
-  listarPiadas(): Observable<Piada[]> {
+  listar_piadas(): Observable<Piada[]> {
     return this.http.get<Piada[]>('dados/piadas.json');
   }
 }

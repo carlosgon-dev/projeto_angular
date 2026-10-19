@@ -9,13 +9,13 @@ import { TemplateMeme } from '../../models/template-meme';
   templateUrl: './escrever.html',
 })
 export class Escrever implements OnInit {
-  templates = signal<TemplateMeme[]>([]);                        // ← 2. a caixa começa vazia
+  templates = signal<TemplateMeme[]>([]);
 
-  constructor(private memeService: MemeService) {}
+  constructor(private meme_service: MemeService) {}
 
   ngOnInit(): void {
-    this.memeService.listarTemplates().subscribe((lista) => {
-      this.templates.set(lista);                                 // ← 3. pôr a lista na caixa
+    this.meme_service.listar_templates().subscribe((lista) => {
+      this.templates.set(lista);
     });
   }
 }

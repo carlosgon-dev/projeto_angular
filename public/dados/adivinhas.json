@@ -2,7 +2,7 @@
   {
     "id": 101,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que tem dentes mas não morde?",
     "resposta": "Um pente",
@@ -11,7 +11,7 @@
   {
     "id": 102,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "Quanto mais se tira, maior fica. O que é?",
     "resposta": "Um buraco",
@@ -20,7 +20,7 @@
   {
     "id": 103,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "Tem cidades mas não tem casas, tem rios mas não tem água. O que é?",
     "resposta": "Um mapa",
@@ -29,7 +29,7 @@
   {
     "id": 104,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que sobe e desce sem sair do lugar?",
     "resposta": "Uma escada",
@@ -38,7 +38,7 @@
   {
     "id": 105,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que quanto mais seca, mais molhada fica?",
     "resposta": "Uma toalha",
@@ -47,7 +47,7 @@
   {
     "id": 106,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que tem pescoço mas não tem cabeça?",
     "resposta": "Uma garrafa",
@@ -56,7 +56,7 @@
   {
     "id": 107,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "Qual é a coisa que se parte só de dizer o seu nome?",
     "resposta": "O silêncio",
@@ -65,7 +65,7 @@
   {
     "id": 108,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que anda com os pés na cabeça?",
     "resposta": "O piolho",
@@ -74,7 +74,7 @@
   {
     "id": 109,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que corre mas não anda, e tem cama mas não dorme?",
     "resposta": "Um rio",
@@ -83,7 +83,7 @@
   {
     "id": 110,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que está sempre a chegar mas nunca chega?",
     "resposta": "O dia de amanhã",
@@ -92,7 +92,7 @@
   {
     "id": 111,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que tem de se partir antes de se poder usar?",
     "resposta": "Um ovo",
@@ -101,7 +101,7 @@
   {
     "id": 112,
     "tipo": "adivinha",
-    "criado": "2026-10-18T12:00:00",
+    "data_criacao": "2026-10-18T12:00:00",
     "estrelas": 0,
     "pergunta": "O que é que tem teclas mas não abre fechaduras?",
     "resposta": "Um piano",

@@ -9,7 +9,7 @@ import { TemplateMeme } from '../models/template-meme';
 export class MemeService {
   constructor(private http: HttpClient) {}
 
-  listarTemplates(): Observable<TemplateMeme[]> {
+  listar_templates(): Observable<TemplateMeme[]> {
     return this.http.get<TemplateMeme[]>('dados/memes.json');
   }
 }
