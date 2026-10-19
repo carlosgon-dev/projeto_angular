@@ -73,12 +73,12 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [x] Pesquisa de templates com `[(ngModel)]` + `@empty`
 - [x] Componente `CartaoMeme` — `@Input()` imagem, texto_cima, texto_baixo (usado no editor e no Criado por ti)
 - [x] Editor `/meme/:id`: imagem + texto de cima/baixo ao vivo (`ActivatedRoute`, Reactive Form) + Guardar (`router.navigate`)
-- [ ] Componente `Estrelas` — `@Input() valor` + `@Output() avaliar`
+- [x] Componente `Estrelas` — `@Input() valor` + `@Output() avaliar` (EventEmitter + emit + $event)
   - 📝 Nota de estudo: aqui vês o `@Output` na prática (ficou confuso na leitura — é normal).
     Filho "grita": `this.avaliar.emit(4)` → pai "ouve": `(avaliar)="guardarNota($event)"` → `$event` = 4.
     É como o `(click)` de um botão, mas um evento inventado por ti.
 - [x] Criado por ti: lista dos memes com data (`| date`) e `@switch (criacao.tipo)`
-- [ ] Criado por ti: estrelas (0 a 5)
+- [x] Criado por ti: estrelas (0 a 5), guardadas no `localStorage`
 - [x] Apagar uma criação (botão 🗑️)
 - [ ] Confirmação "Apagar? Sim / Não" (extra)
 - [x] `CriacoesService`: `listar()`, `criar()`, `apagar()`, `avaliar()` no `localStorage` (não perde ao recarregar)
