@@ -1,1 +1,143 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   Arena do Riso — estilos globais (servem para a app toda)
+   O CSS específico de cada componente fica no .css dele.
+   ============================================================ */
+
+/* 1. CORES E LETRAS (as do protótipo) — muda aqui e muda em todo o lado */
+:root {
+  --fundo: #eef0fb;
+  --texto: #17142a;
+  --texto-suave: #5c5978;
+  --cartao: #ffffff;
+  --linha: #d6d8ee;
+  --rosa: #e8336f;
+  --amarelo: #ffc93c;
+  --erro: #c8323c;
+
+  --letra-titulos: 'Bricolage Grotesque', Arial, sans-serif;
+  --letra-texto: 'Figtree', Arial, sans-serif;
+  --letra-meme: 'Anton', Impact, sans-serif;
+}
+
+/* Modo escuro: se o computador estiver em modo escuro, as cores trocam sozinhas */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #13111d;
+    --texto: #f1effa;
+    --texto-suave: #a6a2c2;
+    --cartao: #1e1b2c;
+    --linha: #332f48;
+    --rosa: #ff5c93;
+    --amarelo: #ffd35c;
+    --erro: #ff6b73;
+  }
+}
+
+/* 2. BASE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--letra-texto);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--letra-titulos);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 40px;
+  letter-spacing: -1px;
+}
+
+a {
+  color: var(--rosa);
+}
+
+/* 3. BOTÕES */
+button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  background: var(--rosa);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 4. CAMPOS DE FORMULÁRIO */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 16px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--linha);
+  border-radius: 10px;
+  background: var(--cartao);
+  color: var(--texto);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--rosa);
+}
+
+label {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Campo inválido depois de tocado: o Angular põe sozinho as classes ng-invalid e ng-touched */
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: var(--erro);
+}
+
+/* 5. UTILIDADES — classes que podes usar em qualquer página */
+
+/* Uma grelha de cartões que se ajusta sozinha à largura do ecrã */
+.grelha {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+/* Uma caixa branca com borda (um "cartão") */
+.caixa {
+  background: var(--cartao);
+  border: 1px solid var(--linha);
+  border-radius: 14px;
+  padding: 16px;
+}

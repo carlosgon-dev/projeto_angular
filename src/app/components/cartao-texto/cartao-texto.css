@@ -1,11 +1,33 @@
 .cartao {
-  border: 1px solid #ccc;
-  border-radius: 12px;
+  background: var(--cartao);
+  border: 1px solid var(--linha);
+  border-radius: 14px;
   padding: 16px;
   max-width: 400px;
 }
 
-.etiqueta { font-size: 12px; font-weight: bold; color: deeppink; margin: 0; }
-.pergunta { font-size: 20px; font-weight: bold; }
-.resposta { background: #fff3c4; padding: 8px; border-radius: 8px; }
-.dica, .autor { color: gray; font-size: 14px; }
+.etiqueta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--rosa);
+  margin: 0;
+}
+
+.pergunta {
+  font-family: var(--letra-titulos);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.resposta {
+  background: color-mix(in srgb, var(--amarelo) 35%, transparent);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.dica,
+.autor {
+  color: var(--texto-suave);
+  font-size: 14px;
+}

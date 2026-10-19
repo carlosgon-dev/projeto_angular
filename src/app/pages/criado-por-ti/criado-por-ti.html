@@ -1,26 +1,27 @@
 <h1>Criado por ti</h1>
+<app-filtro [ativo]="filtro()" (mudar)="filtro.set($event)" />
 
-@for (criacao of criacoes(); track criacao.id) {
-  @switch (criacao.tipo) {
-    @case ('meme') {
-      <app-cartao-meme
-        [imagem]="imagem_do_template(criacao.template_id)"
-        [texto_cima]="criacao.texto_cima"
-        [texto_baixo]="criacao.texto_baixo"
-      />
+<div class="grelha">
+  @for (criacao of criacoes_filtradas(); track criacao.id) {
+    <div class="caixa">
+      @switch (criacao.tipo) {
+        @case ('meme') {
+          <app-cartao-meme
+            [imagem]="imagem_do_template(criacao.template_id)"
+            [texto_cima]="criacao.texto_cima"
+            [texto_baixo]="criacao.texto_baixo"
+          />
+        }
+        @default {
+          <app-cartao-texto [criacao]="criacao" />
+        }
+      }
 
       <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
       <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
       <button (click)="apagar(criacao.id)">🗑️ Apagar</button>
-    }
-
-    @default {
-      <app-cartao-texto [criacao]="criacao" />
-      <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
-      <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
-      <button (click)="apagar(criacao.id)">🗑️ Apagar</button>
-    }
+    </div>
+  } @empty {
+    <p>Ainda não criaste nada.</p>
   }
-} @empty {
-  <p>Ainda não criaste nada.</p>
-}
+</div>

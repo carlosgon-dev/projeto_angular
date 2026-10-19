@@ -97,7 +97,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] Pré-visualização ao vivo no Escrever (extra)
 - [x] "Ver resposta" com `@if` (signal `revelada` dentro do cartão)
 - [x] Guardar (`Origem.Mao`, `NovaCriacao`) → aparece no Criado por ti
-- [ ] Filtros no Criado por ti (Tudo / Memes / Piadas / Adivinhas)
+- [x] Filtros no Criado por ti — componente `Filtro` (`@Input ativo` + `@Output mudar`), tipo `TipoFiltro`
 - [x] `@switch` no tipo do cartão (`@case ('meme')` + `@default`)
 
 ✅ *Enunciado cumprido a 100%.*
