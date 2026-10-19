@@ -13,6 +13,13 @@
       <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
       <button (click)="apagar(criacao.id)">🗑️ Apagar</button>
     }
+
+    @default {
+      <app-cartao-texto [criacao]="criacao" />
+      <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
+      <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
+      <button (click)="apagar(criacao.id)">🗑️ Apagar</button>
+    }
   }
 } @empty {
   <p>Ainda não criaste nada.</p>

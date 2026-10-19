@@ -1,0 +1,11 @@
+.cartao {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 400px;
+}
+
+.etiqueta { font-size: 12px; font-weight: bold; color: deeppink; margin: 0; }
+.pergunta { font-size: 20px; font-weight: bold; }
+.resposta { background: #fff3c4; padding: 8px; border-radius: 8px; }
+.dica, .autor { color: gray; font-size: 14px; }

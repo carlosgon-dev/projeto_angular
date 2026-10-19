@@ -1,0 +1,21 @@
+<div class="cartao">
+  <p class="etiqueta">{{ criacao.tipo === 'adivinha' ? '🧩 ADIVINHA' : '😂 PIADA' }}</p>
+  <p class="pergunta">{{ criacao.pergunta }}</p>
+
+  @if (criacao.tipo === 'piada') {
+    <p class="resposta">{{ criacao.remate }}</p>
+  } @else {
+    @if (revelada()) {
+      <p class="resposta">Resposta: {{ criacao.resposta }}</p>
+    } @else {
+      <button (click)="revelada.set(true)">Ver resposta 👀</button>
+    }
+    @if (criacao.dica) {
+      <p class="dica">💡 {{ criacao.dica }}</p>
+    }
+  }
+
+  @if (criacao.autor) {
+    <p class="autor">✍️ {{ criacao.autor }}</p>
+  }
+</div>

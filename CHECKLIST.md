@@ -85,19 +85,20 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 
 ✅ *Aqui a app já cumpre quase todo o enunciado.*
 
-## Fase 2 — Escrever piadas e adivinhas (qua 21)
-- [ ] Interface `Criacao` (tipo `'piada' | 'adivinha'`)
-- [ ] Formulário reativo: `FormGroup` + `FormControl` + `ReactiveFormsModule`
-- [ ] Validadores: `required`, `minLength`, `maxLength`, **`email`**
-- [ ] Mensagens de erro (`invalid && touched`) + botão `[disabled]="form.invalid"`
+## Fase 2 — Escrever piadas e adivinhas (feita seg 19!)
+- [x] Botões Meme / Piada / Adivinha no Escrever (`signal` + `@switch` + `@default`)
+- [x] Formulário reativo: `FormGroup` + `FormControl` + `ReactiveFormsModule`
+- [x] Validadores: `required`, `minLength`, `maxLength`, **`email`**
+- [x] Mensagens de erro (`invalid && touched`) + botão `[disabled]="form.invalid"`
   - 📝 Nota de estudo: aqui vês na prática a diferença entre `{{ }}` e `[ ]`.
     `disabled="{{ x }}"` fica SEMPRE desligado (vira o texto "false"); `[disabled]="x"` obedece ao `true`/`false`.
     Regra: `{{ }}` = mostrar texto · `[ ]` = configurar um elemento ou passar dados a um componente.
-- [ ] Componente `CartaoCriacao` (pré-visualização ao vivo)
-- [ ] "Ver resposta" com `@if`
-- [ ] Guardar → aparece no Criado por ti
+- [x] Componente `CartaoTexto` (`@Input() criacao: Piada | Adivinha` + narrowing)
+- [ ] Pré-visualização ao vivo no Escrever (extra)
+- [x] "Ver resposta" com `@if` (signal `revelada` dentro do cartão)
+- [x] Guardar (`Origem.Mao`, `NovaCriacao`) → aparece no Criado por ti
 - [ ] Filtros no Criado por ti (Tudo / Memes / Piadas / Adivinhas)
-- [ ] `@switch` no tipo do cartão
+- [x] `@switch` no tipo do cartão (`@case ('meme')` + `@default`)
 
 ✅ *Enunciado cumprido a 100%.*
 
