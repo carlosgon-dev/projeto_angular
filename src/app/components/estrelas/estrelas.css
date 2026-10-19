@@ -1,0 +1,9 @@
+.estrela {
+  font-size: 28px;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.cheia {
+  color: gold;
+}

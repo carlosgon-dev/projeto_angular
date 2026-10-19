@@ -4,10 +4,12 @@ import { CriacoesService } from '../../services/criacoes-service';
 import { MemeService } from '../../services/meme-service';
 import { Criacao } from '../../models/criacao';
 import { TemplateMeme } from '../../models/template-meme';
-import { CartaoMeme } from '../../components/cartao-meme/cartao-meme';
+import { CartaoMeme, } from '../../components/cartao-meme/cartao-meme';
+import { Estrelas } from '../../components/estrelas/estrelas';
+import { Estrelas as Nota } from '../../models/criacao-base';
 
 @Component({
-  imports: [DatePipe, CartaoMeme],
+  imports: [DatePipe, CartaoMeme, Estrelas],
   selector: 'app-criado-por-ti',
   styleUrl: './criado-por-ti.css',
   templateUrl: './criado-por-ti.html',
@@ -36,6 +38,13 @@ export class CriadoPorTi implements OnInit {
       this.criacoes.set(restantes);
     });
   }
+
+    avaliar(id: number, nota: Nota): void {
+    this.criacoes_service.avaliar(id, nota).subscribe((lista) => {
+      this.criacoes.set(lista);
+    });
+  }
+
 
   
 }
