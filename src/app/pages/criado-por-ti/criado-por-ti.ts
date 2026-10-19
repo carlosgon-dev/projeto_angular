@@ -7,9 +7,10 @@ import { TemplateMeme } from '../../models/template-meme';
 import { CartaoMeme, } from '../../components/cartao-meme/cartao-meme';
 import { Estrelas } from '../../components/estrelas/estrelas';
 import { Estrelas as Nota } from '../../models/criacao-base';
+import { CartaoTexto } from '../../components/cartao-texto/cartao-texto';
 
 @Component({
-  imports: [DatePipe, CartaoMeme, Estrelas],
+  imports: [DatePipe, CartaoMeme, Estrelas, CartaoTexto],
   selector: 'app-criado-por-ti',
   styleUrl: './criado-por-ti.css',
   templateUrl: './criado-por-ti.html',

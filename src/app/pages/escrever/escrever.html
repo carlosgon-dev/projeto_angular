@@ -1,19 +1,69 @@
-<h1>Escolhe um meme</h1>
-<input [(ngModel)]="pesquisa" placeholder="Pesquisar (ex.: drake)">
+<h1>O que vais criar?</h1>
 
-@if (a_carregar()) {
-  <p>A carregar memes…</p>
-} @else if (erro()) {
-  <p>Não foi possível carregar os memes. Tenta outra vez mais tarde.</p>
-} @else {
-  @for (template of templates_filtrados(); track template.id) {
-    <div>
-      <img [src]="template.imagem" [alt]="template.nome" width="200" />
-      <p>{{ template.nome }}</p>
-      <a [routerLink]="['/meme', template.id]">Usar este</a>
-    </div>
+<div>
+  <button (click)="tipo.set('meme')">🖼️ Meme</button>
+  <button (click)="tipo.set('piada')">😂 Piada</button>
+  <button (click)="tipo.set('adivinha')">🧩 Adivinha</button>
+</div>
+
+@switch (tipo()) {
+  @case ('meme') {
+    <h1>Escolhe um meme</h1>
+    <input [(ngModel)]="pesquisa" placeholder="Pesquisar (ex.: drake)" />
+
+    @if (a_carregar()) {
+      <p>A carregar memes…</p>
+    } @else if (erro()) {
+      <p>Não foi possível carregar os memes. Tenta outra vez mais tarde.</p>
+    } @else {
+      @for (template of templates_filtrados(); track template.id) {
+        <div>
+          <img [src]="template.imagem" [alt]="template.nome" width="200" />
+          <p>{{ template.nome }}</p>
+          <a [routerLink]="['/meme', template.id]">Usar este</a>
+        </div>
+      } @empty {
+        <p>Nenhum meme com "{{ pesquisa }}".</p>
+      }
+    }
   }
-   @empty {
-    <p>Nenhum meme com "{{ pesquisa }}".</p>
+
+  @default {
+    <form [formGroup]="form_texto" (ngSubmit)="guardar_texto()">
+      <label>{{ tipo() === 'adivinha' ? 'A adivinha' : 'A pergunta da piada' }}</label>
+      <textarea formControlName="pergunta" rows="3"></textarea>
+      @if (form_texto.get('pergunta')?.invalid && form_texto.get('pergunta')?.touched) {
+        <p class="erro">Escreve pelo menos 10 letras (máximo 150).</p>
+      }
+
+      <label>{{ tipo() === 'adivinha' ? 'A resposta' : 'O remate' }}</label>
+      <input formControlName="resposta">
+      @if (form_texto.get('resposta')?.invalid && form_texto.get('resposta')?.touched) {
+        <p class="erro">Escreve pelo menos 2 letras.</p>
+      }
+
+      @if (tipo() === 'adivinha') {
+        <label>Dica (opcional)</label>
+        <input formControlName="dica">
+      }
+
+      <label>A tua assinatura</label>
+      <input formControlName="autor">
+      @if (form_texto.get('autor')?.invalid && form_texto.get('autor')?.touched) {
+        <p class="erro">O nome é obrigatório (pelo menos 3 letras).</p>
+      }
+
+      <label>Email (opcional)</label>
+      <input formControlName="email">
+      @if (form_texto.get('email')?.invalid && form_texto.get('email')?.touched) {
+        <p class="erro">Este email não é válido.</p>
+      }
+
+      <button type="submit" [disabled]="form_texto.invalid">Guardar</button>
+    </form>
   }
+
+
+
+
 }
