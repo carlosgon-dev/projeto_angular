@@ -155,7 +155,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] Enum de texto: `enum TipoCriacao { Meme = 'meme', Piada = 'piada', Adivinha = 'adivinha' }`
 - [ ] Enum `Estilo` (Clássica / Absurda / Humor negro)
 - [ ] Tipo literal: `type Estrelas = 0 | 1 | 2 | 3 | 4 | 5`
-- [ ] Interface base `CriacaoBase` (`readonly id`, `criado`, `estrelas`)
+- [x] Interface base `CriacaoBase` (`readonly id`, `data_criacao`, `estrelas`, `autor?`)
 - [ ] `extends`: `Meme`, `Piada`, `Adivinha` estendem `CriacaoBase`
 - [ ] Opcional: `dica?: string` na `Adivinha`
 - [ ] Union type: `type Criacao = Meme | Piada | Adivinha` + narrowing pelo `tipo`
@@ -164,7 +164,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] Assinatura de índice: tempo por dia `{ [data: string]: number }`
 
 **Utility types**
-- [ ] `Omit<Piada, 'id' | 'criado'>` — dados do formulário antes de guardar
+- [x] `Omit` + generic: `Rascunho<T> = Omit<T, 'id' | 'data_criacao' | 'estrelas'>` — dados antes de guardar
 - [ ] `Partial<Criacao>` — atualizar só uma parte (ex.: estrelas)
 - [ ] `Pick<Meme, 'name' | 'url'>` — o que o cartão precisa
 - [ ] `Record<TipoCriacao, number>` — contagem memes / piadas / adivinhas
