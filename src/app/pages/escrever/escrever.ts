@@ -1,9 +1,10 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { MemeService } from '../../services/meme-service';
 import { TemplateMeme } from '../../models/template-meme';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-escrever',
   styleUrl: './escrever.css',
   templateUrl: './escrever.html',

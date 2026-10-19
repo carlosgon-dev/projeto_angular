@@ -72,18 +72,19 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] "a carregar…" e erro com `@if`
 - [ ] Pesquisa de templates com `[(ngModel)]`
 - [ ] Componente `CartaoMeme` — `@Input() meme` + `@Output() escolher`
-- [ ] Editor `/meme/:id`: imagem + texto de cima/baixo ao vivo
+- [x] Editor `/meme/:id`: imagem + texto de cima/baixo ao vivo (`ActivatedRoute`, Reactive Form) + Guardar (`router.navigate`)
 - [ ] Componente `Estrelas` — `@Input() valor` + `@Output() avaliar`
   - 📝 Nota de estudo: aqui vês o `@Output` na prática (ficou confuso na leitura — é normal).
     Filho "grita": `this.avaliar.emit(4)` → pai "ouve": `(avaliar)="guardarNota($event)"` → `$event` = 4.
     É como o `(click)` de um botão, mas um evento inventado por ti.
-- [ ] Criado por ti: lista dos memes com data (`| date`) e estrelas (0 a 5)
+- [x] Criado por ti: lista dos memes com data (`| date`) e `@switch (criacao.tipo)`
+- [ ] Criado por ti: estrelas (0 a 5)
 - [ ] Apagar uma criação (com confirmação "Apagar? Sim / Não")
-- [ ] Guardar no `localStorage` (não perder ao recarregar)
+- [x] `CriacoesService`: `listar()`, `criar()`, `apagar()`, `avaliar()` no `localStorage` (não perde ao recarregar)
 
 ✅ *Aqui a app já cumpre quase todo o enunciado.*
 
-## Fase 2 — Escrever piadas e adivinhas (seg 19 – ter 20)
+## Fase 2 — Escrever piadas e adivinhas (qua 21)
 - [ ] Interface `Criacao` (tipo `'piada' | 'adivinha'`)
 - [ ] Formulário reativo: `FormGroup` + `FormControl` + `ReactiveFormsModule`
 - [ ] Validadores: `required`, `minLength`, `maxLength`, **`email`**

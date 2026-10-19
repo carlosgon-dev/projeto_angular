@@ -4,5 +4,7 @@
   <div>
     <img [src]="template.imagem" [alt]="template.nome" width="200">
     <p>{{ template.nome }}</p>
+    <a [routerLink]="['/meme', template.id]">Usar este</a>
+
   </div>
 }
