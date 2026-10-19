@@ -1,1 +1,17 @@
-<p>editor-meme works!</p>
+@if (template(); as escolhido) {
+  <h1>{{ escolhido.nome }}</h1>
+
+  <div class="meme">
+    <img [src]="escolhido.imagem" [alt]="escolhido.nome">
+    <p class="texto cima">{{ form.value.texto_cima }}</p>
+    <p class="texto baixo">{{ form.value.texto_baixo }}</p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+    <input formControlName="texto_cima" placeholder="Texto de cima">
+    <input formControlName="texto_baixo" placeholder="Texto de baixo">
+    <button type="submit" [disabled]="form.invalid">Guardar meme</button>
+  </form>
+} @else {
+  <p>Este meme não existe.</p>
+}

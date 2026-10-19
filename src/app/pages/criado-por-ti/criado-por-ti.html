@@ -1,1 +1,16 @@
-<p>criado-por-ti works!</p>
+<h1>Criado por ti</h1>
+
+@for (criacao of criacoes(); track criacao.id) {
+  @switch (criacao.tipo) {
+    @case ('meme') {
+      <div class="meme">
+        <img [src]="imagem_do_template(criacao.template_id)" alt="Meme">
+        <p class="texto cima">{{ criacao.texto_cima }}</p>
+        <p class="texto baixo">{{ criacao.texto_baixo }}</p>
+      </div>
+      <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
+    }
+  }
+} @empty {
+  <p>Ainda não criaste nada.</p>
+}
