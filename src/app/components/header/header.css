@@ -1,0 +1,48 @@
+/* Barra escura no topo, que fica presa ao fazer scroll */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 24px;
+  padding: 12px 24px;
+  background: var(--texto);
+}
+
+.marca {
+  font-family: var(--letra-titulos);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--fundo);
+  text-decoration: none;
+}
+
+.marca b {
+  color: var(--amarelo);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+nav a {
+  color: var(--fundo);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* O separador onde estás (o routerLinkActive põe esta classe sozinho) */
+nav a.ativo {
+  background: var(--amarelo);
+  color: #2a2100;
+}

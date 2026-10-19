@@ -16,15 +16,17 @@
     } @else if (erro()) {
       <p>Não foi possível carregar os memes. Tenta outra vez mais tarde.</p>
     } @else {
-      @for (template of templates_filtrados(); track template.id) {
-        <div>
-          <img [src]="template.imagem" [alt]="template.nome" width="200" />
-          <p>{{ template.nome }}</p>
-          <a [routerLink]="['/meme', template.id]">Usar este</a>
-        </div>
-      } @empty {
-        <p>Nenhum meme com "{{ pesquisa }}".</p>
-      }
+      <div class="grelha">
+        @for (template of templates_filtrados(); track template.id) {
+          <div>
+            <img [src]="template.imagem" [alt]="template.nome" width="200" />
+            <p>{{ template.nome }}</p>
+            <a [routerLink]="['/meme', template.id]">Usar este</a>
+          </div>
+        } @empty {
+          <p>Nenhum meme com "{{ pesquisa }}".</p>
+        }
+      </div>
     }
   }
 
@@ -37,24 +39,24 @@
       }
 
       <label>{{ tipo() === 'adivinha' ? 'A resposta' : 'O remate' }}</label>
-      <input formControlName="resposta">
+      <input formControlName="resposta" />
       @if (form_texto.get('resposta')?.invalid && form_texto.get('resposta')?.touched) {
         <p class="erro">Escreve pelo menos 2 letras.</p>
       }
 
       @if (tipo() === 'adivinha') {
         <label>Dica (opcional)</label>
-        <input formControlName="dica">
+        <input formControlName="dica" />
       }
 
       <label>A tua assinatura</label>
-      <input formControlName="autor">
+      <input formControlName="autor" />
       @if (form_texto.get('autor')?.invalid && form_texto.get('autor')?.touched) {
         <p class="erro">O nome é obrigatório (pelo menos 3 letras).</p>
       }
 
       <label>Email (opcional)</label>
-      <input formControlName="email">
+      <input formControlName="email" />
       @if (form_texto.get('email')?.invalid && form_texto.get('email')?.touched) {
         <p class="erro">Este email não é válido.</p>
       }
@@ -62,8 +64,4 @@
       <button type="submit" [disabled]="form_texto.invalid">Guardar</button>
     </form>
   }
-
-
-
-
 }

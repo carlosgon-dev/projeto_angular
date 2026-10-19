@@ -1,0 +1,17 @@
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filtros button {
+  background: var(--cartao);
+  color: var(--texto);
+  border: 2px solid var(--linha);
+}
+
+.filtros button.ativo {
+  background: var(--texto);
+  color: var(--fundo);
+}

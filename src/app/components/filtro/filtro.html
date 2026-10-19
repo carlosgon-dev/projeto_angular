@@ -1,0 +1,7 @@
+<div class="filtros">
+  @for (opcao of opcoes; track opcao.valor) {
+    <button [class.ativo]="opcao.valor === ativo" (click)="mudar.emit(opcao.valor)">
+      {{ opcao.nome }}
+    </button>
+  }
+</div>

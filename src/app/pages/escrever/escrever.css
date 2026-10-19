@@ -6,6 +6,7 @@ form {
 }
 
 .erro {
-  color: red;
+  color: var(--erro);
+  font-size: 14px;
   margin: 0;
 }
