@@ -3,12 +3,14 @@
 @for (criacao of criacoes(); track criacao.id) {
   @switch (criacao.tipo) {
     @case ('meme') {
-      <div class="meme">
-        <img [src]="imagem_do_template(criacao.template_id)" alt="Meme">
-        <p class="texto cima">{{ criacao.texto_cima }}</p>
-        <p class="texto baixo">{{ criacao.texto_baixo }}</p>
-      </div>
+      <app-cartao-meme
+        [imagem]="imagem_do_template(criacao.template_id)"
+        [texto_cima]="criacao.texto_cima"
+        [texto_baixo]="criacao.texto_baixo"
+      />
+
       <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
+      <button (click)="apagar(criacao.id)">🗑️ Apagar</button>
     }
   }
 } @empty {

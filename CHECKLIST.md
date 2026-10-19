@@ -69,9 +69,9 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [x] `MemeService` com `@Injectable` + `HttpClient.get` ao `dados/memes.json`
 - [x] `provideHttpClient()` no `app.config.ts`
 - [x] No Escrever: lista de templates com `@for` (com `signal`)
-- [ ] "a carregar…" e erro com `@if`
-- [ ] Pesquisa de templates com `[(ngModel)]`
-- [ ] Componente `CartaoMeme` — `@Input() meme` + `@Output() escolher`
+- [x] "a carregar…" e erro com `@if` (Escrever: `subscribe({ next, error })`)
+- [x] Pesquisa de templates com `[(ngModel)]` + `@empty`
+- [x] Componente `CartaoMeme` — `@Input()` imagem, texto_cima, texto_baixo (usado no editor e no Criado por ti)
 - [x] Editor `/meme/:id`: imagem + texto de cima/baixo ao vivo (`ActivatedRoute`, Reactive Form) + Guardar (`router.navigate`)
 - [ ] Componente `Estrelas` — `@Input() valor` + `@Output() avaliar`
   - 📝 Nota de estudo: aqui vês o `@Output` na prática (ficou confuso na leitura — é normal).
@@ -79,7 +79,8 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
     É como o `(click)` de um botão, mas um evento inventado por ti.
 - [x] Criado por ti: lista dos memes com data (`| date`) e `@switch (criacao.tipo)`
 - [ ] Criado por ti: estrelas (0 a 5)
-- [ ] Apagar uma criação (com confirmação "Apagar? Sim / Não")
+- [x] Apagar uma criação (botão 🗑️)
+- [ ] Confirmação "Apagar? Sim / Não" (extra)
 - [x] `CriacoesService`: `listar()`, `criar()`, `apagar()`, `avaliar()` no `localStorage` (não perde ao recarregar)
 
 ✅ *Aqui a app já cumpre quase todo o enunciado.*
@@ -185,6 +186,18 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] Tipos de retorno nas funções (incluindo `: void`)
 - [ ] Zero `any` em todo o projeto
 - [ ] `strict: true` no `tsconfig.json` (já vem assim no Angular)
+
+---
+
+## 💡 Ideias para melhorar (só depois do obrigatório!)
+> Regra: quando te lembrares de uma melhoria, escreve-a aqui e continua o que estavas a fazer.
+
+- [ ] Carregar uma imagem própria para fazer um meme
+- [ ] Botão para descarregar o meme como imagem
+- [ ] Quadrados do Início (em standby)
+- [ ] Classe genérica `Armazem<T>` para o `localStorage` (extra de TypeScript)
+- [ ] Sons de animais (cabra, ovelha…) de 30 em 30 segundos 🐐
+-
 
 ---
 

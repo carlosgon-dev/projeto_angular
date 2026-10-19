@@ -5,10 +5,11 @@ import { TemplateMeme } from '../../models/template-meme';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CriacoesService } from '../../services/criacoes-service';
+import { CartaoMeme } from '../../components/cartao-meme/cartao-meme';
 
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CartaoMeme],
   selector: 'app-editor-meme',
   styleUrl: './editor-meme.css',
   templateUrl: './editor-meme.html',

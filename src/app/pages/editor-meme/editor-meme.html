@@ -1,11 +1,12 @@
 @if (template(); as escolhido) {
   <h1>{{ escolhido.nome }}</h1>
 
-  <div class="meme">
-    <img [src]="escolhido.imagem" [alt]="escolhido.nome">
-    <p class="texto cima">{{ form.value.texto_cima }}</p>
-    <p class="texto baixo">{{ form.value.texto_baixo }}</p>
-  </div>
+  <app-cartao-meme
+    [imagem]="escolhido.imagem"
+    [texto_cima]="form.value.texto_cima ?? ''"
+    [texto_baixo]="form.value.texto_baixo ?? ''"
+  />
+
 
   <form [formGroup]="form" (ngSubmit)="guardar()">
     <input formControlName="texto_cima" placeholder="Texto de cima">
