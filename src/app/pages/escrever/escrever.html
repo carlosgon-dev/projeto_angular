@@ -1,15 +1,11 @@
 <h1>O que vais criar?</h1>
 
-<div>
-  <button (click)="tipo.set('meme')">🖼️ Meme</button>
-  <button (click)="tipo.set('piada')">😂 Piada</button>
-  <button (click)="tipo.set('adivinha')">🧩 Adivinha</button>
-</div>
+<app-filtro [ativo]="tipo()" (mudar)="tipo.set($event)" />
 
 @switch (tipo()) {
   @case ('meme') {
-    <h1>Escolhe um meme</h1>
-    <input [(ngModel)]="pesquisa" placeholder="Pesquisar (ex.: drake)" />
+    <h2>Escolhe um meme</h2>
+    <input class="pesquisa" [(ngModel)]="pesquisa" placeholder="Pesquisar (ex.: drake)" />
 
     @if (a_carregar()) {
       <p>A carregar memes…</p>
@@ -18,10 +14,10 @@
     } @else {
       <div class="grelha">
         @for (template of templates_filtrados(); track template.id) {
-          <div>
-            <img [src]="template.imagem" [alt]="template.nome" width="200" />
+          <div class="caixa template">
+            <img [src]="template.imagem" [alt]="template.nome" />
             <p>{{ template.nome }}</p>
-            <a [routerLink]="['/meme', template.id]">Usar este</a>
+            <a [routerLink]="['/meme', template.id]" class="botao">Usar este</a>
           </div>
         } @empty {
           <p>Nenhum meme com "{{ pesquisa }}".</p>
@@ -31,7 +27,8 @@
   }
 
   @default {
-    <form [formGroup]="form_texto" (ngSubmit)="guardar_texto()">
+    <h2>{{ tipo() === 'adivinha' ? 'Escreve a tua adivinha' : 'Escreve a tua piada' }}</h2>
+    <form class="caixa" [formGroup]="form_texto" (ngSubmit)="guardar_texto()">
       <label>{{ tipo() === 'adivinha' ? 'A adivinha' : 'A pergunta da piada' }}</label>
       <textarea formControlName="pergunta" rows="3"></textarea>
       @if (form_texto.get('pergunta')?.invalid && form_texto.get('pergunta')?.touched) {

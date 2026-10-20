@@ -13,6 +13,9 @@
   --rosa: #e8336f;
   --amarelo: #ffc93c;
   --erro: #c8323c;
+  --barra: #17142a;
+  --barra-texto: #f1effa;
+  --destaque: linear-gradient(135deg, #e8336f, #7b3fe4);
 
   --letra-titulos: 'Bricolage Grotesque', Arial, sans-serif;
   --letra-texto: 'Figtree', Arial, sans-serif;
@@ -30,6 +33,7 @@
     --rosa: #ff5c93;
     --amarelo: #ffd35c;
     --erro: #ff6b73;
+    --barra: #0c0a14;
   }
 }
 
@@ -141,4 +145,18 @@ textarea.ng-invalid.ng-touched {
   border: 1px solid var(--linha);
   border-radius: 14px;
   padding: 16px;
+}
+
+/* Duas colunas lado a lado (ex.: formulário + resultado). Num ecrã estreito, passa a uma coluna. */
+.lado-a-lado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .lado-a-lado {
+    grid-template-columns: 1fr;
+  }
 }

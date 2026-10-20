@@ -1,5 +1,9 @@
 @if (template(); as escolhido) {
   <h1>{{ escolhido.nome }}</h1>
+  
+  
+  <div class="lado-a-lado">
+
 
   <app-cartao-meme
     [imagem]="escolhido.imagem"
@@ -8,11 +12,16 @@
   />
 
 
-  <form [formGroup]="form" (ngSubmit)="guardar()">
-    <input formControlName="texto_cima" placeholder="Texto de cima">
-    <input formControlName="texto_baixo" placeholder="Texto de baixo">
-    <button type="submit" [disabled]="form.invalid">Guardar meme</button>
+ <form class="caixa" [formGroup]="form" (ngSubmit)="guardar()">
+      <label>Texto de cima</label>
+      <input formControlName="texto_cima" placeholder="Ex.: Fazer o CSS à mão" />
+
+      <label>Texto de baixo</label>
+      <input formControlName="texto_baixo" placeholder="Ex.: Usar as variáveis" />
+
+      <button type="submit" [disabled]="form.invalid">Guardar meme</button>
   </form>
+  </div>
 } @else {
   <p>Este meme não existe.</p>
 }
