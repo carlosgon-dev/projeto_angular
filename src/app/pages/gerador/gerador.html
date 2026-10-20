@@ -1,1 +1,71 @@
-<p>gerador works!</p>
+<h1>Gerador de piadas e adivinhas 🤖</h1>
+
+<div class="lado-a-lado">
+  <form [formGroup]="form" class="caixa" (ngSubmit)="gerar()">
+    <label>O que queres criar?</label>
+    <select formControlName="tipo">
+      <option value="piada">😂 Piada</option>
+      <option value="adivinha">🧩 Adivinha</option>
+    </select>
+
+    <label>Nome de uma pessoa</label>
+    <input formControlName="nome" placeholder="ex.: Zé" />
+    @if (form.get('nome')?.invalid && form.get('nome')?.touched) {
+      <p class="erro">Escreve pelo menos 2 letras.</p>
+    }
+
+    <label>País</label>
+    <input formControlName="pais" placeholder="ex.: Portugal" />
+    @if (form.get('pais')?.invalid && form.get('pais')?.touched) {
+      <p class="erro">Escreve pelo menos 3 letras.</p>
+    }
+
+    <label>Profissão</label>
+    <input formControlName="profissao" placeholder="ex.: canalizador" />
+    @if (form.get('profissao')?.invalid && form.get('profissao')?.touched) {
+      <p class="erro">Escreve pelo menos 3 letras.</p>
+    }
+
+    <label>Objeto</label>
+    <input formControlName="objeto" placeholder="ex.: um guarda-chuva" />
+    @if (form.get('objeto')?.invalid && form.get('objeto')?.touched) {
+      <p class="erro">Escreve pelo menos 2 letras.</p>
+    }
+
+    <label>Fruta</label>
+    <input formControlName="fruta" placeholder="ex.: uma banana" />
+    @if (form.get('fruta')?.invalid && form.get('fruta')?.touched) {
+      <p class="erro">Escreve pelo menos 2 letras.</p>
+    }
+
+    <label>Estilo</label>
+    <select formControlName="estilo">
+      @for (estilo of estilos; track estilo.valor) {
+        <option [value]="estilo.valor">{{ estilo.nome }}</option>
+      }
+    </select>
+
+    <label>😈 Nível de maldade (1 a 10)</label>
+    <input formControlName="maldade" type="number" min="1" max="10" />
+    @if (form.get('maldade')?.invalid && form.get('maldade')?.touched) {
+      <p class="erro">Escolhe um número de 1 a 10.</p>
+    }
+
+    <button type="submit" [disabled]="form.invalid || a_pensar()">Gerar</button>
+  </form>
+
+  <div class="resultado">
+    @if (a_pensar()) {
+      <p class="a-pensar">🤖 A pensar numa piada…</p>
+    }
+
+    @if (resultado(); as criacao) {
+      @if (criacao.tipo !== 'meme') {
+        <h2>Aqui está!</h2>
+        <app-cartao-texto [criacao]="criacao" />
+        <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
+        <p>✅ Guardado em <a routerLink="/criado">Criado por ti</a></p>
+      }
+    }
+  </div>
+</div>

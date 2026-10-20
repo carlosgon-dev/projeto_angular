@@ -1,6 +1,7 @@
 import { Estilo } from './estilo';
 
 export interface PedidoGerador {
+  nome: string;
   pais: string;
   profissao: string;
   objeto: string;
