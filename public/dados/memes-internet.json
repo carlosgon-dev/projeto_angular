@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "titulo": "Space Flirting",
+    "imagem": "imagens/explorar/01-space-flirting.jpg",
+    "votos": 3997
+  },
+  {
+    "id": 2,
+    "titulo": "[OC ] The ultimate status for a potato!",
+    "imagem": "imagens/explorar/02-oc-the-ultimate-status-for-a-potato.jpg",
+    "votos": 424
+  },
+  {
+    "id": 3,
+    "titulo": "Hugs can help",
+    "imagem": "imagens/explorar/03-hugs-can-help.jpg",
+    "votos": 3392
+  },
+  {
+    "id": 4,
+    "titulo": "A Momma Quest",
+    "imagem": "imagens/explorar/04-a-momma-quest.jpg",
+    "votos": 6913
+  },
+  {
+    "id": 5,
+    "titulo": "doing my civic duty and making democracy proud 🥹",
+    "imagem": "imagens/explorar/05-doing-my-civic-duty-and-making-democracy.jpg",
+    "votos": 2823
+  },
+  {
+    "id": 6,
+    "titulo": "Also unshrimp yourself <3",
+    "imagem": "imagens/explorar/06-also-unshrimp-yourself-3.jpg",
+    "votos": 1858
+  },
+  {
+    "id": 7,
+    "titulo": "Self-Preservation levels to high to make me quit",
+    "imagem": "imagens/explorar/07-self-preservation-levels-to-high-to-make.jpg",
+    "votos": 1098
+  },
+  {
+    "id": 8,
+    "titulo": "Or Something.",
+    "imagem": "imagens/explorar/08-or-something.jpg",
+    "votos": 1310
+  }
+]

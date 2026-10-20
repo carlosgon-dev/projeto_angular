@@ -1,9 +1,17 @@
+/* O cartão ocupa a altura toda do espaço que lhe derem (para ficarem todos iguais na grelha) */
+:host {
+  display: block;
+  height: 100%;
+}
+
 .cartao {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background: var(--cartao);
   border: 1px solid var(--linha);
   border-radius: 14px;
   padding: 16px;
-  max-width: 400px;
 }
 
 .etiqueta {
@@ -14,7 +22,9 @@
   margin: 0;
 }
 
+/* A pergunta cresce e empurra a resposta (ou o botão) para o fundo do cartão */
 .pergunta {
+  flex-grow: 1;
   font-family: var(--letra-titulos);
   font-size: 20px;
   font-weight: 800;
@@ -30,4 +40,14 @@
 .autor {
   color: var(--texto-suave);
   font-size: 14px;
+}
+
+/* Piada: texto normal, sem caixa amarela, a ocupar o cartão */
+.texto-piada {
+  flex-grow: 1;
+  font-size: 17px;
+}
+
+.texto-piada p {
+  margin: 12px 0 0;
 }

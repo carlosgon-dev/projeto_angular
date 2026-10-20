@@ -8,11 +8,10 @@ import { TipoFiltro } from '../../models/filtro';
   templateUrl: './filtro.html',
 })
 export class Filtro {
-  @Input() ativo: TipoFiltro = 'todos';
+  @Input() ativo: TipoFiltro = 'meme';
   @Output() mudar = new EventEmitter<TipoFiltro>();
 
   opcoes: { valor: TipoFiltro; nome: string }[] = [
-    { valor: 'todos', nome: 'Tudo' },
     { valor: 'meme', nome: '🖼️ Memes' },
     { valor: 'piada', nome: '😂 Piadas' },
     { valor: 'adivinha', nome: '🧩 Adivinhas' },

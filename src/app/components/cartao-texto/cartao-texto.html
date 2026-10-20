@@ -1,14 +1,19 @@
 <div class="cartao">
   <p class="etiqueta">{{ criacao.tipo === 'adivinha' ? '🧩 ADIVINHA' : '😂 PIADA' }}</p>
-  <p class="pergunta">{{ criacao.pergunta }}</p>
 
   @if (criacao.tipo === 'piada') {
-    <p class="resposta">{{ criacao.remate }}</p>
+    <!-- Piada: lê-se de seguida, como texto normal -->
+    <div class="texto-piada">
+      <p>{{ criacao.pergunta }}</p>
+      <p>{{ criacao.remate }}</p>
+    </div>
   } @else {
+    <!-- Adivinha: a pergunta em destaque e a resposta escondida -->
+    <p class="pergunta">{{ criacao.pergunta }}</p>
     @if (revelada()) {
       <p class="resposta">Resposta: {{ criacao.resposta }}</p>
     } @else {
-      <button (click)="revelada.set(true)">Ver resposta 👀</button>
+      <button (click)="revelada.set(true); $event.stopPropagation()">Ver resposta 👀</button>
     }
     @if (criacao.dica) {
       <p class="dica">💡 {{ criacao.dica }}</p>

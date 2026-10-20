@@ -1,8 +1,52 @@
-<h1>Piadas</h1>
+<h1>Explorar 🌍</h1>
 
-@for (piada of piadas(); track piada.id) {
-  <div>
-    <p><strong>{{ piada.pergunta }}</strong></p>
-    <p>{{ piada.remate }}</p>
+<app-filtro [ativo]="filtro()" (mudar)="filtro.set($event)" />
+
+@if (mostrar('meme')) {
+  <h2>🔥 Memes da internet</h2>
+  <div class="grelha">
+    @for (meme of memes(); track meme.id) {
+      <div class="caixa clicavel" (click)="meme_aberto.set(meme)">
+      <app-cartao-meme [imagem]="meme.imagem" [miniatura]="true" />
+        <p><strong>{{ meme.titulo }}</strong></p>
+        <p>▲ {{ meme.votos | number }} votos</p>
+      </div>
+    }
   </div>
+}
+
+@if (mostrar('piada')) {
+  <h2>😂 Piadas</h2>
+  <div class="grelha">
+    @for (piada of piadas(); track piada.id) {
+      <div class="clicavel" (click)="texto_aberto.set(piada)">
+        <app-cartao-texto [criacao]="piada" />
+      </div>
+    }
+  </div>
+}
+
+@if (mostrar('adivinha')) {
+  <h2>🧩 Adivinhas</h2>
+  <div class="grelha">
+    @for (adivinha of adivinhas(); track adivinha.id) {
+      <div class="clicavel" (click)="texto_aberto.set(adivinha)">
+        <app-cartao-texto [criacao]="adivinha" />
+      </div>
+    }
+  </div>
+}
+
+
+@if (meme_aberto(); as meme) {
+  <app-janela (fechar)="fechar()">
+    <app-cartao-meme [imagem]="meme.imagem" />
+    <p class="titulo-destaque">{{ meme.titulo }}</p>
+  </app-janela>
+}
+
+@if (texto_aberto(); as texto) {
+  <app-janela (fechar)="fechar()">
+    <app-cartao-texto [criacao]="texto" />
+  </app-janela>
 }

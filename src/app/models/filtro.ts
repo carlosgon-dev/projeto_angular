@@ -1,1 +1,1 @@
-export type TipoFiltro = 'todos' | 'meme' | 'piada' | 'adivinha';
+export type TipoFiltro = 'meme' | 'piada' | 'adivinha';

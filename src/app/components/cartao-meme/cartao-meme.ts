@@ -10,4 +10,5 @@ export class CartaoMeme {
   @Input() imagem = '';
   @Input() texto_cima = '';
   @Input() texto_baixo = '';
+  @Input() miniatura = false;
 }

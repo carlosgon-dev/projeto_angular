@@ -20,7 +20,7 @@ import { Filtro } from '../../components/filtro/filtro';
 export class CriadoPorTi implements OnInit {
   criacoes = signal<Criacao[]>([]);
   templates = signal<TemplateMeme[]>([]);
-  filtro = signal<TipoFiltro>('todos');
+  filtro = signal<TipoFiltro>('meme');
 
   constructor(
     private criacoes_service: CriacoesService,
@@ -38,7 +38,6 @@ export class CriadoPorTi implements OnInit {
   }
 
   criacoes_filtradas(): Criacao[] {
-    if (this.filtro() === 'todos') return this.criacoes();
     return this.criacoes().filter((criacao) => criacao.tipo === this.filtro());
   }
 
