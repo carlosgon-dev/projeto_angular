@@ -217,6 +217,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] Funções pequenas, com *early return* quando faz sentido
 - [ ] Componentes só mostram; a lógica dos dados está nos services
 - [ ] Formatado (Shift + Alt + F)
+- [ ] 📝 Pensar: na `Piada`, o campo `pergunta` é afinal o **início** da piada (já não são só perguntas). Mudar o nome (ex.: `inicio`)? E a etiqueta do Escrever "A pergunta da piada" → "O início da piada"?
 
 **Ordem sugerida:**
 - [ ] `models/` (as interfaces e tipos)

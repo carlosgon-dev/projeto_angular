@@ -126,12 +126,13 @@ textarea.ng-invalid.ng-touched {
 
 /* 5. UTILIDADES — classes que podes usar em qualquer página */
 
-/* Uma grelha de cartões que se ajusta sozinha à largura do ecrã */
+/* Uma grelha de cartões que se ajusta sozinha à largura do ecrã.
+   grid-auto-rows: 1fr → todas as linhas com a mesma altura (cartões todos do mesmo tamanho) */
 .grelha {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 16px;
-  align-items: start;
 }
 
 /* Uma caixa branca com borda (um "cartão") */

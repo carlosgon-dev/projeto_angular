@@ -1,0 +1,33 @@
+h2 {
+  margin-top: 32px;
+}
+
+.caixa p {
+  margin: 6px 0 0;
+}
+
+.caixa p:last-child {
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.clicavel {
+  cursor: pointer;
+}
+
+.titulo-destaque {
+  color: white;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Nos memes: os votos ficam sempre no fundo da caixa */
+.caixa.clicavel {
+  display: flex;
+  flex-direction: column;
+}
+
+.caixa.clicavel p:last-child {
+  margin-top: auto;
+  padding-top: 6px;
+}

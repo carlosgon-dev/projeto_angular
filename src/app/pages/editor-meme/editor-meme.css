@@ -1,0 +1,6 @@
+
+/* O cartão do meme no editor não fica maior do que 400px */
+app-cartao-meme {
+  display: block;
+  max-width: 400px;
+}

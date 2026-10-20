@@ -10,3 +10,9 @@ form {
   font-size: 14px;
   margin: 0;
 }
+
+.caixa img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}

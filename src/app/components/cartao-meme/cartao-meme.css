@@ -1,7 +1,6 @@
 .meme {
   position: relative;
   width: 100%;
-  max-width: 400px;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -9,6 +8,7 @@
 .meme img {
   width: 100%;
   display: block;
+  pointer-events: none;
 }
 
 .texto {
@@ -30,4 +30,13 @@
 
 .baixo {
   bottom: 8px;
+}
+
+.miniatura {
+  aspect-ratio: 1;
+}
+
+.miniatura img {
+  height: 100%;
+  object-fit: cover;
 }
