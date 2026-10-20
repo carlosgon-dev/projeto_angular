@@ -27,11 +27,14 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 |---|---|---|
 | qui 15 – seg 19 | Protótipo, projeção, Fases 0, 1 e 2 | ✅ |
 | **ter 20** | Fase 3: Gerador | ✅ |
-| | Início (saudação com pipe `saudacao` + 4 cartões) ✅ + página 404 | ⬜ |
-| **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ⬜ |
-| | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ⬜ |
-| **qui 22** | CSS por página (manhã) | ⬜ |
-| | 🎬 **Multimédia** (vídeos) + 🎵 **playlist** que continua a tocar ao mudar de página (tarde) — *extra* | ⬜ |
+| | Início (saudação com pipe `saudacao` + 4 cartões) + página 404 | ✅ |
+| **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ✅ (ter 20) |
+| | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ✅ (ter 20) |
+| **qui 22** | CSS por página (barra, Início, Escrever, Editor) | ✅ (ter 20) |
+| | 🎬 **Multimédia** (vídeos) + 🎵 **playlist** que continua a tocar ao mudar de página — *extra* | ⬜ |
+
+> 🚀 **Vais 2 dias adiantado!** Qua 21 e qui 22 ficaram livres → dá para a Multimédia/playlist com calma,
+> ou para uma ideia da lista 💡.
 | **sex 23** | 🔍 **Revisão de código**, ficheiro a ficheiro | ⬜ |
 | **sáb 24** | Publicar + README + ensaiar a apresentação | ⬜ |
 | **dom 25** | Reserva + **ENTREGA** 🏁 | |
@@ -130,19 +133,21 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [x] Avaliar com estrelas logo no fim (`Estrelas` reutilizado)
 - [ ] (Parte 2) Gemini a sério através do backend — só muda o `GeradorService`
 
-## Fase 4 — Explorar (sex 23) — *opcional*
+## Fase 4 — Explorar (feita ter 20!)
 - [x] `public/dados/piadas.json` e `adivinhas.json` (em português)
-- [x] `ExplorarService.listarPiadas()` + piadas a aparecer no Explorar (18/10)
-- [ ] `ExplorarService`: `listarAdivinhas()` + `listarMemes()` (memes-internet.json)
-- [ ] 3 filas horizontais, cada uma com "a carregar…" própria
-- [ ] Botão 🔄 Outros
+- [x] `ExplorarService.listar_piadas()` + piadas a aparecer no Explorar (18/10)
+- [x] `ExplorarService`: `listar_adivinhas()` + `listar_memes()` (memes-internet.json)
+- [x] ~~3 filas horizontais~~ → trocado por `Filtro` + grelha, com cartões todos do mesmo tamanho
+- [x] Clicar num cartão abre-o em grande: componente `Janela` com `<ng-content />`
+- [ ] ~~Botão 🔄 Outros~~ (não fez falta)
 
-## Início (pode ir sendo feito ao longo das fases)
-> ⏸️ **Quadrados em standby** — decidir mais tarde o que mostrar.
-> Dica: se tiverem todos a mesma forma (número + frase), basta um componente
-> `<app-cartao-estatistica [valor] rotulo>` reutilizado 3 vezes.
+## Início (feito ter 20!)
+- [x] Saudação (bom dia / boa tarde / boa noite) com o pipe `saudacao`
+- [x] 4 cartões para as zonas da app (`@for` + `routerLink`)
+- [x] Página 404 (`NaoEncontrado`)
 
-- [ ] Saudação (bom dia / boa tarde / boa noite)
+> ⏸️ O que está abaixo ficou de fora (decidido a 20/10). Fica como ideia, se sobrar tempo.
+
 - [ ] Quadrado "criados por ti": memes / piadas / adivinhas (ex.: 1 / 0 / 1)
 - [ ] Quadrado "média das tuas avaliações" (★)
 - [ ] Quadrado "tempo perdido aqui hoje": conta ao segundo (`00:01:23`) + média por dia, guardado no `localStorage`
@@ -172,12 +177,13 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 
 **Tipos e modelos (`models/`)**
 - [ ] Enum de texto: `enum TipoCriacao { Meme = 'meme', Piada = 'piada', Adivinha = 'adivinha' }`
-- [ ] Enum `Estilo` (Clássica / Absurda / Humor negro)
-- [ ] Tipo literal: `type Estrelas = 0 | 1 | 2 | 3 | 4 | 5`
+- [x] Enum `Estilo` (Clássica / Absurda / Humor negro) + enum `Origem` (Mão / IA / Explorar)
+- [x] Tipo literal: `type Estrelas = 0 | 1 | 2 | 3 | 4 | 5` (+ `TipoFiltro = 'meme' | 'piada' | 'adivinha'`)
 - [x] Interface base `CriacaoBase` (`readonly id`, `data_criacao`, `estrelas`, `autor?`)
-- [ ] `extends`: `Meme`, `Piada`, `Adivinha` estendem `CriacaoBase`
-- [ ] Opcional: `dica?: string` na `Adivinha`
-- [ ] Union type: `type Criacao = Meme | Piada | Adivinha` + narrowing pelo `tipo`
+- [x] `extends`: `Meme`, `Piada`, `Adivinha` estendem `CriacaoBase`
+- [x] Opcional: `dica?: string` na `Adivinha`
+- [x] Union type: `type Criacao = Meme | Piada | Adivinha` + narrowing pelo `tipo` (`@switch`)
+- [x] Alias no import: `Estrelas as Nota` (para não chocar com o componente `Estrelas`)
 - [ ] Interseção: `type PiadaGerada = Piada & { estilo: Estilo; maldade: number }`
 - [ ] Tupla: palavras do gerador `[pais: string, profissao: string, objeto: string, fruta: string]`
 - [ ] Assinatura de índice: tempo por dia `{ [data: string]: number }`
@@ -186,6 +192,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [x] `Omit` + generic: `Rascunho<T> = Omit<T, 'id' | 'data_criacao' | 'estrelas'>` — dados antes de guardar
 - [ ] `Partial<Criacao>` — atualizar só uma parte (ex.: estrelas)
 - [ ] `Pick<Meme, 'name' | 'url'>` — o que o cartão precisa
+- [x] `Record<Estilo, Modelo[]>` — as frases-modelo do Gerador, arrumadas por estilo
 - [ ] `Record<TipoCriacao, number>` — contagem memes / piadas / adivinhas
 
 **Generics**
@@ -196,7 +203,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] `interface Repositorio<T>` + `class Armazem<T> implements Repositorio<T>` (guarda no `localStorage`)
 - [ ] Modificadores: `protected chave`, `private` nos detalhes internos, `public` nos métodos usados fora
 - [ ] Herança: `class ArmazemCriacoes extends Armazem<Criacao>` com `super('criacoes')` + `contarPorTipo()`
-- [ ] Parameter properties: `constructor(private http: HttpClient)` nos services
+- [x] Parameter properties: `constructor(private http: HttpClient)` nos services
 
 **Boas práticas**
 - [ ] `unknown` (nunca `any`) no erro do `subscribe`, com verificação antes de usar
@@ -243,7 +250,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] 🎬 Separador **Multimédia**: vídeos (apanhados da TV, humoristas, músicas engraçadas) a partir de um `videos.json` + YouTube embutido (precisa do `DomSanitizer`)
 - [ ] ⬇️⬆️ Exportar / Importar as criações num `criacoes.json` (cópia de segurança + encher a base de dados na parte 2) — a decidir
 - [ ] 🎵 **Playlist** num leitor no `app.html`, fora do `<router-outlet>` → continua a tocar ao mudar de página (demonstra a SPA!). Só arranca com um clique (regra dos browsers)
--
+- [ ] No Editor (`/meme/...`), o separador "Escrever" da barra não fica amarelo (o endereço não é `/escrever`)
 
 ---
 
@@ -251,13 +258,13 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 
 | Requisito | Onde |
 |---|---|
-| Componentes | páginas + `Header` + `CartaoMeme` + `CartaoCriacao` + `Estrelas` |
-| `{{ }}` `[ ]` `( )` `[( )]` | textos · `[src]`, `[disabled]` · `(click)` · pesquisa |
-| `@if` / `@for` / `@switch` | a carregar/erro · listas · tipo e estilo |
-| Pipes | `date`, `number` |
-| `@Input` / `@Output` | `CartaoMeme`, `Estrelas` |
-| Service + DI + interfaces | `MemeService`, `PiadaService`, `HubService` · `Meme`, `Criacao` |
-| HttpClient + a carregar + erro | Imgflip, Gemini, JSON, meme-api |
+| Componentes | 7 páginas + `Header`, `CartaoMeme`, `CartaoTexto`, `Estrelas`, `Filtro`, `Janela` |
+| `{{ }}` `[ ]` `( )` `[( )]` | textos · `[src]`, `[disabled]`, `[class.x]` · `(click)` · pesquisa do Escrever |
+| `@if` / `@for` / `@switch` | a carregar/erro · listas · tipo da criação (Escrever, Criado por ti) |
+| Pipes | `date`, `number` + o meu pipe **`saudacao`** |
+| `@Input` / `@Output` | `CartaoMeme`, `CartaoTexto` · `Estrelas`, `Filtro`, `Janela` |
+| Service + DI + interfaces | `MemeService`, `ExplorarService`, `CriacoesService`, `GeradorService` · `Meme`, `Criacao`… |
+| HttpClient + a carregar + erro | `dados/*.json` (Escrever, Explorar) · Gerador simulado com `delay` |
 | Router (3+ vistas) | 5 páginas + `/meme/:id` + 404 |
 | Reactive Forms + validação | Escrever, Gerador, editor de meme |
 | `OnInit` / `OnDestroy` | carregar dados · cancelar pedidos |

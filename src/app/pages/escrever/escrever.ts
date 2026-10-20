@@ -12,9 +12,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Filtro } from '../../components/filtro/filtro';
+import { TipoFiltro } from '../../models/filtro';
+
 
 @Component({
-  imports: [RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [RouterLink, FormsModule, ReactiveFormsModule, Filtro],
   selector: 'app-escrever',
   styleUrl: './escrever.css',
   templateUrl: './escrever.html',

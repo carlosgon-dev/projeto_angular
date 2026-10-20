@@ -8,19 +8,20 @@
   align-items: center;
   gap: 10px 24px;
   padding: 12px 24px;
-  background: var(--texto);
+  background: var(--barra);
+  border-bottom: 1px solid var(--linha);
 }
 
 .marca {
   font-family: var(--letra-titulos);
   font-weight: 800;
   font-size: 22px;
-  color: var(--fundo);
+  color: var(--barra-texto);
   text-decoration: none;
 }
 
 .marca b {
-  color: var(--amarelo);
+  color: var(--rosa);
 }
 
 nav {
@@ -30,7 +31,7 @@ nav {
 }
 
 nav a {
-  color: var(--fundo);
+  color: var(--barra-texto);
   text-decoration: none;
   font-weight: 500;
   padding: 6px 14px;

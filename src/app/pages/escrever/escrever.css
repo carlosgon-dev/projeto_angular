@@ -16,3 +16,38 @@ form {
   aspect-ratio: 1;
   object-fit: cover;
 }
+
+/* Cada template: imagem em cima, nome, e o botão sempre no fundo */
+.template {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.template p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.botao {
+  margin-top: auto;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--rosa);
+  color: white;
+}
+
+h2 {
+  margin-top: 32px;
+}
+
+input {
+  margin-bottom: 16px;
+}
+
+.pesquisa {
+  margin-bottom: 16px;
+}
