@@ -1,0 +1,12 @@
+.nao-encontrado {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.numero {
+  font-family: var(--letra-meme);
+  font-size: 140px;
+  line-height: 1;
+  color: var(--rosa);
+  margin: 0;
+}

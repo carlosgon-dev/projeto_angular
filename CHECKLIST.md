@@ -21,6 +21,23 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 > Regra de ouro: no fim de cada fase a app já cumpre o enunciado.
 > Se o tempo apertar, corta-se a fase de baixo — nunca a de cima.
 
+## 📅 Plano (atualizado a 20/10)
+
+| Dia | O quê | Estado |
+|---|---|---|
+| qui 15 – seg 19 | Protótipo, projeção, Fases 0, 1 e 2 | ✅ |
+| **ter 20** | Fase 3: Gerador | ✅ |
+| | Início (saudação com pipe `saudacao` + 4 cartões) ✅ + página 404 | ⬜ |
+| **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ⬜ |
+| | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ⬜ |
+| **qui 22** | CSS por página (manhã) | ⬜ |
+| | 🎬 **Multimédia** (vídeos) + 🎵 **playlist** que continua a tocar ao mudar de página (tarde) — *extra* | ⬜ |
+| **sex 23** | 🔍 **Revisão de código**, ficheiro a ficheiro | ⬜ |
+| **sáb 24** | Publicar + README + ensaiar a apresentação | ⬜ |
+| **dom 25** | Reserva + **ENTREGA** 🏁 | |
+
+> Se o tempo apertar, a Multimédia é a primeira a sair (é extra). A revisão de código e a entrega nunca saem.
+
 ---
 
 ## 🗺️ Projeção (fechada a 18/10)
@@ -102,17 +119,16 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 
 ✅ *Enunciado cumprido a 100%.*
 
-## Fase 3 — Gerador com o Gemini (qua 21 – qui 22)
-- [ ] Chave do Gemini (Google AI Studio, só nível gratuito, restringida ao site)
-- [ ] `PiadaService.gerar()` com `HttpClient.post`
-- [ ] Formulário: país, profissão, objeto, fruta, estilo, nível de maldade
-- [ ] Validadores `min(1)` / `max(10)` no nível de maldade
-- [ ] Piada ou adivinha (`@switch` no estilo)
-- [ ] "A pensar…" + mensagem de erro
-- [ ] `OnDestroy`: cancelar o pedido se saíres da página
-- [ ] Gerados vão para o Criado por ti
-- [ ] Avaliar com estrelas logo no fim, assim que a piada aparece
-- [ ] Guardar algumas piadas boas para a demo (caso a internet falhe)
+## Fase 3 — Gerador simulado (feita ter 20!)
+- [x] Frases-modelo em `dados/modelos-gerador.ts` (`Record<Estilo, Modelo[]>`)
+- [x] `GeradorService.gerar(pedido)` com `of(...).pipe(delay(...))` + `Origem.IA` + constantes (sem números mágicos)
+- [x] Formulário: nome, país, profissão, objeto, fruta, tipo, estilo (`<select>` com `@for`), maldade
+- [x] Validadores `min(1)` / `max(10)` no nível de maldade
+- [x] "A pensar…" / resultado / "ainda nada" (`@if` / `@else if` / `@else`), lado a lado
+- [x] `OnDestroy`: `Subscription` + `unsubscribe()` se saíres a meio
+- [x] Gerados vão logo para o Criado por ti
+- [x] Avaliar com estrelas logo no fim (`Estrelas` reutilizado)
+- [ ] (Parte 2) Gemini a sério através do backend — só muda o `GeradorService`
 
 ## Fase 4 — Explorar (sex 23) — *opcional*
 - [x] `public/dados/piadas.json` e `adivinhas.json` (em português)
@@ -190,14 +206,42 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 
 ---
 
+## 🔍 Revisão de código (sex 23 — um dia inteiro)
+> Ficheiro a ficheiro, com calma. Objetivo: perceber TUDO e preparar a apresentação.
+
+**Em cada ficheiro, verificar:**
+- [ ] Sei explicar o que cada linha faz (se não sei, pergunto)
+- [ ] Nomes claros e em `snake_case` (variáveis, métodos, campos)
+- [ ] Sem código morto (imports não usados, comentários velhos, `console.log`)
+- [ ] Sem "números mágicos" (usar constantes)
+- [ ] Funções pequenas, com *early return* quando faz sentido
+- [ ] Componentes só mostram; a lógica dos dados está nos services
+- [ ] Formatado (Shift + Alt + F)
+
+**Ordem sugerida:**
+- [ ] `models/` (as interfaces e tipos)
+- [ ] `services/` + `dados/`
+- [ ] `components/` (CartaoMeme, CartaoTexto, Estrelas, Filtro, Header)
+- [ ] `pages/` (Início, Explorar, Gerador, Escrever, EditorMeme, CriadoPorTi, NaoEncontrado)
+- [ ] `app.config.ts`, `app.routes.ts`, `app.ts`, `styles.css`
+
+**Para a apresentação, anotar:**
+- [ ] 3 decisões de organização que sei justificar (ex.: CartaoMeme criado depois de ver código repetido)
+- [ ] Onde está cada requisito do enunciado (tabela no fim deste ficheiro)
+
+---
+
 ## 💡 Ideias para melhorar (só depois do obrigatório!)
 > Regra: quando te lembrares de uma melhoria, escreve-a aqui e continua o que estavas a fazer.
 
 - [ ] Carregar uma imagem própria para fazer um meme
 - [ ] Botão para descarregar o meme como imagem
-- [ ] Quadrados do Início (em standby)
+- [x] ~~Quadrados do Início~~ → decidido: só a saudação + 4 cartões (20/10)
 - [ ] Classe genérica `Armazem<T>` para o `localStorage` (extra de TypeScript)
 - [ ] Sons de animais (cabra, ovelha…) de 30 em 30 segundos 🐐
+- [ ] 🎬 Separador **Multimédia**: vídeos (apanhados da TV, humoristas, músicas engraçadas) a partir de um `videos.json` + YouTube embutido (precisa do `DomSanitizer`)
+- [ ] ⬇️⬆️ Exportar / Importar as criações num `criacoes.json` (cópia de segurança + encher a base de dados na parte 2) — a decidir
+- [ ] 🎵 **Playlist** num leitor no `app.html`, fora do `<router-outlet>` → continua a tocar ao mudar de página (demonstra a SPA!). Só arranca com um clique (regra dos browsers)
 -
 
 ---
