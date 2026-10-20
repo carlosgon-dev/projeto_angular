@@ -27,9 +27,9 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 |---|---|---|
 | qui 15 – seg 19 | Protótipo, projeção, Fases 0, 1 e 2 | ✅ |
 | **ter 20** | Fase 3: Gerador | ✅ |
-| | Início (saudação com pipe `saudacao` + 4 cartões) ✅ + página 404 | ⬜ |
-| **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ⬜ |
-| | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ⬜ |
+| | Início (saudação com pipe `saudacao` + 4 cartões) + página 404 | ✅ |
+| **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ✅ (ter 20) |
+| | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ✅ (ter 20) |
 | **qui 22** | CSS por página (manhã) | ⬜ |
 | | 🎬 **Multimédia** (vídeos) + 🎵 **playlist** que continua a tocar ao mudar de página (tarde) — *extra* | ⬜ |
 | **sex 23** | 🔍 **Revisão de código**, ficheiro a ficheiro | ⬜ |
