@@ -1,0 +1,27 @@
+.destaque {
+  background: var(--texto);
+  color: var(--fundo);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.destaque h1 {
+  margin: 0 0 8px;
+  color: var(--amarelo);
+}
+
+.zona {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s;
+}
+
+.zona:hover {
+  transform: translateY(-3px);
+  border-color: var(--rosa);
+}
+
+.icone {
+  font-size: 32px;
+}

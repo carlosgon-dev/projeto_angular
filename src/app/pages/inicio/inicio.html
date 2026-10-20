@@ -1,1 +1,14 @@
-<p>inicio works!</p>
+<section class="destaque">
+  <h1>{{ nome | saudacao }}</h1>
+  <p>Hoje ri-se a sério. Cria o teu próprio humor: memes, piadas e adivinhas, à mão ou com IA.</p>
+</section>
+
+<div class="grelha">
+  @for (zona of zonas; track zona.caminho) {
+    <a class="caixa zona" [routerLink]="zona.caminho">
+      <span class="icone">{{ zona.icone }}</span>
+      <h3>{{ zona.titulo }}</h3>
+      <p>{{ zona.texto }}</p>
+    </a>
+  }
+</div>
