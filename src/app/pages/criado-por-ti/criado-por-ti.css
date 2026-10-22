@@ -1,9 +1,7 @@
-
-/* Cada criação: o cartão cresce e a data, as estrelas e o apagar ficam sempre no fundo */
 .caixa {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 app-cartao-meme,
@@ -13,4 +11,23 @@ app-cartao-texto {
 
 .caixa p {
   margin: 0;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--texto-suave);
+  font-size: 0.875rem;
+}
+
+.apagar {
+  background: transparent;
+  color: var(--texto-suave);
+  border: 1px solid var(--linha);
+}
+
+.apagar:hover {
+  color: var(--erro);
+  border-color: var(--erro);
 }

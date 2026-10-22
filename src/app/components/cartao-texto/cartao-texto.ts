@@ -11,4 +11,5 @@ import { Adivinha } from '../../models/adivinha';
 export class CartaoTexto {
   @Input() criacao!: Piada | Adivinha;
   revelada = signal(false);
+  dica_visivel = signal(false);
 }

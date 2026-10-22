@@ -10,44 +10,49 @@
   flex-direction: column;
   background: var(--cartao);
   border: 1px solid var(--linha);
-  border-radius: 14px;
-  padding: 16px;
+  border-radius: 0.875rem;
+  padding: 1rem;
 }
 
 .etiqueta {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: var(--rosa);
   margin: 0;
 }
 
-/* A pergunta cresce e empurra a resposta (ou o botão) para o fundo do cartão */
 .pergunta {
   flex-grow: 1;
   font-family: var(--letra-titulos);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 
 .resposta {
   background: color-mix(in srgb, var(--amarelo) 35%, transparent);
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 0.5rem 0.625rem;
+  border-radius: 0.5rem;
 }
 
 .dica,
 .autor {
   color: var(--texto-suave);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
-/* Piada: texto normal, sem caixa amarela, a ocupar o cartão */
 .texto-piada {
   flex-grow: 1;
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 
 .texto-piada p {
-  margin: 12px 0 0;
+  margin: 0.75rem 0 0;
+}
+
+.secundario {
+  background: transparent;
+  color: var(--texto);
+  border: 1px solid var(--linha);
+  margin-bottom: 0.5rem;
 }

@@ -1,8 +1,8 @@
 .filtros {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .filtros button {
