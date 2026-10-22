@@ -39,3 +39,19 @@ h2 {
   margin-top: auto;
   padding-top: 0.375rem;
 }
+
+.video img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  pointer-events: none;
+}
+
+.leitor-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 0.875rem;
+  background: black;
+}

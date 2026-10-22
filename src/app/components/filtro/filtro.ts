@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TipoFiltro } from '../../models/filtro';
+import { OPCOES_CRIACOES, OpcaoFiltro, TipoFiltro } from '../../models/filtro';
 
 @Component({
   imports: [],
@@ -11,9 +11,6 @@ export class Filtro {
   @Input() ativo: TipoFiltro = 'meme';
   @Output() mudar = new EventEmitter<TipoFiltro>();
 
-  opcoes: { valor: TipoFiltro; nome: string }[] = [
-    { valor: 'meme', nome: '🖼️ Memes' },
-    { valor: 'piada', nome: '😂 Piadas' },
-    { valor: 'adivinha', nome: '🧩 Adivinhas' },
-  ];
+  @Input() opcoes: OpcaoFiltro[] = OPCOES_CRIACOES;
+
 }
