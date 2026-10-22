@@ -1,7 +1,8 @@
 # 🎭 Arena do Riso — Checklist
 
 **Ideia:** cria o teu próprio humor — memes, piadas e adivinhas, à mão ou com IA.
-**Prazo:** domingo, 25/10/2026
+**Prazo:** ~~domingo, 25/10/2026~~ → **entrega ÚNICA e final: sexta, 30/10/2026**
+**Novo na entrega final:** 🗄️ **Supabase** (a "Parte 2" passa a obrigatória) + **CRUD completo** (falta o *Editar*)
 **Protótipo:** https://claude.ai/artifact/B3cLTFFCC6MtL2ij3oYEoj
 
 Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ editor `/meme/:id` + página 404)
@@ -31,7 +32,7 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ✅ (ter 20) |
 | | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ✅ (ter 20) |
 | **qui 22** | 🎨 **CSS por página** — rever página a página (ver lista abaixo) | ✅ |
-| | 🎬 **Multimédia** (vídeos) + 🎵 **playlist** que continua a tocar ao mudar de página — *extra* | ⬜ |
+| | ~~🎬 Multimédia + 🎵 playlist~~ — *extra*, passou para as ideias 💡 | |
 
 **🎨 CSS por página:**
 - [x] Barra do topo (escura, "do" a rosa)
@@ -48,6 +49,43 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 - [x] `.botao` passou para o `styles.css` (usada no Escrever e na 404)
 
 > 🚀 Vais adiantado: o CSS começou na ter 20 em vez de qui 22.
+
+## 🆕 Até à entrega final (sex 30/10) — por esta ordem
+> A Parte 1 (front-end) está feita. Agora: completar o CRUD e ligar ao Supabase.
+
+| Dia | O quê | Estado |
+|---|---|---|
+| **qui 22 (tarde)** | 🎬 Multimédia: página de vídeos (`videos.json` + `DomSanitizer`) — antes do Supabase | ⬜ |
+| **sex 23** | ✏️ Editar (U do CRUD), no `localStorage` | ✅ (qui 22!) |
+| **sáb 24 – dom 25** | 🗄️ Supabase: tabela `criacoes` + `listar()` e `criar()` | ⬜ |
+| **seg 26** | 🗄️ Supabase: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | ⬜ |
+| **ter 27** | Reserva (imprevistos do Supabase) / ideias 💡 se sobrar tempo | |
+| **qua 28** | 🔍 Revisão de código, ficheiro a ficheiro | ⬜ |
+| **qui 29** | 🚀 Publicar + README + ensaiar a apresentação | ⬜ |
+| **sex 30** | **ENTREGA** 🏁 | |
+
+> 🎬 Multimédia: hoje, até onde der. A 🎵 playlist só se sobrar tempo.
+
+**1. ✏️ CRUD completo — falta o U (Update / Editar)**
+| Letra | O quê | Onde | Estado |
+|---|---|---|---|
+| **C** Create | `criar()` | Escrever, Editor de meme, Gerador | ✅ |
+| **R** Read | `listar()` | Criado por ti | ✅ |
+| **U** Update | `editar()` | Criado por ti → botão ✏️ Editar (abre a `Janela` com o formulário) | ✅ (qui 22) |
+| **D** Delete | `apagar()` | Criado por ti → 🗑️ Apagar | ✅ |
+- [x] Editar dentro da `Janela`, com um formulário só (`parte_1`, `parte_2`, `dica`) para os 3 tipos
+- [x] `editar(id, alteracoes: Partial<Criacao>)` no `CriacoesService` (no `localStorage`)
+- [x] Botão ✏️ Editar ao lado do 🗑️ Apagar + cartões mais largos (3 por linha)
+- [x] TS: `switch` com narrowing, `Record<Criacao['tipo'], [string, string]>` (Record + tupla), `Partial`
+
+**2. 🗄️ Supabase**
+- [x] Pacote `@supabase/supabase-js` instalado + `SupabaseService` + `environments` (22/10)
+- [ ] Criar a tabela `criacoes` no Supabase (com a forma das nossas interfaces)
+- [ ] Trocar o interior do `CriacoesService`: `localStorage` → Supabase (`listar`, `criar`, `editar`, `apagar`, `avaliar`)
+- [ ] Estados "a carregar…" e erro também no Criado por ti (agora os dados vêm da internet)
+- [ ] (?) Autenticação / login — só se o enunciado pedir
+
+**3. 🔍 Revisão de código + 🚀 publicar + README + ensaiar** (última semana)
 | **sex 23** | 🔍 **Revisão de código**, ficheiro a ficheiro | ⬜ |
 | **sáb 24** | Publicar + README + ensaiar a apresentação | ⬜ |
 | **dom 25** | Reserva + **ENTREGA** 🏁 | |
