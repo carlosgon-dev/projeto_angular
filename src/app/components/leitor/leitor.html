@@ -1,0 +1,20 @@
+<footer class="leitor">
+  <div class="dentro">
+    <span class="capa">🎵</span>
+
+    <div class="faixa">
+      <strong>{{ leitor.faixa_atual()?.titulo ?? 'A carregar a playlist…' }}</strong>
+      <span class="estado">
+        {{ leitor.a_tocar() ? 'A tocar' : 'Em pausa' }} · faixa {{ leitor.indice() + 1 }}/{{ leitor.faixas().length }}
+      </span>
+    </div>
+
+    <div class="controlos">
+      <button (click)="leitor.anterior()">⏮</button>
+      <button class="principal" (click)="leitor.tocar_ou_pausar()">{{ leitor.a_tocar() ? '⏸' : '▶' }}</button>
+      <button (click)="leitor.seguinte()">⏭</button>
+      <button (click)="leitor.alternar_som()">{{ leitor.mudo() ? '🔇' : '🔊' }}</button>
+      <input type="range" min="0" max="100" [value]="leitor.mudo() ? 0 : leitor.volume()" (input)="ao_mexer_no_volume($event)" />
+    </div>
+  </div>
+</footer>

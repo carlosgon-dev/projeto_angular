@@ -1,0 +1,86 @@
+.leitor {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  background: var(--barra);
+  color: var(--barra-texto);
+  border-top: 1px solid var(--linha);
+  padding: 0.6rem 1rem;
+}
+
+/* Capa | título | botões */
+.dentro {
+  max-width: 62.5rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.capa {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  background: var(--destaque);
+}
+
+.faixa {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.faixa strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.estado {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.controlos {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.controlos button {
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: var(--barra-texto);
+}
+
+.controlos button.principal {
+  background: var(--amarelo);
+  border-color: var(--amarelo);
+  color: #2a2100;
+}
+
+.controlos input {
+  width: 5.5rem;
+  accent-color: var(--amarelo);
+}
+
+@media (max-width: 600px) {
+  .dentro {
+    grid-template-columns: auto 1fr;
+  }
+
+  .controlos {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
