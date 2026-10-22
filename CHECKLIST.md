@@ -59,7 +59,9 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **qui 22** | ✏️ Editar (U do CRUD) + CSS por página + protótipos | — | ✅ |
 | | 📝 *Trabalho de casa leve:* escolher vídeos no YouTube → **38 escolhidos** (18 músicas, 13 apanhados, 7 humoristas), todos deixam ser vistos noutros sites | extra | ✅ |
 | **sex 23** | 🎬 **Vídeos no Explorar**: interface `Video`, `videos.json`, `VideoService`, pipe `youtube` (`DomSanitizer`), `Filtro` com `@Input() opcoes` (6 filtros) | extra | ✅ (qui 22!) |
-| | 🎵 **Leitor/playlist** no `app.html` + `LeitorService` (`pausar()` / `retomar()` ao abrir/fechar um vídeo) | extra | ⬜ |
+| | 🎵 **Leitor/playlist** no `app.html` + `LeitorService` — barra no rodapé com ⏮ ▶ ⏭ 🔊 e volume, 18 músicas do `videos.json` | extra | ✅ (qui 22, ainda sem som) |
+| | 🎵 Leitor: `pausar()` / `retomar()` ao abrir/fechar um vídeo | extra | ⬜ |
+| | 🔊 Leitor: **som a sério** com a API do YouTube (`@types/youtube`) — depois do Supabase | extra | ⬜ |
 | **sáb 24** | 🗄️ **Supabase 1**: criar a tabela `criacoes` + `listar()` e `criar()` | **OBRIGATÓRIO** | ⬜ |
 | **dom 25** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro no Criado por ti | **OBRIGATÓRIO** | ⬜ |
 | **seg 26** | ⚔️ Separador **Arena**: Duelo na Arena + ⏱️ Adivinha contra o relógio | extra | ⬜ |
