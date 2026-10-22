@@ -1,11 +1,11 @@
 .nao-encontrado {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 2.5rem;
 }
 
 .numero {
   font-family: var(--letra-meme);
-  font-size: 140px;
+  font-size: 8.75rem;
   line-height: 1;
   color: var(--rosa);
   margin: 0;

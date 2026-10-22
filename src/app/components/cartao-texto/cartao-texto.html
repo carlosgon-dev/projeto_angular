@@ -10,13 +10,20 @@
   } @else {
     <!-- Adivinha: a pergunta em destaque e a resposta escondida -->
     <p class="pergunta">{{ criacao.pergunta }}</p>
+    @if (criacao.dica) {
+      @if (dica_visivel()) {
+        <p class="dica">💡 {{ criacao.dica }}</p>
+      } @else {
+        <button class="secundario" (click)="dica_visivel.set(true); $event.stopPropagation()">
+          Pedir dica 💡
+        </button>
+      }
+    }
+
     @if (revelada()) {
       <p class="resposta">Resposta: {{ criacao.resposta }}</p>
     } @else {
       <button (click)="revelada.set(true); $event.stopPropagation()">Ver resposta 👀</button>
-    }
-    @if (criacao.dica) {
-      <p class="dica">💡 {{ criacao.dica }}</p>
     }
   }
 

@@ -67,5 +67,14 @@
         <p>✅ Guardado em <a routerLink="/criado">Criado por ti</a></p>
       }
     }
+
+    @if (!a_pensar() && !resultado()) {
+      <div class="vazio">
+        <p>🤖</p>
+        <p>Preenche o formulário e carrega em <strong>Gerar</strong>.<br />
+        A tua piada aparece aqui!</p>
+      </div>
+    }
+
   </div>
 </div>

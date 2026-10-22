@@ -30,7 +30,7 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | | Início (saudação com pipe `saudacao` + 4 cartões) + página 404 | ✅ |
 | **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ✅ (ter 20) |
 | | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ✅ (ter 20) |
-| **qui 22** | 🎨 **CSS por página** — rever página a página (ver lista abaixo) | 🟡 a meio |
+| **qui 22** | 🎨 **CSS por página** — rever página a página (ver lista abaixo) | ✅ |
 | | 🎬 **Multimédia** (vídeos) + 🎵 **playlist** que continua a tocar ao mudar de página — *extra* | ⬜ |
 
 **🎨 CSS por página:**
@@ -39,10 +39,13 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 - [x] Escrever: memes (filtro, caixas quadradas, botão "Usar este")
 - [x] Escrever: piadas e adivinhas (formulário numa caixa)
 - [x] Editor de meme (lado a lado + etiquetas)
-- [ ] Explorar
-- [ ] Gerador
-- [ ] Criado por ti
-- [ ] Página 404
+- [x] Explorar (cartões sobem + contorno rosa ao passar o rato)
+- [x] Gerador (caixa tracejada "à espera" do resultado)
+- [x] Criado por ti (rodapé data + estrelas, Apagar discreto, estrelas mais pequenas)
+- [x] Adivinhas: dica escondida, com botão "Pedir dica 💡" (no `CartaoTexto`)
+- [x] Página 404 (link com cara de botão, sem `<button>` dentro de `<a>`)
+- [x] Tudo em `rem` em vez de `px` (bordas e contornos ficam em `px`)
+- [x] `.botao` passou para o `styles.css` (usada no Escrever e na 404)
 
 > 🚀 Vais adiantado: o CSS começou na ter 20 em vez de qui 22.
 | **sex 23** | 🔍 **Revisão de código**, ficheiro a ficheiro | ⬜ |
@@ -261,6 +264,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] ⬇️⬆️ Exportar / Importar as criações num `criacoes.json` (cópia de segurança + encher a base de dados na parte 2) — a decidir
 - [ ] 🎵 **Playlist** num leitor no `app.html`, fora do `<router-outlet>` → continua a tocar ao mudar de página (demonstra a SPA!). Só arranca com um clique (regra dos browsers)
 - [ ] No Editor (`/meme/...`), o separador "Escrever" da barra não fica amarelo (o endereço não é `/escrever`)
+- [ ] 💡 Gerador: as adivinhas geradas também trazem uma **dica** (ex.: "Tem a ver com {fruta}"), como as escritas à mão
 
 ---
 
