@@ -21,13 +21,48 @@ app-cartao-texto {
   font-size: 0.875rem;
 }
 
-.apagar {
+.acoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.acoes button {
+  flex: 1;
   background: transparent;
   color: var(--texto-suave);
   border: 1px solid var(--linha);
 }
 
+.editar:hover {
+  color: var(--rosa);
+  border-color: var(--rosa);
+}
+
+
 .apagar:hover {
   color: var(--erro);
   border-color: var(--erro);
+}
+
+.grelha {
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
+
+.form-edicao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  background: var(--cartao);
+  padding: 1.5rem;
+  border-radius: 0.875rem;
+}
+
+.form-edicao h2 {
+  margin-top: 0;
+}
+
+.erro {
+  color: var(--erro);
+  font-size: 0.875rem;
+  margin: 0;
 }

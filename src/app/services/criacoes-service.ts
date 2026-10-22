@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { Criacao, NovaCriacao } from '../models/criacao';
 import { Estrelas } from '../models/criacao-base';
 
-
 const CHAVE_GAVETA = 'arena-criacoes';
 
 @Injectable({
@@ -41,7 +40,13 @@ export class CriacoesService {
     return of(criacoes);
   }
 
-
+  editar(id: number, alteracoes: Partial<Criacao>): Observable<Criacao[]> {
+    const criacoes = this.ler_gaveta().map((criacao) =>
+      criacao.id === id ? ({ ...criacao, ...alteracoes } as Criacao) : criacao,
+    );
+    this.gravar_gaveta(criacoes);
+    return of(criacoes);
+  }
 
   private ler_gaveta(): Criacao[] {
     const texto = localStorage.getItem(CHAVE_GAVETA);

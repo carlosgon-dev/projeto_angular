@@ -21,10 +21,39 @@
         <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
         <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
       </div>
-      <button class="apagar" (click)="apagar(criacao.id)">🗑️ Apagar</button>
+      <div class="acoes">
+        <button class="editar" (click)="abrir_edicao(criacao)">✏️ Editar</button>
+        <button class="apagar" (click)="apagar(criacao.id)">🗑️ Apagar</button>
+      </div>
 
     </div>
   } @empty {
     <p>Ainda não criaste nada.</p>
   }
 </div>
+
+@if (em_edicao(); as criacao) {
+  <app-janela (fechar)="em_edicao.set(null)">
+    <form class="form-edicao" [formGroup]="form_edicao" (ngSubmit)="guardar_edicao()">
+      <h2>✏️ Editar</h2>
+
+      <label>{{ rotulos[criacao.tipo][0] }}</label>
+      <textarea formControlName="parte_1" rows="3"></textarea>
+
+      <label>{{ rotulos[criacao.tipo][1] }}</label>
+      <textarea formControlName="parte_2" rows="2"></textarea>
+
+      @if (criacao.tipo === 'adivinha') {
+        <label>Dica (opcional)</label>
+        <input formControlName="dica" />
+      }
+
+      @if (form_edicao.invalid && form_edicao.touched) {
+        <p class="erro">Os dois primeiros campos são obrigatórios (máximo 150 letras).</p>
+      }
+
+      <button type="submit" [disabled]="form_edicao.invalid">Guardar alterações</button>
+    </form>
+  </app-janela>
+}
+
