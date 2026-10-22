@@ -26,7 +26,7 @@ export class Escrever implements OnInit {
   templates = signal<TemplateMeme[]>([]);
   a_carregar = signal(true);
   erro = signal(false);
-  tipo = signal<'meme' | 'piada' | 'adivinha'>('meme');
+  tipo = signal<TipoFiltro>('meme');
 
   pesquisa = '';
 

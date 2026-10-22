@@ -11,7 +11,7 @@
 .conteudo {
   position: relative;
   width: 100%;
-  max-width: 28.125rem;
+  max-width: 30rem;
   max-height: 90vh;
   overflow: auto;
 }

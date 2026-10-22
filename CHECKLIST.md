@@ -50,21 +50,33 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 
 > 🚀 Vais adiantado: o CSS começou na ter 20 em vez de qui 22.
 
-## 🆕 Até à entrega final (sex 30/10) — por esta ordem
-> A Parte 1 (front-end) está feita. Agora: completar o CRUD e ligar ao Supabase.
+## 🆕 Plano até à entrega final (sex 30/10) — atualizado qui 22/10
+> ✅ Já feito: front-end completo (7 páginas, CSS revisto, tudo em `rem`) + **CRUD completo** no `localStorage`.
+> Protótipo dos extras: https://claude.ai/artifact/DWdgW3EZSbcaguZKpQJ7nc
 
-| Dia | O quê | Estado |
-|---|---|---|
-| **qui 22 (tarde)** | 🎬 Multimédia: página de vídeos (`videos.json` + `DomSanitizer`) — antes do Supabase | ⬜ |
-| **sex 23** | ✏️ Editar (U do CRUD), no `localStorage` | ✅ (qui 22!) |
-| **sáb 24 – dom 25** | 🗄️ Supabase: tabela `criacoes` + `listar()` e `criar()` | ⬜ |
-| **seg 26** | 🗄️ Supabase: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | ⬜ |
-| **ter 27** | Reserva (imprevistos do Supabase) / ideias 💡 se sobrar tempo | |
-| **qua 28** | 🔍 Revisão de código, ficheiro a ficheiro | ⬜ |
-| **qui 29** | 🚀 Publicar + README + ensaiar a apresentação | ⬜ |
-| **sex 30** | **ENTREGA** 🏁 | |
+| Dia | O quê | Tipo | Estado |
+|---|---|---|---|
+| **qui 22** | ✏️ Editar (U do CRUD) + CSS por página + protótipos | — | ✅ |
+| | 📝 *Trabalho de casa leve:* escolher vídeos no YouTube → **38 escolhidos** (18 músicas, 13 apanhados, 7 humoristas), todos deixam ser vistos noutros sites | extra | ✅ |
+| **sex 23** | 🎬 **Vídeos no Explorar**: interface `Video`, `videos.json`, `VideoService`, pipe `youtube` (`DomSanitizer`), `Filtro` com `@Input() opcoes` (6 filtros) | extra | ✅ (qui 22!) |
+| | 🎵 **Leitor/playlist** no `app.html` + `LeitorService` (`pausar()` / `retomar()` ao abrir/fechar um vídeo) | extra | ⬜ |
+| **sáb 24** | 🗄️ **Supabase 1**: criar a tabela `criacoes` + `listar()` e `criar()` | **OBRIGATÓRIO** | ⬜ |
+| **dom 25** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro no Criado por ti | **OBRIGATÓRIO** | ⬜ |
+| **seg 26** | ⚔️ Separador **Arena**: Duelo na Arena + ⏱️ Adivinha contra o relógio | extra | ⬜ |
+| **ter 27** | 🎁 **Surpresa dos 5 min com roleta** (primeiro a versão simples: girar e parar; depois acelerar/abrandar/fumo) | extra | ⬜ |
+| | 🔊 **Efeitos sonoros** a sério (ficheiros de som, não os sintetizados) na roleta e noutros botões | extra | ⬜ |
+| **qua 28** | 🔍 **Revisão de código**, ficheiro a ficheiro + apagar as criações de teste e criar umas bonitas | **OBRIGATÓRIO** | ⬜ |
+| **qui 29** | 🚀 **Publicar** + **README** + ensaiar a apresentação | **OBRIGATÓRIO** | ⬜ |
+| **sex 30** | 🏁 **ENTREGA** | | |
 
-> 🎬 Multimédia: hoje, até onde der. A 🎵 playlist só se sobrar tempo.
+> ✂️ **Se o tempo apertar, corta-se por esta ordem:** efeitos sonoros → fumo/acelerar da roleta → Adivinha contra o relógio → Duelo → surpresa → playlist → vídeos.
+> 🛡️ **Nunca se corta:** Supabase, revisão, publicar, README.
+
+**🎮 Jogos e surpresa (decidido a 22/10)**
+- [ ] ⚔️ **Duelo na Arena**: 2 piadas lado a lado → clicas na melhor → ganha 1 ponto → novo duelo. Pódio 🥇🥈🥉. Com Supabase: ranking guardado na base de dados
+- [ ] ⏱️ **Adivinha contra o relógio** (minijogo): 5 adivinhas, 10 s cada, a resposta aparece sozinha, tu dizes "acertei / não acertei", resultado no fim
+- [ ] 🎰 **Roleta na surpresa dos 5 min** (`setInterval` no `ngOnInit` do `app.ts`, `clearInterval` no `ngOnDestroy`): gira sem parar; **⏪ Abrandar**, **⏩ Acelerar!** (fumo, faíscas, roleta a tremer, motor) e **⏹ Parar!** (travagem). Trava sozinha aos 12 s. Cai em meme / piada / adivinha / vídeo. Aparece em todas as páginas + botão 🎁 para desligar
+- [ ] 🔊 Sons: os do protótipo ficaram maus → usar **ficheiros de som reais** (domínio público / CC0). Respeitam o volume e o 🔇 do leitor
 
 **1. ✏️ CRUD completo — falta o U (Update / Editar)**
 | Letra | O quê | Onde | Estado |
@@ -82,6 +94,8 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 - [x] Pacote `@supabase/supabase-js` instalado + `SupabaseService` + `environments` (22/10)
 - [ ] Criar a tabela `criacoes` no Supabase (com a forma das nossas interfaces)
 - [ ] Trocar o interior do `CriacoesService`: `localStorage` → Supabase (`listar`, `criar`, `editar`, `apagar`, `avaliar`)
+  - ⚠️ O Supabase devolve **Promises**, não Observables → embrulhar com `from(...)` do RxJS para os métodos continuarem a devolver `Observable` (assim as páginas não mudam)
+  - Os JSON "da internet" (`piadas.json`, `adivinhas.json`, `memes-internet.json`, `memes.json`) podem ficar como estão; `videos.json` pode passar para uma tabela `videos` (opcional)
 - [ ] Estados "a carregar…" e erro também no Criado por ti (agora os dados vêm da internet)
 - [ ] (?) Autenticação / login — só se o enunciado pedir
 
@@ -302,6 +316,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 - [ ] ⬇️⬆️ Exportar / Importar as criações num `criacoes.json` (cópia de segurança + encher a base de dados na parte 2) — a decidir
 - [ ] 🎵 **Playlist** num leitor no `app.html`, fora do `<router-outlet>` → continua a tocar ao mudar de página (demonstra a SPA!). Só arranca com um clique (regra dos browsers)
 - [ ] No Editor (`/meme/...`), o separador "Escrever" da barra não fica amarelo (o endereço não é `/escrever`)
+- [ ] 🎁 **Surpresa de 5 em 5 minutos**: abre sozinha a `Janela` com uma piada/adivinha/meme ao calhas (no `app.ts`: `setInterval` no `ngOnInit`, `clearInterval` no `ngOnDestroy`). Aparece em **todas** as páginas, mesmo a meio de formulários (decidido: interromper faz parte da piada 😄) + botão para desligar
 - [ ] 💡 Gerador: as adivinhas geradas também trazem uma **dica** (ex.: "Tem a ver com {fruta}"), como as escritas à mão
 
 ---

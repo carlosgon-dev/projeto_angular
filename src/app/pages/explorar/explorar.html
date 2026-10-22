@@ -1,6 +1,6 @@
 <h1>Explorar 🌍</h1>
 
-<app-filtro [ativo]="filtro()" (mudar)="filtro.set($event)" />
+<app-filtro [opcoes]="opcoes" [ativo]="filtro()" (mudar)="filtro.set($event)" />
 
 @if (mostrar('meme')) {
   <h2>🔥 Memes da internet</h2>
@@ -37,6 +37,19 @@
   </div>
 }
 
+@if (videos_filtrados().length > 0) {
+  <h2>🎬 Vídeos</h2>
+  <div class="grelha">
+    @for (video of videos_filtrados(); track video.id) {
+      <div class="caixa clicavel video" (click)="video_aberto.set(video)">
+        <img [src]="imagem_do_video(video)" [alt]="video.titulo" />
+        <p><strong>{{ video.titulo }}</strong></p>
+        <p>▶ Ver vídeo</p>
+      </div>
+    }
+  </div>
+}
+
 
 @if (meme_aberto(); as meme) {
   <app-janela (fechar)="fechar()">
@@ -48,5 +61,18 @@
 @if (texto_aberto(); as texto) {
   <app-janela (fechar)="fechar()">
     <app-cartao-texto [criacao]="texto" />
+  </app-janela>
+}
+
+@if (video_aberto(); as video) {
+  <app-janela (fechar)="fechar()">
+    <iframe
+      class="leitor-video"
+      [src]="video.youtube_id | youtube"
+      [title]="video.titulo"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <p class="titulo-destaque">{{ video.titulo }}</p>
   </app-janela>
 }
