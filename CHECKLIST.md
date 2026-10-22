@@ -30,11 +30,21 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | | Início (saudação com pipe `saudacao` + 4 cartões) + página 404 | ✅ |
 | **qua 21** | Explorar (adivinhas + memes + `Filtro`) | ✅ (ter 20) |
 | | Arrumar: tirar `zone.js`, testes que falham, ficheiros não usados | ✅ (ter 20) |
-| **qui 22** | CSS por página (barra, Início, Escrever, Editor) | ✅ (ter 20) |
+| **qui 22** | 🎨 **CSS por página** — rever página a página (ver lista abaixo) | 🟡 a meio |
 | | 🎬 **Multimédia** (vídeos) + 🎵 **playlist** que continua a tocar ao mudar de página — *extra* | ⬜ |
 
-> 🚀 **Vais 2 dias adiantado!** Qua 21 e qui 22 ficaram livres → dá para a Multimédia/playlist com calma,
-> ou para uma ideia da lista 💡.
+**🎨 CSS por página:**
+- [x] Barra do topo (escura, "do" a rosa)
+- [x] Início (destaque em gradiente)
+- [x] Escrever: memes (filtro, caixas quadradas, botão "Usar este")
+- [x] Escrever: piadas e adivinhas (formulário numa caixa)
+- [x] Editor de meme (lado a lado + etiquetas)
+- [ ] Explorar
+- [ ] Gerador
+- [ ] Criado por ti
+- [ ] Página 404
+
+> 🚀 Vais adiantado: o CSS começou na ter 20 em vez de qui 22.
 | **sex 23** | 🔍 **Revisão de código**, ficheiro a ficheiro | ⬜ |
 | **sáb 24** | Publicar + README + ensaiar a apresentação | ⬜ |
 | **dom 25** | Reserva + **ENTREGA** 🏁 | |
