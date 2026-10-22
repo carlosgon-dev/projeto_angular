@@ -1,0 +1,10 @@
+import { Service } from '@angular/core';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { environment } from '../../environments/environment';
+import { Database } from '@angular/core';
+
+@Service()
+export class SupabaseService {
+    readonly supabaseClient = createClient<Database>(environment.supabaseURL, environment.supabaseKey)
+
+}
