@@ -1,7 +1,7 @@
 # 🎭 Arena do Riso — Checklist
 
 **Ideia:** cria o teu próprio humor — memes, piadas e adivinhas, à mão ou com IA.
-**Prazo:** ~~domingo, 25/10/2026~~ → **entrega ÚNICA e final: sexta, 30/10/2026**
+**Prazo:** **entrega domingo 01/11/2026 até às 23:59** · apresentação segunda 02/11 às 09:00 (novo enunciado: `Projeto-pratico-Angular-novo-enunciado.pdf`)
 **Novo na entrega final:** 🗄️ **Supabase** (a "Parte 2" passa a obrigatória) + **CRUD completo** (falta o *Editar*)
 **Protótipo:** https://claude.ai/artifact/B3cLTFFCC6MtL2ij3oYEoj
 
@@ -50,33 +50,35 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 
 > 🚀 Vais adiantado: o CSS começou na ter 20 em vez de qui 22.
 
-## 🆕 Plano até à entrega final (sex 30/10) — atualizado qui 22/10
-> ✅ Já feito: front-end completo (7 páginas, CSS revisto, tudo em `rem`) + **CRUD completo** no `localStorage`.
+## 🆕 Plano até à entrega final — NOVO ENUNCIADO (atualizado sex 23/10)
+> 📅 **Entrega: domingo 01/11 até às 23:59** · 🎤 **Apresentação: segunda 02/11 às 09:00 em ponto** (demo no GitHub Pages)
+> 🆕 Obrigatório no novo enunciado: **Supabase com AUTENTICAÇÃO + base de dados**, **GitHub Actions + GitHub Pages**, **variáveis de ambiente** para a chave do Supabase, pipes de **valores monetários** (`currency`).
 > Protótipo dos extras: https://claude.ai/artifact/DWdgW3EZSbcaguZKpQJ7nc
 
 | Dia | O quê | Tipo | Estado |
 |---|---|---|---|
-| **qui 22** | ✏️ Editar (U do CRUD) + CSS por página + protótipos | — | ✅ |
-| | 📝 Escolher vídeos no YouTube → **38** (18 músicas, 13 apanhados, 7 humoristas) | extra | ✅ |
-| | 🎬 **Vídeos no Explorar**: `Video`, `videos.json`, `VideoService`, pipe `youtube` (`DomSanitizer`), `Filtro` com `@Input() opcoes` | extra | ✅ |
-| | 🎵 **Leitor no rodapé** + `LeitorService`: ⏮ ▶ ⏭ 🔊 e volume, 18 músicas (ainda sem som) | extra | ✅ |
-| **sex 23** | 🎵 Leitor: `pausar()` / `retomar()` ao abrir/fechar um vídeo | extra | ✅ |
-| | ⚔️ Separador **Arena**: Duelo na Arena (pódio 🥇🥈🥉) | extra | ✅ |
-| | 📱 Telemóvel: menu **hambúrguer** ☰, leitor numa linha, títulos das páginas escondidos, letras mais pequenas | extra | ✅ |
-| | ⏱️ Arena: Adivinha contra o relógio | extra | ⬜ |
-| **sáb 24** | 🗄️ **Supabase 1**: criar a tabela `criacoes` + `listar()` e `criar()` | **OBRIGATÓRIO** | ⬜ |
-| **dom 25** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro no Criado por ti *(reserva: só se o sábado não chegar)* | **OBRIGATÓRIO** | ⬜ |
-| **seg 26** | 🤖 **IA a sério no Gerador** (Gemini, plano gratuito) — chave escondida numa **Edge Function do Supabase** | extra | ⬜ |
-| | 🎬 **API do YouTube**: som a sério no leitor (IFrame API) e, se der, dados dos vídeos | extra | ⬜ |
-| **ter 27** | 🎁 **Surpresa dos 5 min com roleta** (primeiro simples: girar e parar; depois acelerar/abrandar/fumo) | extra | ⬜ |
-| | 🔊 **Efeitos sonoros** a sério (ficheiros de som) na roleta e noutros botões | extra | ⬜ |
-| **qua 28 – qui 29** | 🔍 **Revisão de código** (2 dias), ficheiro a ficheiro + apagar as criações de teste e criar umas bonitas | **OBRIGATÓRIO** | ⬜ |
-| | 📱 **Analisar a responsividade no telemóvel** (todas as páginas, barra do topo, leitor, janelas) | **OBRIGATÓRIO** | ⬜ |
-| **sex 30** | 🚀 **Publicar** + **README** (de manhã) → 🏁 **ENTREGA** | **OBRIGATÓRIO** | ⬜ |
+| **qui 22** | ✏️ Editar + 🎨 CSS + 🎬 38 vídeos no Explorar + 🎵 leitor no rodapé (sem som) | — | ✅ |
+| **sex 23** | 🎵 Pausa/retoma da música com os vídeos + ⚔️ Arena (Duelo + pódio) + 📱 menu ☰ e telemóvel | extra | ✅ |
+| | 🤓 **Quem Quer Ser Sabichão?** (estilo Milionário; substitui a Adivinha contra o relógio; vídeo de entrada RTP 2008 cortado antes do logótipo + título nosso): 4 respostas, escada de prémios com o pipe `currency` | extra | ⬜ |
+| **sáb 24** | 🗄️ **Supabase 1**: tabela `criacoes` + `listar()` e `criar()` | **OBRIG.** | ⬜ |
+| **dom 25** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ⬜ |
+| **seg 26** | 🔐 **Autenticação**: página Entrar/Registar (formulário reativo com `Validators.email`), cada pessoa vê só as suas criações | **OBRIG.** | ⬜ |
+| ~~ter 27~~ **sex 23** | 🚀 **GitHub Actions + Pages** a funcionar → https://carlosgon-dev.github.io/projeto_angular/ (com 404.html para os links diretos) | **OBRIG.** | ✅ |
+| **ter 27** | 🔑 Chave do Supabase nos **Secrets** do GitHub (variáveis de ambiente no build) + testar o login na versão publicada | **OBRIG.** | ⬜ |
+| **qua 28** | 💰 Sabichão: ajudas (50:50, público, telefone) + vídeo de entrada e música de suspense | extra | ⬜ |
+| | 🤖 IA no Gerador (Gemini, chave numa Edge Function) | extra | ⬜ |
+| ~~qui 29~~ **sex 23** | 🎁 **Roleta da surpresa**: aparece ao abrir a app (e no F5) + botão 🎰, gira 3 s e mostra meme/piada/adivinha/vídeo; vídeo pausa a música | extra | ✅ |
+| ~~qui 29~~ **sex 23** | 🎰 **Roleta turbo**: ⏪ abrandar, ⏩ acelerar, ⏹ parar (trava devagar), fumo + faíscas, treme no máximo, trava sozinha aos 12 s (`requestAnimationFrame`) | extra | ✅ |
+| **qui 29** | 🎬 Som do YouTube no leitor | extra | ⬜ |
+| ~~qui 29~~ **sex 23** | 🔊 Sons da roleta: música do Preço Certo (abranda e fica grave ao travar), VRUUUM, travagem, 💥 acidente | extra | ✅ |
+| **sex 30** | 🔍 **Revisão de código** (parte 1) + 📱 responsividade | **OBRIG.** | ⬜ |
+| **sáb 31** | 🔍 **Revisão de código** (parte 2) + 📝 **README** + limpar criações de teste | **OBRIG.** | ⬜ |
+| **dom 01** | ☀️ **Manhã:** últimos retoques → 🏁 **ENTREGA** · 🛋️ **Tarde: LIVRE!** | **OBRIG.** | ⬜ |
+| **seg 02** | 🎤 **Apresentação às 09:00** | | |
 
-> ✂️ **Se o tempo apertar, corta-se por esta ordem:** efeitos sonoros → fumo/acelerar da roleta → API do YouTube → IA a sério no Gerador → Adivinha contra o relógio → Duelo → surpresa → playlist → vídeos.
-> 🛡️ **Nunca se corta:** Supabase, revisão, responsividade, publicar, README.
-> ⚠️ **Chaves de API (Gemini, YouTube) nunca no código do site** — o repositório é público. Ficam numa Edge Function do Supabase.
+> ✂️ **Se o tempo apertar, corta-se por esta ordem:** efeitos sonoros → roleta → som do YouTube → IA no Gerador → ajudas do Sabichão → Sabichão → Duelo.
+> 🛡️ **Nunca se corta:** Supabase, autenticação, GitHub Actions/Pages, revisão, responsividade, README.
+> ⚠️ **Chaves de API (Gemini, YouTube) nunca no código do site** — o repositório é público.
 
 **🎮 Jogos e surpresa (decidido a 22/10)**
 - [ ] ⚔️ **Duelo na Arena**: 2 piadas lado a lado → clicas na melhor → ganha 1 ponto → novo duelo. Pódio 🥇🥈🥉. Com Supabase: ranking guardado na base de dados
