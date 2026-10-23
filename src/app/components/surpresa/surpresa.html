@@ -1,0 +1,94 @@
+<button class="experimentar" (click)="abrir()" title="Surpresa já!">🎰</button>
+
+@if (aberta()) {
+  <app-janela (fechar)="fechar()">
+    <div class="surpresa">
+      <h2>🎁 Surpresa!</h2>
+
+      <div class="roleta-zona" [class.tremer]="no_maximo()">
+        <span class="ponteiro">▼</span>
+        <div class="roleta" [style.transform]="'rotate(' + rotacao() + 'deg)'">
+          <span style="--a: 45deg">🖼️</span>
+          <span style="--a: 135deg">😂</span>
+          <span style="--a: 225deg">🧩</span>
+          <span style="--a: 315deg">🎬</span>
+        </div>
+
+        <!-- Fumo e faíscas: cada partícula apaga-se sozinha quando a animação acaba -->
+        @for (particula of fumo(); track particula.id) {
+          <span
+            class="fumo"
+            [class.faisca]="particula.faisca"
+            [style.left.%]="particula.x"
+            [style.top.%]="particula.y"
+            [style.--dx]="particula.dx + 'px'"
+            [style.--dy]="particula.dy + 'px'"
+            [style.--escala]="particula.escala"
+            (animationend)="apagar_particula(particula.id)"
+          ></span>
+        }
+      </div>
+
+      @switch (fatia()) {
+        @case (null) {
+          @if (pronta()) {
+            <p class="estado">Tens uma surpresa à tua espera! 🎁</p>
+            <div class="botoes-roleta">
+              <button (click)="girar()">🎰 Girar a roleta!</button>
+            </div>
+          } @else {
+            <p class="estado">
+              @if (a_travar()) {
+                A travar… 🤞
+              } @else if (no_maximo()) {
+                🔥 VELOCIDADE MÁXIMA! 🔥
+              } @else {
+                A girar… para quando quiseres!
+              }
+            </p>
+
+            <div class="velocimetro">
+              <span [style.width.%]="(velocidade() / velocidade_maxima) * 100"></span>
+            </div>
+
+            @if (!a_travar()) {
+              <div class="botoes-roleta">
+                <button class="secundario" (click)="abrandar()">⏪ Abrandar</button>
+                <button class="secundario" (click)="acelerar()">⏩ Acelerar!</button>
+                <button (click)="parar()">⏹ Parar!</button>
+              </div>
+            }
+          }
+        }
+        @case ('meme') {
+          @if (meme(); as m) {
+            <app-cartao-meme [imagem]="m.imagem" />
+            <p class="estado">{{ m.titulo }}</p>
+          }
+        }
+        @case ('piada') {
+          @if (piada(); as p) {
+            <app-cartao-texto [criacao]="p" />
+          }
+        }
+        @case ('adivinha') {
+          @if (adivinha(); as a) {
+            <app-cartao-texto [criacao]="a" />
+          }
+        }
+        @case ('video') {
+          @if (video(); as v) {
+            <iframe
+              class="leitor-video"
+              [src]="v.youtube_id | youtube"
+              [title]="v.titulo"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+            <p class="estado">{{ v.titulo }}</p>
+          }
+        }
+      }
+    </div>
+  </app-janela>
+}

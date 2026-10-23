@@ -1,0 +1,153 @@
+.experimentar {
+  position: fixed;
+  right: 1rem;
+  bottom: 5rem;
+  z-index: 45;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  background: var(--destaque);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.surpresa {
+  background: var(--cartao);
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.surpresa h2 {
+  margin: 0;
+}
+
+/* A roleta: um círculo com 4 fatias de cores */
+.roleta-zona {
+  position: relative;
+  width: 14rem;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.ponteiro {
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--amarelo);
+  font-size: 1.6rem;
+}
+
+.roleta {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid var(--texto);
+  background: conic-gradient(#e8336f 0 90deg, #ffc93c 90deg 180deg, #18b3a4 180deg 270deg, #7b3fe4 270deg 360deg);
+}
+
+.roleta span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 1.9rem;
+  transform: translate(-50%, -50%) rotate(var(--a)) translateY(-3.6rem) rotate(calc(-1 * var(--a)));
+}
+
+.estado {
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+}
+
+.leitor-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 0.875rem;
+}
+
+/* Barra da velocidade: do amarelo ao rosa */
+.velocimetro {
+  width: 14rem;
+  max-width: 100%;
+  height: 6px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: var(--linha);
+  overflow: hidden;
+}
+
+.velocimetro span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--amarelo), var(--rosa));
+}
+
+.botoes-roleta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.botoes-roleta .secundario {
+  background: transparent;
+  color: var(--texto);
+  border: 1px solid var(--linha);
+}
+
+/* Fumo: uma bolinha cinzenta que sobe, cresce e desaparece */
+.fumo {
+  position: absolute;
+  z-index: 3;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(200, 198, 214, 0.85) 0%, rgba(160, 158, 176, 0.45) 45%, transparent 70%);
+  animation: fumo-sobe 1.2s ease-out forwards;
+}
+
+/* Faísca: pequenina, amarela e rápida */
+.fumo.faisca {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: radial-gradient(circle, #fff6c2 0%, #ffc93c 45%, #ff5c1a 75%, transparent 80%);
+  animation-duration: 0.6s;
+}
+
+@keyframes fumo-sobe {
+  from {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.9;
+  }
+  to {
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(var(--escala));
+    opacity: 0;
+  }
+}
+
+/* Na velocidade máxima, a roleta treme */
+.roleta-zona.tremer {
+  animation: tremer 0.12s infinite;
+}
+
+@keyframes tremer {
+  25% {
+    transform: translate(-1.5px, 1px);
+  }
+  50% {
+    transform: translate(1.5px, -1px);
+  }
+  75% {
+    transform: translate(-1px, -1.5px);
+  }
+}
