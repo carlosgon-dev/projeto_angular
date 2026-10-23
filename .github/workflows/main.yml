@@ -31,7 +31,7 @@ jobs:
 
       - name: Build Angular Project
         run: |
-          npm run build -- --configuration production --base-href "/meu-projeto/"
+          npm run build -- --configuration production --base-href "/projeto_angular/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -39,7 +39,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/meu-projeto/browser'
+          path: 'dist/projeto_angular/browser'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
