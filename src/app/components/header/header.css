@@ -1,4 +1,3 @@
-/* Barra escura no topo, que fica presa ao fazer scroll */
 .topo {
   position: sticky;
   top: 0;
@@ -42,8 +41,47 @@ nav a:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* O separador onde estás (o routerLinkActive põe esta classe sozinho) */
 nav a.ativo {
   background: var(--amarelo);
   color: #2a2100;
+}
+
+/* O botão ☰ só existe no telemóvel */
+.burger {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .topo {
+    justify-content: space-between;
+  }
+
+  .burger {
+    display: block;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--barra-texto);
+    font-size: 1.3rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    border-radius: 0.6rem;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+  }
+
+  nav.aberto {
+    display: flex;
+  }
+
+  nav a {
+    padding: 0.75rem 1rem;
+    border-radius: 0.6rem;
+  }
 }

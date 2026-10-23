@@ -1,0 +1,24 @@
+<h1>Arena ⚔️</h1>
+<p class="intro">Qual destas tem mais graça? Clica nela. A vencedora ganha 1 ponto e entra outro duelo.</p>
+
+@if (piadas().length > 1) {
+  <div class="duelo">
+    @for (lado of [0, 1]; track lado) {
+      <div class="lutador clicavel" [class.venceu]="vencedora() === lado" (click)="votar(lado)">
+        <app-cartao-texto [criacao]="piadas()[par()[lado]]" />
+      </div>
+      @if (lado === 0) {
+        <span class="vs">VS</span>
+      }
+    }
+  </div>
+
+  <section class="caixa podio">
+    <h2>🏆 Pódio da Arena</h2>
+    @for (lugar of podio(); track lugar.piada.id; let i = $index) {
+      <p><span class="medalha">{{ ['🥇', '🥈', '🥉'][i] }}</span> {{ lugar.piada.pergunta }} <strong>{{ lugar.pontos }} pts</strong></p>
+    } @empty {
+      <p class="intro">Ainda não há campeões. Vota na primeira!</p>
+    }
+  </section>
+}

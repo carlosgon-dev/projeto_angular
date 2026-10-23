@@ -13,6 +13,8 @@ export class LeitorService {
   a_tocar = signal(false);
   volume = signal(VOLUME_INICIAL);
   mudo = signal(false);
+ private pausado_pelo_video = false;
+
 
   constructor(private video_service: VideoService) {
     this.video_service.listar_videos().subscribe((lista) =>
@@ -25,6 +27,7 @@ export class LeitorService {
   }
 
   tocar_ou_pausar(): void {
+    this.pausado_pelo_video = false;
     this.a_tocar.set(!this.a_tocar());
   }
 
@@ -50,4 +53,18 @@ export class LeitorService {
     if (total === 0) return;
     this.indice.set((this.indice() + passo + total) % total);
   }
+
+  pausar_por_video(): void {
+    if (!this.a_tocar()) return;
+    this.a_tocar.set(false);
+    this.pausado_pelo_video = true;
+  }
+
+  retomar_depois_do_video(): void {
+    if (!this.pausado_pelo_video) return;
+    this.pausado_pelo_video = false;
+    this.a_tocar.set(true);
+  }
+
+
 }

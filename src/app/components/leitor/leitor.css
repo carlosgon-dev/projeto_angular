@@ -75,12 +75,29 @@
 }
 
 @media (max-width: 600px) {
-  .dentro {
-    grid-template-columns: auto 1fr;
+  .leitor {
+    padding: 0.4rem 0.75rem;
   }
 
-  .controlos {
-    grid-column: 1 / -1;
-    justify-content: center;
+  .dentro {
+    gap: 0.6rem;
   }
+
+  .capa {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.1rem;
+  }
+
+  .controlos input,
+  .controlos button:first-child {
+    display: none;
+  }
+
+    .controlos button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+
 }

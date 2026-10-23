@@ -41,7 +41,7 @@
   <h2>🎬 Vídeos</h2>
   <div class="grelha">
     @for (video of videos_filtrados(); track video.id) {
-      <div class="caixa clicavel video" (click)="video_aberto.set(video)">
+      <div class="caixa clicavel video" (click)="abrir_video(video)">
         <img [src]="imagem_do_video(video)" [alt]="video.titulo" />
         <p><strong>{{ video.titulo }}</strong></p>
         <p>▶ Ver vídeo</p>

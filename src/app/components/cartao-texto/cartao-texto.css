@@ -56,3 +56,13 @@
   border: 1px solid var(--linha);
   margin-bottom: 0.5rem;
 }
+
+@media (max-width: 600px) {
+  .texto-piada {
+    font-size: 0.95rem;
+  }
+
+  .pergunta {
+    font-size: 1.1rem;
+  }
+}
