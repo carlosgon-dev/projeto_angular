@@ -12,6 +12,7 @@ import { Filtro } from '../../components/filtro/filtro';
 import { CartaoMeme } from '../../components/cartao-meme/cartao-meme';
 import { CartaoTexto } from '../../components/cartao-texto/cartao-texto';
 import { Janela } from '../../components/janela/janela';
+import { LeitorService } from '../../services/leitor-service';
 
 const ENDERECO_IMAGEM_YOUTUBE = 'https://i.ytimg.com/vi/';
 
@@ -42,6 +43,7 @@ export class Explorar implements OnInit {
   constructor(
     private explorar_service: ExplorarService,
     private video_service: VideoService,
+    private leitor_service: LeitorService,
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +61,7 @@ export class Explorar implements OnInit {
     this.meme_aberto.set(undefined);
     this.texto_aberto.set(undefined);
     this.video_aberto.set(undefined);
+    this.leitor_service.retomar_depois_do_video();
   }
 
   videos_filtrados(): Video[] {
@@ -68,4 +71,10 @@ export class Explorar implements OnInit {
   imagem_do_video(video: Video): string {
     return `${ENDERECO_IMAGEM_YOUTUBE}${video.youtube_id}/hqdefault.jpg`;
   }
+
+    abrir_video(video: Video): void {
+    this.video_aberto.set(video);
+    this.leitor_service.pausar_por_video();
+  }
+
 }

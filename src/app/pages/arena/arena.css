@@ -1,0 +1,57 @@
+.intro {
+  color: var(--texto-suave);
+  margin-top: 0;
+}
+
+/* Piada | VS | Piada */
+.duelo {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin-bottom: 1.5rem;
+}
+
+.lutador {
+  cursor: pointer;
+  border-radius: 0.875rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.lutador:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 2px var(--rosa);
+}
+
+.lutador.venceu {
+  box-shadow: 0 0 0 3px var(--amarelo);
+}
+
+.vs {
+  align-self: center;
+  font-family: var(--letra-meme);
+  font-size: 2.5rem;
+  color: var(--rosa);
+}
+
+.podio p {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.podio strong {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .duelo {
+    grid-template-columns: 1fr;
+  }
+
+  .vs {
+    justify-self: center;
+    font-size: 1.5rem;
+  }
+}

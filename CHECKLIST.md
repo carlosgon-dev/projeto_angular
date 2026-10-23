@@ -57,22 +57,26 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | Dia | O quê | Tipo | Estado |
 |---|---|---|---|
 | **qui 22** | ✏️ Editar (U do CRUD) + CSS por página + protótipos | — | ✅ |
-| | 📝 *Trabalho de casa leve:* escolher vídeos no YouTube → **38 escolhidos** (18 músicas, 13 apanhados, 7 humoristas), todos deixam ser vistos noutros sites | extra | ✅ |
-| **sex 23** | 🎬 **Vídeos no Explorar**: interface `Video`, `videos.json`, `VideoService`, pipe `youtube` (`DomSanitizer`), `Filtro` com `@Input() opcoes` (6 filtros) | extra | ✅ (qui 22!) |
-| | 🎵 **Leitor/playlist** no `app.html` + `LeitorService` — barra no rodapé com ⏮ ▶ ⏭ 🔊 e volume, 18 músicas do `videos.json` | extra | ✅ (qui 22, ainda sem som) |
-| | 🎵 Leitor: `pausar()` / `retomar()` ao abrir/fechar um vídeo | extra | ⬜ |
-| | 🔊 Leitor: **som a sério** com a API do YouTube (`@types/youtube`) — depois do Supabase | extra | ⬜ |
+| | 📝 Escolher vídeos no YouTube → **38** (18 músicas, 13 apanhados, 7 humoristas) | extra | ✅ |
+| | 🎬 **Vídeos no Explorar**: `Video`, `videos.json`, `VideoService`, pipe `youtube` (`DomSanitizer`), `Filtro` com `@Input() opcoes` | extra | ✅ |
+| | 🎵 **Leitor no rodapé** + `LeitorService`: ⏮ ▶ ⏭ 🔊 e volume, 18 músicas (ainda sem som) | extra | ✅ |
+| **sex 23** | 🎵 Leitor: `pausar()` / `retomar()` ao abrir/fechar um vídeo | extra | ✅ |
+| | ⚔️ Separador **Arena**: Duelo na Arena (pódio 🥇🥈🥉) | extra | ✅ |
+| | 📱 Telemóvel: menu **hambúrguer** ☰, leitor numa linha, títulos das páginas escondidos, letras mais pequenas | extra | ✅ |
+| | ⏱️ Arena: Adivinha contra o relógio | extra | ⬜ |
 | **sáb 24** | 🗄️ **Supabase 1**: criar a tabela `criacoes` + `listar()` e `criar()` | **OBRIGATÓRIO** | ⬜ |
-| **dom 25** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro no Criado por ti | **OBRIGATÓRIO** | ⬜ |
-| **seg 26** | ⚔️ Separador **Arena**: Duelo na Arena + ⏱️ Adivinha contra o relógio | extra | ⬜ |
-| **ter 27** | 🎁 **Surpresa dos 5 min com roleta** (primeiro a versão simples: girar e parar; depois acelerar/abrandar/fumo) | extra | ⬜ |
-| | 🔊 **Efeitos sonoros** a sério (ficheiros de som, não os sintetizados) na roleta e noutros botões | extra | ⬜ |
-| **qua 28** | 🔍 **Revisão de código**, ficheiro a ficheiro + apagar as criações de teste e criar umas bonitas | **OBRIGATÓRIO** | ⬜ |
-| **qui 29** | 🚀 **Publicar** + **README** + ensaiar a apresentação | **OBRIGATÓRIO** | ⬜ |
-| **sex 30** | 🏁 **ENTREGA** | | |
+| **dom 25** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro no Criado por ti *(reserva: só se o sábado não chegar)* | **OBRIGATÓRIO** | ⬜ |
+| **seg 26** | 🤖 **IA a sério no Gerador** (Gemini, plano gratuito) — chave escondida numa **Edge Function do Supabase** | extra | ⬜ |
+| | 🎬 **API do YouTube**: som a sério no leitor (IFrame API) e, se der, dados dos vídeos | extra | ⬜ |
+| **ter 27** | 🎁 **Surpresa dos 5 min com roleta** (primeiro simples: girar e parar; depois acelerar/abrandar/fumo) | extra | ⬜ |
+| | 🔊 **Efeitos sonoros** a sério (ficheiros de som) na roleta e noutros botões | extra | ⬜ |
+| **qua 28 – qui 29** | 🔍 **Revisão de código** (2 dias), ficheiro a ficheiro + apagar as criações de teste e criar umas bonitas | **OBRIGATÓRIO** | ⬜ |
+| | 📱 **Analisar a responsividade no telemóvel** (todas as páginas, barra do topo, leitor, janelas) | **OBRIGATÓRIO** | ⬜ |
+| **sex 30** | 🚀 **Publicar** + **README** (de manhã) → 🏁 **ENTREGA** | **OBRIGATÓRIO** | ⬜ |
 
-> ✂️ **Se o tempo apertar, corta-se por esta ordem:** efeitos sonoros → fumo/acelerar da roleta → Adivinha contra o relógio → Duelo → surpresa → playlist → vídeos.
-> 🛡️ **Nunca se corta:** Supabase, revisão, publicar, README.
+> ✂️ **Se o tempo apertar, corta-se por esta ordem:** efeitos sonoros → fumo/acelerar da roleta → API do YouTube → IA a sério no Gerador → Adivinha contra o relógio → Duelo → surpresa → playlist → vídeos.
+> 🛡️ **Nunca se corta:** Supabase, revisão, responsividade, publicar, README.
+> ⚠️ **Chaves de API (Gemini, YouTube) nunca no código do site** — o repositório é público. Ficam numa Edge Function do Supabase.
 
 **🎮 Jogos e surpresa (decidido a 22/10)**
 - [ ] ⚔️ **Duelo na Arena**: 2 piadas lado a lado → clicas na melhor → ganha 1 ponto → novo duelo. Pódio 🥇🥈🥉. Com Supabase: ranking guardado na base de dados

@@ -1,7 +1,13 @@
 <header class="topo">
-  <a class="marca" routerLink="/">Arena <b>do</b> Riso</a>
-  <nav>
+  <a class="marca" routerLink="/" (click)="fechar_menu()">Arena <b>do</b> Riso</a>
+
+  <button class="burger" (click)="alternar_menu()" aria-label="Abrir o menu">
+    {{ menu_aberto() ? '✕' : '☰' }}
+  </button>
+
+  <nav [class.aberto]="menu_aberto()" (click)="fechar_menu()">
     <a routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">Início</a>
+    <a routerLink="/arena" routerLinkActive="ativo">Arena</a>
     <a routerLink="/explorar" routerLinkActive="ativo">Explorar</a>
     <a routerLink="/gerador" routerLinkActive="ativo">Gerador</a>
     <a routerLink="/escrever" routerLinkActive="ativo">Escrever</a>
