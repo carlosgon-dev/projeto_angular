@@ -8,6 +8,7 @@ import { CriadoPorTi } from './pages/criado-por-ti/criado-por-ti';
 import { NaoEncontrado } from './pages/nao-encontrado/nao-encontrado';
 import { Arena } from './pages/arena/arena';
 import { Entrar } from './pages/entrar/entrar';
+import { NovaPassword } from './pages/nova-password/nova-password';
 
 export const routes: Routes = [
   { path: '', component: Inicio },
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'meme/:id', component: EditorMeme, data: { privada: true } },
   { path: 'criado', component: CriadoPorTi, data: { privada: true } },
   { path: 'entrar', component: Entrar },
+  { path: 'nova-password', component: NovaPassword },
   { path: '**', component: NaoEncontrado },
 ];

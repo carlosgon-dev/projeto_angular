@@ -68,7 +68,7 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **ter 27** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ✅ (seg 26, com a carregar/erro + timeout + corneta 🎺) |
 | ~~qua 28~~ **seg 26** | 🔐 **Autenticação**: registar (com confirmação por email), entrar, sair; `user_id` + policies (cada um vê as suas); Início e Explorar abertos, o resto mostra o formulário de entrar no lugar da página | **OBRIG.** | ✅ |
 | **ter 27** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
-| | 🔐 **"Esqueceste-te da password?"**: pedir o email de recuperação + página para escolher a password nova (⚠️ limite de ~2 emails/hora) | extra | ⬜ |
+| ~~ter 27~~ **seg 26** | 🔐 **"Esqueceste-te da password?"**: pedir o email de recuperação + página para escolher a password nova (⚠️ limite de ~2 emails/hora) | extra | ✅ |
 | **qua 28** | 🤖 IA no Gerador (Gemini, chave numa Edge Function) | extra | ⬜ |
 | | 🔊 **Efeitos sonoros em vários botões** (`SomService.tocar()`, ficheiros do Pixabay) | extra | ⬜ |
 | **qui 29** | 📱 **Responsividade no telemóvel**: passar todas as páginas a 400 px (menu ☰, leitor, janelas, roleta, formulários) | **OBRIG.** | 🟡 (seg 26: Início 2×2 + Arena, Gerador/Editor numa coluna, filtros 3 por linha; falta testar o resto) |
