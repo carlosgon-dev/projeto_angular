@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { from, map, Observable, of } from 'rxjs';
+import { from, map, Observable, switchMap } from 'rxjs';
 import { Criacao, NovaCriacao } from '../models/criacao';
 import { Estrelas } from '../models/criacao-base';
 import { SupabaseService } from './supabase-service';
 
-const CHAVE_GAVETA = 'arena-criacoes';
 const TABELA = 'criacoes';
 
 @Injectable({
@@ -31,39 +30,34 @@ export class CriacoesService {
   }
 
   apagar(id: number): Observable<Criacao[]> {
-    const restantes = this.ler_gaveta().filter((criacao) => criacao.id !== id);
-    this.gravar_gaveta(restantes);
-    return of(restantes);
+    const pedido = this.supabase_service.cliente.from(TABELA).delete().eq('id', id);
+    return this.e_depois_listar(pedido);
   }
 
   avaliar(id: number, estrelas: Estrelas): Observable<Criacao[]> {
-    const criacoes = this.ler_gaveta().map((criacao) =>
-      criacao.id === id ? { ...criacao, estrelas } : criacao,
-    );
-    this.gravar_gaveta(criacoes);
-    return of(criacoes);
+    const pedido = this.supabase_service.cliente.from(TABELA).update({ estrelas }).eq('id', id);
+    return this.e_depois_listar(pedido);
   }
 
   editar(id: number, alteracoes: Partial<Criacao>): Observable<Criacao[]> {
-    const criacoes = this.ler_gaveta().map((criacao) =>
-      criacao.id === id ? ({ ...criacao, ...alteracoes } as Criacao) : criacao,
-    );
-    this.gravar_gaveta(criacoes);
-    return of(criacoes);
-  }
-
-  private ler_gaveta(): Criacao[] {
-    const texto = localStorage.getItem(CHAVE_GAVETA);
-    if (!texto) return [];
-    return JSON.parse(texto);
-  }
-
-  private gravar_gaveta(criacoes: Criacao[]): void {
-    localStorage.setItem(CHAVE_GAVETA, JSON.stringify(criacoes));
+    const pedido = this.supabase_service.cliente
+      .from(TABELA)
+      .update(alteracoes as Record<string, unknown>)
+      .eq('id', id);
+    return this.e_depois_listar(pedido);
   }
 
   private dados_ou_erro<T>(resposta: { data: unknown; error: { message: string } | null }): T {
     if (resposta.error) throw new Error(resposta.error.message);
     return resposta.data as T;
+  }
+
+  private e_depois_listar(
+    pedido: PromiseLike<{ data: unknown; error: { message: string } | null }>,
+  ): Observable<Criacao[]> {
+    return from(pedido).pipe(
+      map((resposta) => this.dados_ou_erro(resposta)),
+      switchMap(() => this.listar()),
+    );
   }
 }

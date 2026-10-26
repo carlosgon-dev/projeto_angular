@@ -73,7 +73,7 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **sex 30** | 🔍 **Revisão de código** (parte 1) + 📱 responsividade | **OBRIG.** | ⬜ |
 | **sáb 31** | 🔍 **Revisão de código** (parte 2) + 📝 **README** + limpar criações de teste | **OBRIG.** | ⬜ |
 | **dom 01** | ☀️ Últimos retoques → 🏁 **ENTREGA até às 23:59** (a tarde livre foi trocada pela folga de sáb 24) | **OBRIG.** | ⬜ |
-| **seg 02** | 🎤 **Apresentação às 09:00** | | |
+| **seg 02** | 🎤 **Apresentação às 09:00** — ⚠️ antes, abrir o site e confirmar que as criações carregam (o Supabase grátis adormece ao fim de 7 dias sem uso → "Restore project") | | |
 
 > ✂️ **Se o tempo apertar, corta-se por esta ordem:** Sabichão → som do YouTube → IA no Gerador.
 > 🛡️ **Nunca se corta:** Supabase, autenticação, GitHub Actions/Pages, revisão, responsividade, README.
