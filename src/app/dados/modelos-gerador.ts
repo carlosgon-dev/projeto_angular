@@ -1,100 +1,103 @@
-// Frases-modelo usadas para SIMULAR o Gemini na parte 1.
-// Na parte 2, quem escreve as piadas é o Gemini (através do backend) e este ficheiro deixa de ser preciso.
+// Frases-modelo: o PLANO B do Gerador.
+// Quem escreve as piadas é a IA (Gemini, através da Edge Function do Supabase).
+// Se a IA falhar (sem internet, demora, resposta estranha), o GeradorService usa estas frases.
 
 import { Estilo } from '../models/estilo';
 import { PedidoGerador } from '../models/pedido-gerador';
 
 // Uma frase-modelo recebe o pedido (as palavras) e devolve a pergunta e a segunda parte
 // (o remate, numa piada, ou a resposta, numa adivinha).
+// Nota: o "lugar" já vem com a preposição (ex.: "na casa de banho do Continente").
 export type Modelo = (pedido: PedidoGerador) => { pergunta: string; segunda_parte: string };
 
 // Para cada estilo, 3 frases por ordem de maldade: [suave (1-3), marota (4-7), sem dó (8-10)]
 export const MODELOS_PIADA: Record<Estilo, Modelo[]> = {
   [Estilo.Classica]: [
     (pedido) => ({
-      pergunta: `Porque é que ${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, anda sempre com ${pedido.objeto} atrás?`,
-      segunda_parte: `Porque da última vez que se esqueceu, foi atacado por ${pedido.fruta}. Nunca mais.`,
+      pergunta: `Porque é que ${pedido.nome}, ${pedido.profissao}, anda sempre com ${pedido.objeto} atrás?`,
+      segunda_parte: `Porque da última vez que se esqueceu, foi atacado por ${pedido.animal} ${pedido.lugar}. Nunca mais.`,
     }),
     (pedido) => ({
-      pergunta: `Em ${pedido.pais}, ${pedido.nome} (${pedido.profissao}) tentou pagar a renda com ${pedido.fruta}.`,
-      segunda_parte: `O senhorio aceitou… mas cobrou ${pedido.objeto} de juros.`,
+      pergunta: `${pedido.nome} (${pedido.profissao}) tentou pagar ${pedido.comida} com ${pedido.objeto}.`,
+      segunda_parte: `O empregado aceitou… mas pediu ${pedido.animal} de gorjeta.`,
     }),
     (pedido) => ({
-      pergunta: `${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, diz que trabalha imenso.`,
-      segunda_parte: `O único que trabalha ali é ${pedido.objeto}. ${pedido.nome} só aparece para comer ${pedido.fruta} e pedir aumento.`,
+      pergunta: `${pedido.nome}, ${pedido.profissao}, jura que tem um superpoder: ${pedido.superpoder}.`,
+      segunda_parte: `O único superpoder que alguém lhe viu foi desaparecer quando chega a conta de ${pedido.comida}.`,
     }),
   ],
   [Estilo.Absurda]: [
     (pedido) => ({
-      pergunta: `${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, casou com ${pedido.fruta}.`,
-      segunda_parte: `O padrinho foi ${pedido.objeto}. Chorou a cerimónia inteira.`,
+      pergunta: `${pedido.nome}, ${pedido.profissao}, casou com ${pedido.animal} ${pedido.lugar}.`,
+      segunda_parte: `O padrinho foi ${pedido.objeto}. No copo-d'água só havia ${pedido.comida}.`,
     }),
     (pedido) => ({
-      pergunta: `Disseram a ${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, para pensar fora da caixa.`,
-      segunda_parte: `Meteu ${pedido.fruta} dentro de ${pedido.objeto} e chamou-lhe inovação.`,
+      pergunta: `Disseram a ${pedido.nome} (${pedido.profissao}) para pensar fora da caixa.`,
+      segunda_parte: `Meteu ${pedido.animal} dentro de ${pedido.objeto}, ensinou-o a ${pedido.superpoder} e chamou-lhe startup.`,
     }),
     (pedido) => ({
-      pergunta: `Em ${pedido.pais}, ${pedido.nome} (${pedido.profissao}) candidatou-se a presidente.`,
-      segunda_parte: `Perdeu para ${pedido.fruta}. ${pedido.objeto} ficou com as Finanças e, mesmo assim, as contas melhoraram.`,
+      pergunta: `${pedido.nome} (${pedido.profissao}) candidatou-se a presidente com um só trunfo: ${pedido.superpoder}.`,
+      segunda_parte: `Perdeu para ${pedido.animal}. ${pedido.objeto} ficou com as Finanças e o país passou a comer ${pedido.comida} ao pequeno-almoço.`,
     }),
   ],
   [Estilo.HumorNegro]: [
     (pedido) => ({
-      pergunta: `${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, sempre disse que ${pedido.objeto} ainda lhe ia dar cabo da vida.`,
-      segunda_parte: `Tinha razão. Escorregou numa casca de ${pedido.fruta} quando o ia buscar.`,
+      pergunta: `${pedido.nome}, ${pedido.profissao}, sempre disse que ${pedido.objeto} ainda lhe ia dar cabo da vida.`,
+      segunda_parte: `Tinha razão. Engasgou-se com ${pedido.comida} ${pedido.lugar} enquanto tentava ${pedido.superpoder}.`,
     }),
     (pedido) => ({
-      pergunta: `No cemitério de ${pedido.pais} há uma campa que diz: «Aqui jaz ${pedido.nome}, ${pedido.profissao}.»`,
-      segunda_parte: `«Partiu como viveu: agarrado a ${pedido.objeto} e a jurar que ${pedido.fruta} fazia bem à saúde.»`,
+      pergunta: `No cemitério há uma campa que diz: «Aqui jaz ${pedido.nome}, ${pedido.profissao}.»`,
+      segunda_parte: `«Partiu como viveu: ${pedido.lugar}, agarrado a ${pedido.objeto} e a jurar que sabia ${pedido.superpoder}.»`,
     }),
     (pedido) => ({
-      pergunta: `Qual foi o último desejo de ${pedido.nome}, ${pedido.profissao} de ${pedido.pais}?`,
-      segunda_parte: `Ser enterrado com ${pedido.objeto}. A família deu-lhe ${pedido.fruta}. Ninguém lê testamentos até ao fim.`,
+      pergunta: `Qual foi o último desejo de ${pedido.nome}, ${pedido.profissao}?`,
+      segunda_parte: `Ser enterrado com ${pedido.objeto}. A família enterrou-o com ${pedido.animal}. Ninguém lê testamentos até ao fim.`,
     }),
   ],
 };
 
+// Nas adivinhas só há 3 palavras: o nome, o lugar e o objeto, que é a RESPOSTA
 export const MODELOS_ADIVINHA: Record<Estilo, Modelo[]> = {
   [Estilo.Classica]: [
     (pedido) => ({
-      pergunta: `${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, leva-o para todo o lado, mas nunca o come. O que é?`,
+      pergunta: `${pedido.nome} leva-o sempre ${pedido.lugar}, mas nunca o come. O que é?`,
       segunda_parte: pedido.objeto,
     }),
     (pedido) => ({
-      pergunta: `Tem casca, ${pedido.nome} descasca-a ao almoço lá em ${pedido.pais} e ninguém lhe chama objeto. O que é?`,
-      segunda_parte: pedido.fruta,
+      pergunta: `${pedido.nome} procurou-o a manhã toda ${pedido.lugar} e estava mesmo à frente do nariz. O que é?`,
+      segunda_parte: pedido.objeto,
     }),
     (pedido) => ({
-      pergunta: `Não é fruta, não vem de ${pedido.pais}, mas ${pedido.nome} (${pedido.profissao}) não sobrevivia um dia sem ele. O que é?`,
+      pergunta: `Não fala, não anda, mas ${pedido.nome} não vai a lado nenhum sem ele, nem mesmo ${pedido.lugar}. O que é?`,
       segunda_parte: pedido.objeto,
     }),
   ],
   [Estilo.Absurda]: [
     (pedido) => ({
-      pergunta: `Votou nas eleições de ${pedido.pais}, casou com ${pedido.nome} e nunca saiu da fruteira. Quem é?`,
-      segunda_parte: pedido.fruta,
-    }),
-    (pedido) => ({
-      pergunta: `${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, usa-o como chapéu, como telefone e como almofada. O que é?`,
+      pergunta: `Casou com ${pedido.nome} ${pedido.lugar} e o padre nem reparou que não respirava. O que é?`,
       segunda_parte: pedido.objeto,
     }),
     (pedido) => ({
-      pergunta: `Foi promovido a chefe de ${pedido.nome} (${pedido.profissao} em ${pedido.pais}) sem nunca ter falado. O que é?`,
+      pergunta: `${pedido.nome} usa-o como chapéu, como telefone e como almofada ${pedido.lugar}. O que é?`,
+      segunda_parte: pedido.objeto,
+    }),
+    (pedido) => ({
+      pergunta: `Foi promovido a chefe de ${pedido.nome} ${pedido.lugar} sem nunca ter dito uma palavra. O que é?`,
       segunda_parte: pedido.objeto,
     }),
   ],
   [Estilo.HumorNegro]: [
     (pedido) => ({
-      pergunta: `${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, tropeçou nela e nunca mais se levantou. O que era?`,
-      segunda_parte: `A casca de ${pedido.fruta}`,
-    }),
-    (pedido) => ({
-      pergunta: `Foi ao funeral de ${pedido.nome}, ${pedido.profissao} de ${pedido.pais}, não chorou e ainda ficou com a herança. O que é?`,
+      pergunta: `${pedido.nome} tropeçou nele ${pedido.lugar} e nunca mais se levantou. O que era?`,
       segunda_parte: pedido.objeto,
     }),
     (pedido) => ({
-      pergunta: `Acabou com ${pedido.nome} em ${pedido.pais} e o juiz absolveu-a: «é só fruta». Quem é?`,
-      segunda_parte: pedido.fruta,
+      pergunta: `Foi ao funeral de ${pedido.nome}, não chorou e ainda ficou com a herança. O que é?`,
+      segunda_parte: pedido.objeto,
+    }),
+    (pedido) => ({
+      pergunta: `Ficou com ${pedido.nome} até ao fim ${pedido.lugar}, e foi o único que não chorou. O que é?`,
+      segunda_parte: pedido.objeto,
     }),
   ],
 };

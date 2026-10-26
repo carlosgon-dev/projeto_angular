@@ -14,28 +14,44 @@
       <p class="erro">Escreve pelo menos 2 letras.</p>
     }
 
-    <label>País</label>
-    <input formControlName="pais" placeholder="ex.: Portugal" />
-    @if (form.get('pais')?.invalid && form.get('pais')?.touched) {
+    @if (!e_adivinha()) {
+      <label>Profissão</label>
+      <input formControlName="profissao" placeholder="ex.: canalizador" />
+      @if (form.get('profissao')?.invalid && form.get('profissao')?.touched) {
+        <p class="erro">Escreve pelo menos 3 letras.</p>
+      }
+    }
+
+    <label>📍 Onde?</label>
+    <input formControlName="lugar" placeholder="ex.: na casa de banho do Continente" />
+    @if (form.get('lugar')?.invalid && form.get('lugar')?.touched) {
       <p class="erro">Escreve pelo menos 3 letras.</p>
     }
 
-    <label>Profissão</label>
-    <input formControlName="profissao" placeholder="ex.: canalizador" />
-    @if (form.get('profissao')?.invalid && form.get('profissao')?.touched) {
-      <p class="erro">Escreve pelo menos 3 letras.</p>
-    }
-
-    <label>Objeto</label>
+    <label>{{ e_adivinha() ? "🎯 O que se vai adivinhar (a resposta)" : "Objeto" }}</label>
     <input formControlName="objeto" placeholder="ex.: um guarda-chuva" />
     @if (form.get('objeto')?.invalid && form.get('objeto')?.touched) {
       <p class="erro">Escreve pelo menos 2 letras.</p>
     }
 
-    <label>Fruta</label>
-    <input formControlName="fruta" placeholder="ex.: uma banana" />
-    @if (form.get('fruta')?.invalid && form.get('fruta')?.touched) {
-      <p class="erro">Escreve pelo menos 2 letras.</p>
+    @if (!e_adivinha()) {
+      <label>🐐 Animal</label>
+      <input formControlName="animal" placeholder="ex.: uma cabra" />
+      @if (form.get('animal')?.invalid && form.get('animal')?.touched) {
+        <p class="erro">Escreve pelo menos 2 letras.</p>
+      }
+
+      <label>🦸 Superpoder</label>
+      <input formControlName="superpoder" placeholder="ex.: falar com pombos" />
+      @if (form.get('superpoder')?.invalid && form.get('superpoder')?.touched) {
+        <p class="erro">Escreve pelo menos 3 letras.</p>
+      }
+
+      <label>🍕 Comida</label>
+      <input formControlName="comida" placeholder="ex.: uma bifana" />
+      @if (form.get('comida')?.invalid && form.get('comida')?.touched) {
+        <p class="erro">Escreve pelo menos 2 letras.</p>
+      }
     }
 
     <label>Estilo</label>
@@ -57,24 +73,26 @@
   <div class="resultado">
     @if (a_pensar()) {
       <p class="a-pensar">🤖 A pensar numa piada…</p>
-    }
-
-    @if (resultado(); as criacao) {
+    } @else if (resultado(); as criacao) {
       @if (criacao.tipo !== 'meme') {
-        <h2>Aqui está!</h2>
+        <h2>Guardada! 🎉</h2>
         <app-cartao-texto [criacao]="criacao" />
         <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
         <p>✅ Guardado em <a routerLink="/criado">Criado por ti</a></p>
       }
-    }
-
-    @if (!a_pensar() && !resultado()) {
+    } @else if (rascunho(); as texto) {
+      <h2>Aqui está!</h2>
+      <app-cartao-texto [criacao]="texto" />
+      <button class="guardar" (click)="guardar()" [disabled]="a_guardar()">
+        {{ a_guardar() ? '⏳ A guardar…' : '💾 Guardar' }}
+      </button>
+      <p class="dica-gerar">Não gostaste? Carrega outra vez em <strong>Gerar</strong>.</p>
+    } @else {
       <div class="vazio">
         <p>🤖</p>
         <p>Preenche o formulário e carrega em <strong>Gerar</strong>.<br />
         A tua piada aparece aqui!</p>
       </div>
     }
-
   </div>
 </div>
