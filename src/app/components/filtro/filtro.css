@@ -15,3 +15,21 @@
   background: var(--texto);
   color: var(--fundo);
 }
+
+@media (max-width: 600px) {
+  .filtros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .filtros button {
+    padding: 0.45rem 0.25rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+

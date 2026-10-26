@@ -150,6 +150,13 @@ textarea.ng-invalid.ng-touched {
   align-items: start;
 }
 
+@media (max-width: 600px) {
+  .lado-a-lado {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .botao {
   text-align: center;
   text-decoration: none;
