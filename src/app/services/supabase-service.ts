@@ -1,10 +1,10 @@
-import { Service } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { Injectable } from '@angular/core';
+import { createClient } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
-import { Database } from '../../../supabase';
 
-@Service()
+@Injectable({
+  providedIn: 'root',
+})
 export class SupabaseService {
-    readonly supabaseClient = createClient<Database>(environment.supabaseURL, environment.supabaseKey)
-
+  readonly cliente = createClient(environment.supabaseURL, environment.supabaseKey);
 }

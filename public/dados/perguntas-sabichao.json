@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "pergunta": "O que é que tem dentes mas não morde?",
+    "opcoes": ["Um pente", "Um tubarão", "Um cão bravo", "A tua sogra"],
+    "certa": 0
+  },
+  {
+    "id": 2,
+    "pergunta": "O que é que sobe e desce sem sair do sítio?",
+    "opcoes": ["Um elevador", "Um ioiô", "A temperatura", "Um avião"],
+    "certa": 2
+  },
+  {
+    "id": 3,
+    "pergunta": "Quanto mais lhe tiras, maior fica. O que é?",
+    "opcoes": ["Uma fila no supermercado", "Um buraco", "Um balão", "Uma dívida"],
+    "certa": 1
+  },
+  {
+    "id": 4,
+    "pergunta": "Tem pescoço mas não tem cabeça. O que é?",
+    "opcoes": ["Uma girafa", "Um cisne", "Um avestruz", "Uma garrafa"],
+    "certa": 3
+  },
+  {
+    "id": 5,
+    "pergunta": "O que é que está sempre a chegar mas nunca chega?",
+    "opcoes": ["O amanhã", "O autocarro das 8h", "O fim do mês", "O Natal"],
+    "certa": 0
+  },
+  {
+    "id": 6,
+    "pergunta": "O que é que tem chaves mas não abre portas?",
+    "opcoes": ["Um porteiro", "Um cofre", "Um serralheiro", "Um teclado"],
+    "certa": 3
+  },
+  {
+    "id": 7,
+    "pergunta": "O que é que se parte só de dizer o seu nome?",
+    "opcoes": ["Um copo", "O silêncio", "Um ovo", "O ecrã do telemóvel"],
+    "certa": 1
+  },
+  {
+    "id": 8,
+    "pergunta": "Qual é o animal que anda com as patas na cabeça?",
+    "opcoes": ["O polvo", "O flamingo", "O piolho", "O gato do vizinho"],
+    "certa": 2
+  },
+  {
+    "id": 9,
+    "pergunta": "O que é que, quanto mais seca, mais molhada fica?",
+    "opcoes": ["A toalha", "O deserto", "A roupa no estendal", "O pão de ontem"],
+    "certa": 0
+  },
+  {
+    "id": 10,
+    "pergunta": "O que é que tem olhos mas não vê?",
+    "opcoes": ["O árbitro do jogo", "Uma toupeira", "O polícia de trânsito", "A batata"],
+    "certa": 3
+  }
+]

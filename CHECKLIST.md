@@ -57,26 +57,25 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 
 | Dia | O quê | Tipo | Estado |
 |---|---|---|---|
-| **qui 22** | ✏️ Editar + 🎨 CSS + 🎬 38 vídeos no Explorar + 🎵 leitor no rodapé (sem som) | — | ✅ |
+| **qui 22** | ✏️ Editar (CRUD completo) + 🎨 CSS + 🎬 38 vídeos no Explorar + 🎵 leitor no rodapé | — | ✅ |
 | **sex 23** | 🎵 Pausa/retoma da música com os vídeos + ⚔️ Arena (Duelo + pódio) + 📱 menu ☰ e telemóvel | extra | ✅ |
-| | 🤓 **Quem Quer Ser Sabichão?** (estilo Milionário; substitui a Adivinha contra o relógio; vídeo de entrada RTP 2008 cortado antes do logótipo + título nosso): 4 respostas, escada de prémios com o pipe `currency` | extra | ⬜ |
-| **sáb 24** | 🗄️ **Supabase 1**: tabela `criacoes` + `listar()` e `criar()` | **OBRIG.** | ⬜ |
-| **dom 25** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ⬜ |
-| **seg 26** | 🔐 **Autenticação**: página Entrar/Registar (formulário reativo com `Validators.email`), cada pessoa vê só as suas criações | **OBRIG.** | ⬜ |
-| ~~ter 27~~ **sex 23** | 🚀 **GitHub Actions + Pages** a funcionar → https://carlosgon-dev.github.io/projeto_angular/ (com 404.html para os links diretos) | **OBRIG.** | ✅ |
-| **ter 27** | 🔑 Chave do Supabase nos **Secrets** do GitHub (variáveis de ambiente no build) + testar o login na versão publicada | **OBRIG.** | ⬜ |
-| **qua 28** | 💰 Sabichão: ajudas (50:50, público, telefone) + vídeo de entrada e música de suspense | extra | ⬜ |
-| | 🤖 IA no Gerador (Gemini, chave numa Edge Function) | extra | ⬜ |
-| ~~qui 29~~ **sex 23** | 🎁 **Roleta da surpresa**: aparece ao abrir a app (e no F5) + botão 🎰, gira 3 s e mostra meme/piada/adivinha/vídeo; vídeo pausa a música | extra | ✅ |
-| ~~qui 29~~ **sex 23** | 🎰 **Roleta turbo**: ⏪ abrandar, ⏩ acelerar, ⏹ parar (trava devagar), fumo + faíscas, treme no máximo, trava sozinha aos 12 s (`requestAnimationFrame`) | extra | ✅ |
-| **qui 29** | 🎬 Som do YouTube no leitor | extra | ⬜ |
-| ~~qui 29~~ **sex 23** | 🔊 Sons da roleta: música do Preço Certo (abranda e fica grave ao travar), VRUUUM, travagem, 💥 acidente | extra | ✅ |
+| | 🚀 **GitHub Actions + Pages** → https://carlosgon-dev.github.io/projeto_angular/ (com 404.html) | **OBRIG.** | ✅ |
+| | 🎁 **Roleta da surpresa**: abre 3 s depois de carregar a app, botão 🎰, ⏪ ⏩ ⏹ (só pára no botão), fumo e faíscas | extra | ✅ |
+| | 🔊 Sons da roleta: música do Preço Certo (fica grave ao travar), VRUUUM, travagem, 💥 acidente | extra | ✅ |
+| **sáb 24** | 🛋️ **Folga** (cansaço — usado o dia livre) | — | ✅ |
+| **dom 25** | 🛋️ **Folga** (mais um dia de descanso) | — | ✅ |
+| **seg 26** | 🗄️ **Supabase 1**: tabela `criacoes` + `listar()` e `criar()` | **OBRIG.** | ✅ |
+| **ter 27** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ⬜ |
+| **qua 28** | 🔐 **Autenticação**: página Entrar/Registar (formulário reativo com `Validators.email`), cada pessoa vê só as suas criações | **OBRIG.** | ⬜ |
+| **qui 29** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
+| | 🤖 IA no Gerador (Gemini) — se sobrar tempo | extra | ⬜ |
+| | 🎬 Som do YouTube no leitor · 🤓 Sabichão — só se sobrar MUITO tempo | extra | ⬜ |
 | **sex 30** | 🔍 **Revisão de código** (parte 1) + 📱 responsividade | **OBRIG.** | ⬜ |
 | **sáb 31** | 🔍 **Revisão de código** (parte 2) + 📝 **README** + limpar criações de teste | **OBRIG.** | ⬜ |
-| **dom 01** | ☀️ **Manhã:** últimos retoques → 🏁 **ENTREGA** · 🛋️ **Tarde: LIVRE!** | **OBRIG.** | ⬜ |
+| **dom 01** | ☀️ Últimos retoques → 🏁 **ENTREGA até às 23:59** (a tarde livre foi trocada pela folga de sáb 24) | **OBRIG.** | ⬜ |
 | **seg 02** | 🎤 **Apresentação às 09:00** | | |
 
-> ✂️ **Se o tempo apertar, corta-se por esta ordem:** efeitos sonoros → roleta → som do YouTube → IA no Gerador → ajudas do Sabichão → Sabichão → Duelo.
+> ✂️ **Se o tempo apertar, corta-se por esta ordem:** Sabichão → som do YouTube → IA no Gerador.
 > 🛡️ **Nunca se corta:** Supabase, autenticação, GitHub Actions/Pages, revisão, responsividade, README.
 > ⚠️ **Chaves de API (Gemini, YouTube) nunca no código do site** — o repositório é público.
 
@@ -287,6 +286,7 @@ enum `Origem` · enum `Estilo` · `PedidoGerador` · `MemeInternet`
 ---
 
 ## 🔍 Revisão de código (sex 23 — um dia inteiro)
+> 📝 Juntar à revisão: **restrições na base de dados** (`alter table criacoes add constraint ... check (char_length(autor) between 3 and 40)`, texto_cima ≤ 40, pergunta ≤ 150) — dupla proteção: formulário + SQL. Ajustar o *budget* do `angular.json` (Supabase passou os 500 kB). Apagar o componente `contra-relogio` (não usado). Passar o `SupabaseService` já está com `@Injectable` ✅.
 > Ficheiro a ficheiro, com calma. Objetivo: perceber TUDO e preparar a apresentação.
 
 **Em cada ficheiro, verificar:**
