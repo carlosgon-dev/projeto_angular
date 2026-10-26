@@ -69,7 +69,8 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | ~~qua 28~~ **seg 26** | 🔐 **Autenticação**: registar (com confirmação por email), entrar, sair; `user_id` + policies (cada um vê as suas); Início e Explorar abertos, o resto mostra o formulário de entrar no lugar da página | **OBRIG.** | ✅ |
 | **ter 27** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
 | ~~ter 27~~ **seg 26** | 🔐 **"Esqueceste-te da password?"**: pedir o email de recuperação + página para escolher a password nova (⚠️ limite de ~2 emails/hora) | extra | ✅ |
-| **qua 28** | 🤖 IA no Gerador (Gemini, chave numa Edge Function) | extra | ⬜ |
+| ~~qua 28~~ **seg 26** | 🤖 **IA a sério no Gerador**: Edge Function `gerar-piada_ia` (Deno) com a chave do Gemini no cofre do Supabase; se falhar (15 s / resposta inválida) usa as frases-modelo. Campos novos: 📍 lugar, 🐐 animal, 🦸 superpoder, 🍕 comida (saíram o país e a fruta); consola diz se foi IA ou plano B. Botão 💾 Guardar (só guarda se o utilizador quiser) + ✍️ autor "IA (Gemini)" / "Frases-modelo". Adivinhas só com 3 campos (nome, onde, resposta) | extra | ✅ |
+| **qua 28** | | | |
 | | 🔊 **Efeitos sonoros em vários botões** (`SomService.tocar()`, ficheiros do Pixabay) | extra | ⬜ |
 | **qui 29** | 📱 **Responsividade no telemóvel**: passar todas as páginas a 400 px (menu ☰, leitor, janelas, roleta, formulários) | **OBRIG.** | 🟡 (seg 26: Início 2×2 + Arena, Gerador/Editor numa coluna, filtros 3 por linha; falta testar o resto) |
 | | 🎬 Som do YouTube no leitor (IFrame API) | extra | ⬜ |

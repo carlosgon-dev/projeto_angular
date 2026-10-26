@@ -28,3 +28,14 @@ form {
   font-size: 3rem;
   margin: 0;
 }
+
+.guardar {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.dica-gerar {
+  color: var(--texto-suave);
+  font-size: 0.875rem;
+  text-align: center;
+}
