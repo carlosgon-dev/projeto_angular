@@ -36,6 +36,18 @@ export class AuthService {
     return from(pedido).pipe(map((resposta) => this.ok_ou_erro(resposta.error)));
   }
 
+  recuperar_password(email: string): Observable<void> {
+    const pedido = this.supabase_service.cliente.auth.resetPasswordForEmail(email, {
+      redirectTo: document.baseURI + 'nova-password',
+    });
+    return from(pedido).pipe(map((resposta) => this.ok_ou_erro(resposta.error)));
+  }
+
+  mudar_password(password: string): Observable<void> {
+    const pedido = this.supabase_service.cliente.auth.updateUser({ password });
+    return from(pedido).pipe(map((resposta) => this.ok_ou_erro(resposta.error)));
+  }
+
   private ok_ou_erro(erro: { message: string } | null): void {
     if (erro) throw new Error(erro.message);
   }

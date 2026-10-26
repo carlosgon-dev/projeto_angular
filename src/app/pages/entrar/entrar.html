@@ -1,26 +1,32 @@
 <section class="entrar">
-  <h1>{{ modo() === 'entrar' ? '🔐 Entrar na Arena' : '📝 Criar conta' }}</h1>
+  <h1>{{ titulos[modo()] }}</h1>
 
   @if (aviso()) {
     <p class="caixa aviso">{{ aviso() }}</p>
   }
 
   <form class="caixa" [formGroup]="form" (ngSubmit)="submeter()">
+    @if (modo() === 'recuperar') {
+      <p class="explicacao">Escreve o teu email e enviamos-te um link para escolheres uma password nova.</p>
+    }
+
     <label for="email">Email</label>
     <input id="email" type="email" formControlName="email" placeholder="o.teu@email.com" autocomplete="email" />
     @if (form.get('email')?.invalid && form.get('email')?.touched) {
       <p class="erro">Escreve um email válido.</p>
     }
 
-    <label for="password">Password</label>
-    <input
-      id="password"
-      type="password"
-      formControlName="password"
-      [attr.autocomplete]="modo() === 'entrar' ? 'current-password' : 'new-password'"
-    />
-    @if (form.get('password')?.invalid && form.get('password')?.touched) {
-      <p class="erro">A password tem de ter pelo menos {{ minimo_password }} caracteres.</p>
+    @if (modo() !== 'recuperar') {
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        [attr.autocomplete]="modo() === 'entrar' ? 'current-password' : 'new-password'"
+      />
+      @if (form.get('password')?.invalid && form.get('password')?.touched) {
+        <p class="erro">A password tem de ter pelo menos {{ minimo_password }} caracteres.</p>
+      }
     }
 
     @if (erro()) {
@@ -31,15 +37,32 @@
       @if (a_enviar()) {
         ⏳ Um momento…
       } @else {
-        {{ modo() === 'entrar' ? 'Entrar' : 'Registar' }}
+        {{ botoes[modo()] }}
       }
     </button>
   </form>
 
-  <p class="trocar">
-    {{ modo() === 'entrar' ? 'Ainda não tens conta?' : 'Já tens conta?' }}
-    <button type="button" class="link" (click)="trocar_modo()">
-      {{ modo() === 'entrar' ? 'Criar conta' : 'Entrar' }}
-    </button>
-  </p>
+  @switch (modo()) {
+    @case ('entrar') {
+      <p class="trocar">
+        <button type="button" class="link" (click)="mudar_modo('recuperar')">Esqueceste-te da password?</button>
+      </p>
+      <p class="trocar">
+        Ainda não tens conta?
+        <button type="button" class="link" (click)="mudar_modo('registar')">Criar conta</button>
+      </p>
+    }
+    @case ('registar') {
+      <p class="trocar">
+        Já tens conta?
+        <button type="button" class="link" (click)="mudar_modo('entrar')">Entrar</button>
+      </p>
+    }
+    @case ('recuperar') {
+      <p class="trocar">
+        Afinal lembras-te?
+        <button type="button" class="link" (click)="mudar_modo('entrar')">Entrar</button>
+      </p>
+    }
+  }
 </section>

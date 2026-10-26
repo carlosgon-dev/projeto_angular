@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth-service';
 
 const MINIMO_PASSWORD = 6;
@@ -13,7 +14,20 @@ const TRADUCOES: Record<string, string> = {
   'User already registered': 'Já existe uma conta com este email.',
 };
 
-type Modo = 'entrar' | 'registar';
+type Modo = 'entrar' | 'registar' | 'recuperar';
+
+/* O que muda no ecrã em cada modo */
+const TITULOS: Record<Modo, string> = {
+  entrar: '🔐 Entrar na Arena',
+  registar: '📝 Criar conta',
+  recuperar: '🔑 Recuperar password',
+};
+
+const BOTOES: Record<Modo, string> = {
+  entrar: 'Entrar',
+  registar: 'Registar',
+  recuperar: 'Enviar email',
+};
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -27,6 +41,8 @@ export class Entrar {
   erro = signal('');
   aviso = signal('');
   minimo_password = MINIMO_PASSWORD;
+  titulos = TITULOS;
+  botoes = BOTOES;
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -38,10 +54,16 @@ export class Entrar {
     private router: Router,
   ) {}
 
-  trocar_modo(): void {
-    this.modo.set(this.modo() === 'entrar' ? 'registar' : 'entrar');
+  /* No modo "recuperar" só é preciso o email: a password fica desligada (e não conta para a validação) */
+  mudar_modo(novo: Modo): void {
+    this.modo.set(novo);
     this.erro.set('');
     this.aviso.set('');
+    if (novo === 'recuperar') {
+      this.form.controls.password.disable();
+      return;
+    }
+    this.form.controls.password.enable();
   }
 
   submeter(): void {
@@ -52,15 +74,21 @@ export class Entrar {
     this.erro.set('');
     this.aviso.set('');
 
-    const pedido =
-      this.modo() === 'entrar'
-        ? this.auth_service.entrar(email, password)
-        : this.auth_service.registar(email, password);
-
-    pedido.subscribe({
+    this.pedido_do_modo(email, password).subscribe({
       next: () => this.correu_bem(),
       error: (erro: Error) => this.correu_mal(erro),
     });
+  }
+
+  private pedido_do_modo(email: string, password: string): Observable<void> {
+    switch (this.modo()) {
+      case 'entrar':
+        return this.auth_service.entrar(email, password);
+      case 'registar':
+        return this.auth_service.registar(email, password);
+      case 'recuperar':
+        return this.auth_service.recuperar_password(email);
+    }
   }
 
   private correu_bem(): void {
@@ -69,8 +97,12 @@ export class Entrar {
       if (this.router.url === '/entrar') this.router.navigate(['/criado']);
       return;
     }
-    this.aviso.set('📧 Enviámos-te um email! Confirma a tua conta e depois entra.');
-    this.modo.set('entrar');
+    const mensagem =
+      this.modo() === 'registar'
+        ? '📧 Enviámos-te um email! Confirma a tua conta e depois entra.'
+        : '📧 Enviámos-te um email com um link para escolheres uma password nova.';
+    this.mudar_modo('entrar');
+    this.aviso.set(mensagem);
   }
 
   private correu_mal(erro: Error): void {
