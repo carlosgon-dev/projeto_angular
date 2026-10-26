@@ -1,7 +1,15 @@
 <app-header />
 <main>
-  <router-outlet />
+  @if (!auth_service.sessao_verificada()) {
+    <p class="a-verificar">⏳ Um momento…</p>
+  } @else if (pagina_privada() && !auth_service.utilizador()) {
+    <p class="a-verificar">🔒 Esta zona é só para membros da Arena. Entra ou cria conta!</p>
+    <app-entrar />
+  } @else {
+    <router-outlet />
+  }
 </main>
+
 <app-leitor />
 <app-surpresa />
 

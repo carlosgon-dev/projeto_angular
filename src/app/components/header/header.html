@@ -12,5 +12,12 @@
     <a routerLink="/gerador" routerLinkActive="ativo">Gerador</a>
     <a routerLink="/escrever" routerLinkActive="ativo">Escrever</a>
     <a routerLink="/criado" routerLinkActive="ativo">Criado por ti</a>
+      @if (auth_service.utilizador(); as utilizador) {
+      <button class="sair" (click)="sair()" [title]="utilizador.email">🚪 Sair</button>
+    } @else {
+      <a routerLink="/entrar" routerLinkActive="ativo">🔐 Entrar</a>
+    }
+
+  
   </nav>
 </header>

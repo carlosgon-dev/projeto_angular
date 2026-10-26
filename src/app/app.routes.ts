@@ -7,14 +7,16 @@ import { EditorMeme } from './pages/editor-meme/editor-meme';
 import { CriadoPorTi } from './pages/criado-por-ti/criado-por-ti';
 import { NaoEncontrado } from './pages/nao-encontrado/nao-encontrado';
 import { Arena } from './pages/arena/arena';
+import { Entrar } from './pages/entrar/entrar';
 
 export const routes: Routes = [
   { path: '', component: Inicio },
-  { path: 'arena', component: Arena },
+  { path: 'arena', component: Arena, data: { privada: true } },
   { path: 'explorar', component: Explorar },
-  { path: 'gerador', component: Gerador },
-  { path: 'escrever', component: Escrever },
-  { path: 'meme/:id', component: EditorMeme },
-  { path: 'criado', component: CriadoPorTi },
+  { path: 'gerador', component: Gerador, data: { privada: true } },
+  { path: 'escrever', component: Escrever, data: { privada: true } },
+  { path: 'meme/:id', component: EditorMeme, data: { privada: true } },
+  { path: 'criado', component: CriadoPorTi, data: { privada: true } },
+  { path: 'entrar', component: Entrar },
   { path: '**', component: NaoEncontrado },
 ];
