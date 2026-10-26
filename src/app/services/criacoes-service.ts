@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, map, Observable, of } from 'rxjs';
 import { Criacao, NovaCriacao } from '../models/criacao';
 import { Estrelas } from '../models/criacao-base';
+import { SupabaseService } from './supabase-service';
 
 const CHAVE_GAVETA = 'arena-criacoes';
+const TABELA = 'criacoes';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CriacoesService {
+  constructor(private supabase_service: SupabaseService) {}
+
   listar(): Observable<Criacao[]> {
-    return of(this.ler_gaveta());
+    const pedido = this.supabase_service.cliente
+      .from(TABELA)
+      .select('*')
+      .order('data_criacao', { ascending: false });
+    return from(pedido).pipe(map((resposta) => this.dados_ou_erro<Criacao[]>(resposta)));
   }
 
   criar(dados: NovaCriacao): Observable<Criacao> {
-    const criacoes = this.ler_gaveta();
-    const nova: Criacao = {
-      ...dados,
-      id: Date.now(),
-      data_criacao: new Date().toISOString(),
-      estrelas: 0,
-    };
-    criacoes.unshift(nova);
-    this.gravar_gaveta(criacoes);
-    return of(nova);
+    const pedido = this.supabase_service.cliente
+      .from(TABELA)
+      .insert(dados as Record<string, unknown>)
+      .select()
+      .single();
+    return from(pedido).pipe(map((resposta) => this.dados_ou_erro<Criacao>(resposta)));
   }
 
   apagar(id: number): Observable<Criacao[]> {
@@ -56,5 +60,10 @@ export class CriacoesService {
 
   private gravar_gaveta(criacoes: Criacao[]): void {
     localStorage.setItem(CHAVE_GAVETA, JSON.stringify(criacoes));
+  }
+
+  private dados_ou_erro<T>(resposta: { data: unknown; error: { message: string } | null }): T {
+    if (resposta.error) throw new Error(resposta.error.message);
+    return resposta.data as T;
   }
 }
