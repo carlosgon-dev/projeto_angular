@@ -1,37 +1,45 @@
 <h1>Criado por ti</h1>
 <app-filtro [ativo]="filtro()" (mudar)="filtro.set($event)" />
 
-<div class="grelha">
-  @for (criacao of criacoes_filtradas(); track criacao.id) {
-    <div class="caixa">
-      @switch (criacao.tipo) {
-        @case ('meme') {
-          <app-cartao-meme
-            [imagem]="imagem_do_template(criacao.template_id)"
-            [texto_cima]="criacao.texto_cima"
-            [texto_baixo]="criacao.texto_baixo"
-          />
-        }
-        @default {
-          <app-cartao-texto [criacao]="criacao" />
-        }
+@if (a_carregar()) {
+  <p class="aviso">⏳ A carregar as tuas criações…</p>
+} @else if (erro()) {
+  <div class="caixa aviso">
+    <p>❌ Não foi possível ligar à base de dados.</p>
+    <button (click)="carregar()">🔄 Tentar de novo</button>
+  </div>
+} @else {
+    <div class="grelha">
+      @for (criacao of criacoes_filtradas(); track criacao.id) {
+        <div class="caixa">
+          @switch (criacao.tipo) {
+            @case ('meme') {
+              <app-cartao-meme
+                [imagem]="imagem_do_template(criacao.template_id)"
+                [texto_cima]="criacao.texto_cima"
+                [texto_baixo]="criacao.texto_baixo"
+              />
+            }
+            @default {
+              <app-cartao-texto [criacao]="criacao" />
+            }
+          }
+
+          <div class="rodape">
+            <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
+            <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
+          </div>
+          <div class="acoes">
+            <button class="editar" (click)="abrir_edicao(criacao)">✏️ Editar</button>
+            <button class="apagar" (click)="apagar(criacao.id)">🗑️ Apagar</button>
+          </div>
+
+        </div>
+      } @empty {
+        <p>Ainda não criaste nada.</p>
       }
-
-      <div class="rodape">
-        <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
-        <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
-      </div>
-      <div class="acoes">
-        <button class="editar" (click)="abrir_edicao(criacao)">✏️ Editar</button>
-        <button class="apagar" (click)="apagar(criacao.id)">🗑️ Apagar</button>
-      </div>
-
     </div>
-  } @empty {
-    <p>Ainda não criaste nada.</p>
   }
-</div>
-
 @if (em_edicao(); as criacao) {
   <app-janela (fechar)="em_edicao.set(null)">
     <form class="form-edicao" [formGroup]="form_edicao" (ngSubmit)="guardar_edicao()">

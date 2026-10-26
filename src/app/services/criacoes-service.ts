@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { from, map, Observable, switchMap } from 'rxjs';
+import { from, map, Observable, switchMap, timeout } from 'rxjs';
 import { Criacao, NovaCriacao } from '../models/criacao';
 import { Estrelas } from '../models/criacao-base';
 import { SupabaseService } from './supabase-service';
 
 const TABELA = 'criacoes';
+const TEMPO_MAXIMO_MS = 10000;
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,10 @@ export class CriacoesService {
       .from(TABELA)
       .select('*')
       .order('data_criacao', { ascending: false });
-    return from(pedido).pipe(map((resposta) => this.dados_ou_erro<Criacao[]>(resposta)));
+    return from(pedido).pipe(
+      timeout(TEMPO_MAXIMO_MS),
+      map((resposta) => this.dados_ou_erro<Criacao[]>(resposta)),
+    );
   }
 
   criar(dados: NovaCriacao): Observable<Criacao> {
@@ -26,7 +30,10 @@ export class CriacoesService {
       .insert(dados as Record<string, unknown>)
       .select()
       .single();
-    return from(pedido).pipe(map((resposta) => this.dados_ou_erro<Criacao>(resposta)));
+    return from(pedido).pipe(
+      timeout(TEMPO_MAXIMO_MS),
+      map((resposta) => this.dados_ou_erro<Criacao>(resposta)),
+    );
   }
 
   apagar(id: number): Observable<Criacao[]> {
@@ -56,6 +63,7 @@ export class CriacoesService {
     pedido: PromiseLike<{ data: unknown; error: { message: string } | null }>,
   ): Observable<Criacao[]> {
     return from(pedido).pipe(
+      timeout(TEMPO_MAXIMO_MS),
       map((resposta) => this.dados_ou_erro(resposta)),
       switchMap(() => this.listar()),
     );

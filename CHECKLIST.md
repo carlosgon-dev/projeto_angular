@@ -65,7 +65,7 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **sáb 24** | 🛋️ **Folga** (cansaço — usado o dia livre) | — | ✅ |
 | **dom 25** | 🛋️ **Folga** (mais um dia de descanso) | — | ✅ |
 | **seg 26** | 🗄️ **Supabase 1**: tabela `criacoes` + `listar()` e `criar()` | **OBRIG.** | ✅ |
-| **ter 27** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ⬜ |
+| **ter 27** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ✅ (seg 26, falta só o "a carregar…"/erro no Criado por ti) |
 | **qua 28** | 🔐 **Autenticação**: página Entrar/Registar (formulário reativo com `Validators.email`), cada pessoa vê só as suas criações | **OBRIG.** | ⬜ |
 | **qui 29** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
 | | 🤖 IA no Gerador (Gemini) — se sobrar tempo | extra | ⬜ |
