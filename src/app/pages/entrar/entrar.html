@@ -1,0 +1,45 @@
+<section class="entrar">
+  <h1>{{ modo() === 'entrar' ? '🔐 Entrar na Arena' : '📝 Criar conta' }}</h1>
+
+  @if (aviso()) {
+    <p class="caixa aviso">{{ aviso() }}</p>
+  }
+
+  <form class="caixa" [formGroup]="form" (ngSubmit)="submeter()">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="o.teu@email.com" autocomplete="email" />
+    @if (form.get('email')?.invalid && form.get('email')?.touched) {
+      <p class="erro">Escreve um email válido.</p>
+    }
+
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      [attr.autocomplete]="modo() === 'entrar' ? 'current-password' : 'new-password'"
+    />
+    @if (form.get('password')?.invalid && form.get('password')?.touched) {
+      <p class="erro">A password tem de ter pelo menos {{ minimo_password }} caracteres.</p>
+    }
+
+    @if (erro()) {
+      <p class="erro">❌ {{ erro() }}</p>
+    }
+
+    <button type="submit" [disabled]="form.invalid || a_enviar()">
+      @if (a_enviar()) {
+        ⏳ Um momento…
+      } @else {
+        {{ modo() === 'entrar' ? 'Entrar' : 'Registar' }}
+      }
+    </button>
+  </form>
+
+  <p class="trocar">
+    {{ modo() === 'entrar' ? 'Ainda não tens conta?' : 'Já tens conta?' }}
+    <button type="button" class="link" (click)="trocar_modo()">
+      {{ modo() === 'entrar' ? 'Criar conta' : 'Entrar' }}
+    </button>
+  </p>
+</section>

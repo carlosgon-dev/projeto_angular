@@ -65,8 +65,8 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **sáb 24** | 🛋️ **Folga** (cansaço — usado o dia livre) | — | ✅ |
 | **dom 25** | 🛋️ **Folga** (mais um dia de descanso) | — | ✅ |
 | **seg 26** | 🗄️ **Supabase 1**: tabela `criacoes` + `listar()` e `criar()` | **OBRIG.** | ✅ |
-| **ter 27** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ✅ (seg 26, falta só o "a carregar…"/erro no Criado por ti) |
-| **qua 28** | 🔐 **Autenticação**: página Entrar/Registar (formulário reativo com `Validators.email`), cada pessoa vê só as suas criações | **OBRIG.** | ⬜ |
+| **ter 27** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ✅ (seg 26, com a carregar/erro + timeout + corneta 🎺) |
+| ~~qua 28~~ **seg 26** | 🔐 **Autenticação**: registar (com confirmação por email), entrar, sair; `user_id` + policies (cada um vê as suas); Início e Explorar abertos, o resto mostra o formulário de entrar no lugar da página | **OBRIG.** | ✅ |
 | **qui 29** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
 | | 🤖 IA no Gerador (Gemini) — se sobrar tempo | extra | ⬜ |
 | | 🎬 Som do YouTube no leitor · 🤓 Sabichão — só se sobrar MUITO tempo | extra | ⬜ |

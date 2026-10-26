@@ -1,5 +1,6 @@
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { Component, signal } from '@angular/core';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   imports: [RouterLink, RouterLinkActive],
@@ -9,6 +10,16 @@ import { Component, signal } from '@angular/core';
 })
 export class Header {
   menu_aberto = signal(false);
+
+  constructor(
+    public auth_service: AuthService,
+    private router: Router,
+  ) {}
+
+  sair(): void {
+    this.fechar_menu();
+    this.auth_service.sair().subscribe(() => this.router.navigate(['/']));
+  }
 
   alternar_menu(): void {
     this.menu_aberto.set(!this.menu_aberto());
