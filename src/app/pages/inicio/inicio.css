@@ -25,3 +25,38 @@
 .icone {
   font-size: 2rem;
 }
+
+@media (max-width: 600px) {
+  .destaque {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .destaque h1 {
+    font-size: 1.5rem;
+  }
+
+  .grelha {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .zona {
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+
+  .zona h3 {
+    margin: 0.25rem 0 0;
+    font-size: 1rem;
+  }
+
+  .zona p {
+    display: none;
+  }
+
+  .zona:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+}

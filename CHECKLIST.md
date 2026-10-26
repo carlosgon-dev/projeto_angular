@@ -67,15 +67,19 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **seg 26** | 🗄️ **Supabase 1**: tabela `criacoes` + `listar()` e `criar()` | **OBRIG.** | ✅ |
 | **ter 27** | 🗄️ **Supabase 2**: `editar()`, `apagar()`, `avaliar()` + "a carregar…"/erro | **OBRIG.** | ✅ (seg 26, com a carregar/erro + timeout + corneta 🎺) |
 | ~~qua 28~~ **seg 26** | 🔐 **Autenticação**: registar (com confirmação por email), entrar, sair; `user_id` + policies (cada um vê as suas); Início e Explorar abertos, o resto mostra o formulário de entrar no lugar da página | **OBRIG.** | ✅ |
-| **qui 29** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
-| | 🤖 IA no Gerador (Gemini) — se sobrar tempo | extra | ⬜ |
-| | 🎬 Som do YouTube no leitor · 🤓 Sabichão — só se sobrar MUITO tempo | extra | ⬜ |
-| **sex 30** | 🔍 **Revisão de código** (parte 1) + 📱 responsividade | **OBRIG.** | ⬜ |
-| **sáb 31** | 🔍 **Revisão de código** (parte 2) + 📝 **README** + limpar criações de teste | **OBRIG.** | ⬜ |
-| **dom 01** | ☀️ Últimos retoques → 🏁 **ENTREGA até às 23:59** (a tarde livre foi trocada pela folga de sáb 24) | **OBRIG.** | ⬜ |
+| **ter 27** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
+| | 🔐 **"Esqueceste-te da password?"**: pedir o email de recuperação + página para escolher a password nova (⚠️ limite de ~2 emails/hora) | extra | ⬜ |
+| **qua 28** | 🤖 IA no Gerador (Gemini, chave numa Edge Function) | extra | ⬜ |
+| | 🔊 **Efeitos sonoros em vários botões** (`SomService.tocar()`, ficheiros do Pixabay) | extra | ⬜ |
+| **qui 29** | 📱 **Responsividade no telemóvel**: passar todas as páginas a 400 px (menu ☰, leitor, janelas, roleta, formulários) | **OBRIG.** | 🟡 (seg 26: Início 2×2 + Arena, Gerador/Editor numa coluna, filtros 3 por linha; falta testar o resto) |
+| | 🎬 Som do YouTube no leitor (IFrame API) | extra | ⬜ |
+| **sex 30** | 🔍 **Revisão de código** (parte 1) | **OBRIG.** | ⬜ |
+| **sáb 31** | 🔍 **Revisão de código** (parte 2) + 📝 **README** + limpar criações de teste + criar contas de demonstração | **OBRIG.** | ⬜ |
+| | 🤓 Sabichão — só se sobrar tempo | extra | ⬜ |
+| **dom 01** | ☀️ Manhã: últimos retoques → 🏁 **ENTREGA** · 🛋️ **Tarde: LIVRE!** | **OBRIG.** | ⬜ |
 | **seg 02** | 🎤 **Apresentação às 09:00** — ⚠️ antes, abrir o site e confirmar que as criações carregam (o Supabase grátis adormece ao fim de 7 dias sem uso → "Restore project") | | |
 
-> ✂️ **Se o tempo apertar, corta-se por esta ordem:** Sabichão → som do YouTube → IA no Gerador.
+> ✂️ **Se o tempo apertar, corta-se por esta ordem:** Sabichão → som do YouTube → IA no Gerador → efeitos sonoros → "esqueceste-te da password".
 > 🛡️ **Nunca se corta:** Supabase, autenticação, GitHub Actions/Pages, revisão, responsividade, README.
 > ⚠️ **Chaves de API (Gemini, YouTube) nunca no código do site** — o repositório é público.
 
