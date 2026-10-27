@@ -14,14 +14,15 @@ h2 {
 .clicavel {
   cursor: pointer;
   border-radius: 0.875rem;
-  transition: transform 0.15s, border-color 0.15s;
+  transition:
+    transform 0.15s,
+    border-color 0.15s;
 }
 
 .clicavel:hover {
   transform: translateY(-4px);
   box-shadow: 0 0 0 2px var(--rosa);
 }
-
 
 .titulo-destaque {
   color: white;
@@ -55,3 +56,4 @@ h2 {
   border-radius: 0.875rem;
   background: black;
 }
+

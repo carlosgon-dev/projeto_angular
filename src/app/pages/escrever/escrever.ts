@@ -1,5 +1,6 @@
 import { CriacoesService } from '../../services/criacoes-service';
-import { NovaCriacao } from '../../models/criacao';
+import { NovoTexto } from '../../models/criacao';
+import { CartaoTexto } from '../../components/cartao-texto/cartao-texto';
 import { Origem } from '../../models/origem';
 import { Component, OnInit, signal } from '@angular/core';
 import { MemeService } from '../../services/meme-service';
@@ -17,7 +18,7 @@ import { TipoFiltro } from '../../models/filtro';
 
 
 @Component({
-  imports: [RouterLink, FormsModule, ReactiveFormsModule, Filtro],
+  imports: [RouterLink, FormsModule, ReactiveFormsModule, Filtro, CartaoTexto],
   selector: 'app-escrever',
   styleUrl: './escrever.css',
   templateUrl: './escrever.html',
@@ -71,22 +72,22 @@ export class Escrever implements OnInit {
     });
   }
 
-    guardar_texto(): void {
-    if (this.form_texto.invalid) return;
-
+  rascunho(): NovoTexto {
     const valores = this.form_texto.value;
     const pergunta = valores.pergunta ?? '';
     const resposta = valores.resposta ?? '';
     const autor = valores.autor ?? '';
 
-    const rascunho: NovaCriacao =
-      this.tipo() === 'adivinha'
-        ? { tipo: 'adivinha', pergunta, resposta, dica: valores.dica || undefined, autor, origem: Origem.Mao }
-        : { tipo: 'piada', pergunta, remate: resposta, autor, origem: Origem.Mao };
-
-    this.criacoes_service.criar(rascunho).subscribe(() => {
-      this.router.navigate(['/criado']);
-    });
+    if (this.tipo() === 'adivinha') {
+      return { tipo: 'adivinha', pergunta, resposta, dica: valores.dica || undefined, autor, origem: Origem.Mao };
+    }
+    return { tipo: 'piada', pergunta, remate: resposta, autor, origem: Origem.Mao };
   }
+
+  guardar_texto(): void {
+    if (this.form_texto.invalid) return;
+    this.criacoes_service.criar(this.rascunho()).subscribe(() => this.router.navigate(['/criado']));
+  }
+
 
 }

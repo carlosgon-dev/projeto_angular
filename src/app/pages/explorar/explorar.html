@@ -4,7 +4,7 @@
 
 @if (mostrar('meme')) {
   <h2>🔥 Memes da internet</h2>
-  <div class="grelha">
+  <div class="grelha duas-colunas">
     @for (meme of memes(); track meme.id) {
       <div class="caixa clicavel" (click)="meme_aberto.set(meme)">
       <app-cartao-meme [imagem]="meme.imagem" [miniatura]="true" />
@@ -39,7 +39,7 @@
 
 @if (videos_filtrados().length > 0) {
   <h2>🎬 Vídeos</h2>
-  <div class="grelha">
+  <div class="grelha duas-colunas">
     @for (video of videos_filtrados(); track video.id) {
       <div class="caixa clicavel video" (click)="abrir_video(video)">
         <img [src]="imagem_do_video(video)" [alt]="video.titulo" />

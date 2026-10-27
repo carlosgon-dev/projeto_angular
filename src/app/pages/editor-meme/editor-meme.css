@@ -9,3 +9,9 @@ form {
   gap: 0.375rem;
   align-self: start;
 }
+
+@media (max-width: 600px) {
+  form {
+    order: -1;
+  }
+}

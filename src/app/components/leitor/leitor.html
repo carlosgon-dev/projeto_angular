@@ -5,7 +5,9 @@
     <div class="escondido"><div [id]="id_do_reprodutor"></div></div>
 
     <div class="faixa">
-      <strong>{{ leitor.faixa_atual()?.titulo ?? 'A carregar a playlist…' }}</strong>
+      <strong>
+        <span [class.rolar]="leitor.a_tocar()">{{ leitor.faixa_atual()?.titulo ?? 'A carregar a playlist…' }}</span>
+      </strong>
       <span class="estado">
         {{ leitor.a_tocar() ? 'A tocar' : 'Em pausa' }} · faixa {{ leitor.indice() + 1 }}/{{ leitor.faixas().length }}
       </span>
