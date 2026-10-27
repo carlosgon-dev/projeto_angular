@@ -30,6 +30,14 @@
   background: var(--destaque);
 }
 
+/* Fora da grelha e sem tamanho: o iframe do YouTube toca, mas não se vê */
+.escondido {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 .faixa {
   display: flex;
   flex-direction: column;
