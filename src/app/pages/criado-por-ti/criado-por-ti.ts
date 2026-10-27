@@ -17,6 +17,7 @@ import { SomService } from '../../services/som-service';
 const MAXIMO_TEXTO = 150;
 const MAXIMO_DICA = 60;
 const SOM_FRACASSO = 'sons/fracasso.mp3';
+const SOM_APAGAR = 'sons/grito.mp3';
 
 const ROTULOS: Record<Criacao['tipo'], [string, string]> = {
   meme: ['Texto de cima', 'Texto de baixo'],
@@ -83,6 +84,7 @@ export class CriadoPorTi implements OnInit {
   }
 
   apagar(id: number): void {
+    this.som_service.tocar(SOM_APAGAR);
     this.criacoes_service.apagar(id).subscribe((restantes) => {
       this.criacoes.set(restantes);
     });

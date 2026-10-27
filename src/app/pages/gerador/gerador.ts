@@ -10,9 +10,12 @@ import { CartaoTexto } from '../../components/cartao-texto/cartao-texto';
 import { RouterLink } from '@angular/router';
 import { Estrelas } from '../../components/estrelas/estrelas';
 import { Estrelas as Nota } from '../../models/criacao-base';
+import { SomService } from '../../services/som-service';
 
 /* Campos que só fazem sentido nas piadas (nas adivinhas ficam escondidos) */
 const CAMPOS_SO_DA_PIADA = ['profissao', 'animal', 'superpoder', 'comida'] as const;
+const SOM_GERAR = 'sons/rufar.mp3';
+const SOM_GUARDAR = 'sons/ding.mp3';
 
 @Component({
   imports: [ReactiveFormsModule, CartaoTexto, RouterLink, Estrelas],
@@ -56,6 +59,7 @@ export class Gerador implements OnDestroy {
   constructor(
     private gerador_service: GeradorService,
     private criacoes_service: CriacoesService,
+    private som_service: SomService,
   ) {
     this.mudancas_de_tipo = this.form.controls.tipo.valueChanges.subscribe((tipo) =>
       this.mostrar_campos_de(tipo ?? 'piada'),
@@ -68,6 +72,7 @@ export class Gerador implements OnDestroy {
 
   gerar(): void {
     if (this.form.invalid) return;
+    this.som_service.tocar(SOM_GERAR);
     this.a_pensar.set(true);
     this.resultado.set(undefined);
     this.rascunho.set(undefined);
@@ -86,6 +91,7 @@ export class Gerador implements OnDestroy {
 
     this.criacoes_service.criar(texto).subscribe({
       next: (criacao) => {
+        this.som_service.tocar(SOM_GUARDAR);
         this.resultado.set(criacao);
         this.rascunho.set(undefined);
         this.a_guardar.set(false);
