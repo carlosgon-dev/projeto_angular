@@ -42,3 +42,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Chaves do Supabase para o ng serve (só no PC, nunca no GitHub)
+src/environments/environment.development.ts

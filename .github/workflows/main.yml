@@ -29,6 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Pôr as chaves do Supabase (vindas do cofre)
+        run: |
+          sed -i "s|__SUPABASE_URL__|${{ secrets.SUPABASE_URL }}|" src/environments/environment.ts
+          sed -i "s|__SUPABASE_KEY__|${{ secrets.SUPABASE_KEY }}|" src/environments/environment.ts
+
       - name: Build Angular Project
         run: |
           npm run build -- --configuration production --base-href "/projeto_angular/"
