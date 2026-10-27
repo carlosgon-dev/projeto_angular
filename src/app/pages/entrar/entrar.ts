@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, AbstractControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth-service';
 import { SomService } from '../../services/som-service';
@@ -10,7 +10,6 @@ const SOM_ENTRAR = 'sons/aplausos.mp3';
 const SOM_FRACASSO = 'sons/fracasso.mp3';
 const MENSAGEM_GENERICA = 'Algo correu mal. Tenta outra vez.';
 
-/* O Supabase responde em inglês: traduzimos as mensagens mais comuns */
 const TRADUCOES: Record<string, string> = {
   'Invalid login credentials': 'Email ou password errados.',
   'Email not confirmed': 'Ainda não confirmaste o teu email. Vê a tua caixa de correio 📧',
@@ -19,7 +18,6 @@ const TRADUCOES: Record<string, string> = {
 
 type Modo = 'entrar' | 'registar' | 'recuperar';
 
-/* O que muda no ecrã em cada modo */
 const TITULOS: Record<Modo, string> = {
   entrar: '🔐 Entrar na Arena',
   registar: '📝 Criar conta',
@@ -48,6 +46,10 @@ export class Entrar {
   botoes = BOTOES;
 
   form = new FormGroup({
+    nome: new FormControl({ value: '', disabled: true }, [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(MINIMO_PASSWORD)]),
   });
@@ -58,17 +60,22 @@ export class Entrar {
     private som_service: SomService,
   ) {}
 
-  /* No modo "recuperar" só é preciso o email: a password fica desligada (e não conta para a validação) */
   mudar_modo(novo: Modo): void {
     this.modo.set(novo);
     this.erro.set('');
     this.aviso.set('');
-    if (novo === 'recuperar') {
-      this.form.controls.password.disable();
+    this.ligar_se(this.form.controls.nome, novo === 'registar');
+    this.ligar_se(this.form.controls.password, novo !== 'recuperar');
+  }
+
+  private ligar_se(controlo: AbstractControl, ligado: boolean): void {
+    if (ligado) {
+      controlo.enable();
       return;
     }
-    this.form.controls.password.enable();
+    controlo.disable();
   }
+
 
   submeter(): void {
     if (this.form.invalid) return;
@@ -89,7 +96,7 @@ export class Entrar {
       case 'entrar':
         return this.auth_service.entrar(email, password);
       case 'registar':
-        return this.auth_service.registar(email, password);
+        return this.auth_service.registar(email, password, this.form.value.nome ?? '');
       case 'recuperar':
         return this.auth_service.recuperar_password(email);
     }
