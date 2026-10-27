@@ -73,8 +73,8 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | | 🔊 **Efeitos sonoros em vários botões**: 🥁 gerar, ✨ guardar, ⭐ estrelas, 😱 apagar, 👏 entrar, 🎺 login falhado, 👎 sair | extra | ✅ |
 | | 💶 **Pipe `currency`** (valores monetários) — ⚠️ obrigatório e ainda não usado em lado nenhum! | **OBRIG.** | ⬜ |
 | **qua 28** | 📱 **Responsividade no telemóvel**: testar o resto (Escrever, Criado por ti, Entrar, roleta, 404) | **OBRIG.** | 🟡 (Início, Gerador, Editor e filtros já feitos) |
-| | 🎬 Som do YouTube no leitor (IFrame API) | extra | ⬜ |
-| **qui 29** | 🔌 **Calibrar a ligação das APIs/dados**: templates dos memes (Imgflip?), memes da internet (meme-api?), piadas, adivinhas e vídeos (tabelas no Supabase?) — decidir fonte a fonte; os JSON atuais ficam como plano B | **A DECIDIR** | ⬜ |
+| | 🎬 Som do YouTube no leitor (IFrame API, iframe escondido + `effect()`) | extra | ✅ (ter 27) |
+| ~~qui 29~~ **ter 27** | 🔌 **APIs/dados**: templates → **Imgflip** · memes da internet → **meme-api** (sem filtro) · piadas, adivinhas e vídeos → **tabelas no Supabase** (`docs/supabase-conteudos.sql`, só leitura) com `ler_tabela<T>()` genérico · os JSON ficam como plano B (`timeout` + `catchError`) | extra | ✅ |
 | **sex 30** | 🔍 **Revisão de código** (parte 1) | **OBRIG.** | ⬜ |
 | **sáb 31** | 🔍 **Revisão de código** (parte 2) + 📝 **README** + limpar criações de teste + criar contas de demonstração | **OBRIG.** | ⬜ |
 | **dom 01** | ☀️ Manhã: últimos retoques → 🏁 **ENTREGA** · 🛋️ **Tarde: LIVRE!** | **OBRIG.** | ⬜ |
