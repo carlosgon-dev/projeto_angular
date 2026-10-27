@@ -3,8 +3,11 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth-service';
+import { SomService } from '../../services/som-service';
 
 const MINIMO_PASSWORD = 6;
+const SOM_ENTRAR = 'sons/aplausos.mp3';
+const SOM_FRACASSO = 'sons/fracasso.mp3';
 const MENSAGEM_GENERICA = 'Algo correu mal. Tenta outra vez.';
 
 /* O Supabase responde em inglês: traduzimos as mensagens mais comuns */
@@ -52,6 +55,7 @@ export class Entrar {
   constructor(
     private auth_service: AuthService,
     private router: Router,
+    private som_service: SomService,
   ) {}
 
   /* No modo "recuperar" só é preciso o email: a password fica desligada (e não conta para a validação) */
@@ -94,6 +98,7 @@ export class Entrar {
   private correu_bem(): void {
     this.a_enviar.set(false);
     if (this.modo() === 'entrar') {
+      this.som_service.tocar(SOM_ENTRAR);
       if (this.router.url === '/entrar') this.router.navigate(['/criado']);
       return;
     }
@@ -106,6 +111,7 @@ export class Entrar {
   }
 
   private correu_mal(erro: Error): void {
+    this.som_service.tocar(SOM_FRACASSO);
     this.a_enviar.set(false);
     this.erro.set(TRADUCOES[erro.message] ?? MENSAGEM_GENERICA);
   }
