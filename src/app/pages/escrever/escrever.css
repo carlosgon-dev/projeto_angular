@@ -44,3 +44,8 @@ input {
 .template .botao {
   margin-top: auto;
 }
+
+.etiqueta-previsao {
+  color: var(--texto-suave);
+  margin: 0 0 0.5rem;
+}

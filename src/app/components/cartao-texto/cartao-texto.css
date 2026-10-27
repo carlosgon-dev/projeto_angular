@@ -66,3 +66,13 @@
     font-size: 1.1rem;
   }
 }
+
+@media (max-width: 600px) {
+  .pergunta {
+    font-size: 1.05rem;
+  }
+
+  .texto-piada {
+    font-size: 0.95rem;
+  }
+}

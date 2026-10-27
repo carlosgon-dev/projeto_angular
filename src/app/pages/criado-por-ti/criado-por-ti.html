@@ -9,7 +9,7 @@
     <button (click)="carregar()">🔄 Tentar de novo</button>
   </div>
 } @else {
-  <div class="grelha">
+  <div class="grelha duas-colunas">
     @for (criacao of criacoes_filtradas(); track criacao.id) {
       <div class="caixa">
         @switch (criacao.tipo) {

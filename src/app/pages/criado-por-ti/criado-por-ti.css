@@ -71,3 +71,19 @@ app-cartao-texto {
   color: var(--texto-suave);
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  .grelha {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rodape {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .acoes button {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+}

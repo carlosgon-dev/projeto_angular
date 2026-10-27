@@ -12,7 +12,7 @@
     } @else if (erro()) {
       <p>Não foi possível carregar os memes. Tenta outra vez mais tarde.</p>
     } @else {
-      <div class="grelha">
+      <div class="grelha duas-colunas">
         @for (template of templates_filtrados(); track template.id) {
           <div class="caixa template">
             <img [src]="template.imagem" [alt]="template.nome" />
@@ -28,6 +28,8 @@
 
   @default {
     <h2>{{ tipo() === 'adivinha' ? 'Escreve a tua adivinha' : 'Escreve a tua piada' }}</h2>
+
+    <div class="lado-a-lado">
     <form class="caixa" [formGroup]="form_texto" (ngSubmit)="guardar_texto()">
       <label>{{ tipo() === 'adivinha' ? 'A adivinha' : 'A pergunta da piada' }}</label>
       <textarea formControlName="pergunta" rows="3"></textarea>
@@ -60,5 +62,11 @@
 
       <button type="submit" [disabled]="form_texto.invalid">Guardar</button>
     </form>
+
+      <div class="previsao">
+        <p class="etiqueta-previsao">👀 Assim vai ficar:</p>
+        <app-cartao-texto [criacao]="rascunho()" />
+      </div>
+    </div>
   }
 }
