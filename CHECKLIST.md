@@ -69,8 +69,9 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | ~~qua 28~~ **seg 26** | 🔐 **Autenticação**: registar (com confirmação por email), entrar, sair; `user_id` + policies (cada um vê as suas); Início e Explorar abertos, o resto mostra o formulário de entrar no lugar da página | **OBRIG.** | ✅ |
 | ~~ter 27~~ **seg 26** | 🔐 **"Esqueceste-te da password?"**: pedir o email de recuperação + página para escolher a password nova (⚠️ limite de ~2 emails/hora) | extra | ✅ |
 | ~~qua 28~~ **seg 26** | 🤖 **IA a sério no Gerador**: Edge Function `gerar-piada_ia` (Deno) com a chave do Gemini no cofre do Supabase; se falhar (15 s / resposta inválida) usa as frases-modelo. Campos novos: 📍 lugar, 🐐 animal, 🦸 superpoder, 🍕 comida (saíram o país e a fruta); consola diz se foi IA ou plano B. Botão 💾 Guardar (só guarda se o utilizador quiser) + ✍️ autor "IA (Gemini)" / "Frases-modelo". Adivinhas só com 3 campos (nome, onde, resposta) | extra | ✅ |
-| **ter 27** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ⬜ |
-| | 🔊 **Efeitos sonoros em vários botões** (`SomService.tocar()`, ficheiros do Pixabay) | extra | ⬜ |
+| **ter 27** | 🔑 Chave do Supabase nos **Secrets** do GitHub + testar o login no site publicado | **OBRIG.** | ✅ (passo com `node` + `.trim()`) |
+| | 🔊 **Efeitos sonoros em vários botões**: 🥁 gerar, ✨ guardar, ⭐ estrelas, 😱 apagar, 👏 entrar, 🎺 login falhado, 👎 sair | extra | ✅ |
+| | 💶 **Pipe `currency`** (valores monetários) — ⚠️ obrigatório e ainda não usado em lado nenhum! | **OBRIG.** | ⬜ |
 | **qua 28** | 📱 **Responsividade no telemóvel**: testar o resto (Escrever, Criado por ti, Entrar, roleta, 404) | **OBRIG.** | 🟡 (Início, Gerador, Editor e filtros já feitos) |
 | | 🎬 Som do YouTube no leitor (IFrame API) | extra | ⬜ |
 | **qui 29** | 🔌 **Calibrar a ligação das APIs/dados**: templates dos memes (Imgflip?), memes da internet (meme-api?), piadas, adivinhas e vídeos (tabelas no Supabase?) — decidir fonte a fonte; os JSON atuais ficam como plano B | **A DECIDIR** | ⬜ |

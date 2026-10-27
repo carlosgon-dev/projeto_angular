@@ -1,6 +1,8 @@
 <footer class="leitor">
   <div class="dentro">
     <span class="capa">🎵</span>
+    <!-- O YouTube troca esta div por um iframe escondido: só se ouve, não se vê -->
+    <div class="escondido"><div [id]="id_do_reprodutor"></div></div>
 
     <div class="faixa">
       <strong>{{ leitor.faixa_atual()?.titulo ?? 'A carregar a playlist…' }}</strong>
