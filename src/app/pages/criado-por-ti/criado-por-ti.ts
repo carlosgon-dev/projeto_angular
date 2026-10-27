@@ -1,5 +1,4 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { CriacoesService } from '../../services/criacoes-service';
 import { MemeService } from '../../services/meme-service';
 import { Criacao } from '../../models/criacao';
@@ -13,11 +12,13 @@ import { Filtro } from '../../components/filtro/filtro';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Janela } from '../../components/janela/janela';
 import { SomService } from '../../services/som-service';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 const MAXIMO_TEXTO = 150;
 const MAXIMO_DICA = 60;
 const SOM_FRACASSO = 'sons/fracasso.mp3';
 const SOM_APAGAR = 'sons/grito.mp3';
+const VALOR_POR_ESTRELA = 1;
 
 const ROTULOS: Record<Criacao['tipo'], [string, string]> = {
   meme: ['Texto de cima', 'Texto de baixo'],
@@ -26,7 +27,7 @@ const ROTULOS: Record<Criacao['tipo'], [string, string]> = {
 };
 
 @Component({
-  imports: [DatePipe, CartaoMeme, Estrelas, CartaoTexto, Filtro, ReactiveFormsModule, Janela],
+  imports: [DatePipe, CartaoMeme, Estrelas, CartaoTexto, Filtro, ReactiveFormsModule, Janela, CurrencyPipe],
   selector: 'app-criado-por-ti',
   styleUrl: './criado-por-ti.css',
   templateUrl: './criado-por-ti.html',
@@ -77,6 +78,10 @@ export class CriadoPorTi implements OnInit {
   imagem_do_template(template_id: string): string {
     const template = this.templates().find((t) => t.id === template_id);
     return template ? template.imagem : '';
+  }
+
+  valor_de(criacao: Criacao): number {
+    return criacao.estrelas * VALOR_POR_ESTRELA;
   }
 
   criacoes_filtradas(): Criacao[] {

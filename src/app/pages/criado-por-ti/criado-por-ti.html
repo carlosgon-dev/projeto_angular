@@ -9,37 +9,37 @@
     <button (click)="carregar()">🔄 Tentar de novo</button>
   </div>
 } @else {
-    <div class="grelha">
-      @for (criacao of criacoes_filtradas(); track criacao.id) {
-        <div class="caixa">
-          @switch (criacao.tipo) {
-            @case ('meme') {
-              <app-cartao-meme
-                [imagem]="imagem_do_template(criacao.template_id)"
-                [texto_cima]="criacao.texto_cima"
-                [texto_baixo]="criacao.texto_baixo"
-              />
-            }
-            @default {
-              <app-cartao-texto [criacao]="criacao" />
-            }
+  <div class="grelha">
+    @for (criacao of criacoes_filtradas(); track criacao.id) {
+      <div class="caixa">
+        @switch (criacao.tipo) {
+          @case ('meme') {
+            <app-cartao-meme
+              [imagem]="imagem_do_template(criacao.template_id)"
+              [texto_cima]="criacao.texto_cima"
+              [texto_baixo]="criacao.texto_baixo"
+            />
           }
+          @default {
+            <app-cartao-texto [criacao]="criacao" />
+          }
+        }
 
-          <div class="rodape">
-            <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
-            <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
-          </div>
-          <div class="acoes">
-            <button class="editar" (click)="abrir_edicao(criacao)">✏️ Editar</button>
-            <button class="apagar" (click)="apagar(criacao.id)">🗑️ Apagar</button>
-          </div>
-
+        <div class="rodape">
+          <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
+          <p class="valor">💰 Vale {{ valor_de(criacao) | currency: 'EUR' }}</p>
+          <app-estrelas [valor]="criacao.estrelas" (avaliar)="avaliar(criacao.id, $event)" />
         </div>
-      } @empty {
-        <p>Ainda não criaste nada.</p>
-      }
-    </div>
-  }
+        <div class="acoes">
+          <button class="editar" (click)="abrir_edicao(criacao)">✏️ Editar</button>
+          <button class="apagar" (click)="apagar(criacao.id)">🗑️ Apagar</button>
+        </div>
+      </div>
+    } @empty {
+      <p>Ainda não criaste nada.</p>
+    }
+  </div>
+}
 @if (em_edicao(); as criacao) {
   <app-janela (fechar)="em_edicao.set(null)">
     <form class="form-edicao" [formGroup]="form_edicao" (ngSubmit)="guardar_edicao()">
@@ -64,4 +64,3 @@
     </form>
   </app-janela>
 }
-
