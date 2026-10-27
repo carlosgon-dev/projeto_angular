@@ -9,6 +9,14 @@
     @if (modo() === 'recuperar') {
       <p class="explicacao">Escreve o teu email e enviamos-te um link para escolheres uma password nova.</p>
     }
+    
+    @if (modo() === 'registar') {
+      <label for="nome">Como te chamas?</label>
+      <input id="nome" type="text" formControlName="nome" placeholder="O teu nome" autocomplete="given-name" />
+      @if (form.get('nome')?.invalid && form.get('nome')?.touched) {
+        <p class="erro">Escreve o teu nome (pelo menos 2 letras).</p>
+      }
+    }
 
     <label for="email">Email</label>
     <input id="email" type="email" formControlName="email" placeholder="o.teu@email.com" autocomplete="email" />

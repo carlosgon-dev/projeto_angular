@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SaudacaoPipe } from '../../pipes/saudacao-pipe';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   imports: [RouterLink, SaudacaoPipe],
@@ -9,7 +10,7 @@ import { SaudacaoPipe } from '../../pipes/saudacao-pipe';
   templateUrl: './inicio.html',
 })
 export class Inicio {
-  nome = 'Carlos';
+  constructor(public auth_service: AuthService) {}
 
   zonas = [
     { caminho: '/explorar', icone: '🌍', titulo: 'Explorar', texto: 'Memes, piadas e adivinhas para te rires já.' },

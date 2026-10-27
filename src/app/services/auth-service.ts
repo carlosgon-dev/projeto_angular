@@ -1,7 +1,10 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { from, map, Observable } from 'rxjs';
 import { User } from '@supabase/supabase-js';
 import { SupabaseService } from './supabase-service';
+
+const NOME_VISITANTE = 'Visitante';
+
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +12,11 @@ import { SupabaseService } from './supabase-service';
 export class AuthService {
   utilizador = signal<User | null>(null);
   sessao_verificada = signal(false);
+  nome = computed(() => {
+    const utilizador = this.utilizador();
+    if (!utilizador) return NOME_VISITANTE;
+    return utilizador.user_metadata['nome'] ?? utilizador.email?.split('@')[0] ?? NOME_VISITANTE;
+  });
 
   constructor(private supabase_service: SupabaseService) {
     this.supabase_service.cliente.auth.onAuthStateChange((_evento, sessao) => {
@@ -17,12 +25,13 @@ export class AuthService {
     });
   }
 
-  registar(email: string, password: string): Observable<void> {
+  registar(email: string, password: string, nome: string): Observable<void> {
     const pedido = this.supabase_service.cliente.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: document.baseURI },
+      options: { emailRedirectTo: document.baseURI, data: { nome } },
     });
+
     return from(pedido).pipe(map((resposta) => this.ok_ou_erro(resposta.error)));
   }
 
