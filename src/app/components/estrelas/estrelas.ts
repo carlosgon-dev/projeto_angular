@@ -12,7 +12,7 @@ const SOM_ESTRELA = 'sons/brilho.mp3';
 })
 export class Estrelas {
   @Input() valor: Nota = 0;
-  @Output() avaliar = new EventEmitter<Nota>(); // + Output
+  @Output() avaliar = new EventEmitter<Nota>(); //
   numeros: Nota[] = [1, 2, 3, 4, 5];
 
   constructor(private som_service: SomService) {}
