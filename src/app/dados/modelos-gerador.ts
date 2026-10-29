@@ -1,16 +1,8 @@
-// Frases-modelo: o PLANO B do Gerador.
-// Quem escreve as piadas é a IA (Gemini, através da Edge Function do Supabase).
-// Se a IA falhar (sem internet, demora, resposta estranha), o GeradorService usa estas frases.
-
 import { Estilo } from '../models/estilo';
 import { PedidoGerador } from '../models/pedido-gerador';
 
-// Uma frase-modelo recebe o pedido (as palavras) e devolve a pergunta e a segunda parte
-// (o remate, numa piada, ou a resposta, numa adivinha).
-// Nota: o "lugar" já vem com a preposição (ex.: "na casa de banho do Continente").
 export type Modelo = (pedido: PedidoGerador) => { pergunta: string; segunda_parte: string };
 
-// Para cada estilo, 3 frases por ordem de maldade: [suave (1-3), marota (4-7), sem dó (8-10)]
 export const MODELOS_PIADA: Record<Estilo, Modelo[]> = {
   [Estilo.Classica]: [
     (pedido) => ({
@@ -56,7 +48,6 @@ export const MODELOS_PIADA: Record<Estilo, Modelo[]> = {
   ],
 };
 
-// Nas adivinhas só há 3 palavras: o nome, o lugar e o objeto, que é a RESPOSTA
 export const MODELOS_ADIVINHA: Record<Estilo, Modelo[]> = {
   [Estilo.Classica]: [
     (pedido) => ({

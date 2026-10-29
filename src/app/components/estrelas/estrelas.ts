@@ -19,7 +19,7 @@ export class Estrelas {
 
   escolher(numero: Nota): void {
     const nova_nota = numero === this.valor ? 0 : numero;
-    this.som_service.tocar(SOM_ESTRELA);
+    this.som_service.tocar_efeito(SOM_ESTRELA);
     this.avaliar.emit(nova_nota);
   }
 }

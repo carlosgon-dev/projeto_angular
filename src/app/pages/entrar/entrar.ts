@@ -105,7 +105,7 @@ export class Entrar {
   private correu_bem(): void {
     this.a_enviar.set(false);
     if (this.modo() === 'entrar') {
-      this.som_service.tocar(SOM_ENTRAR);
+      this.som_service.tocar_efeito(SOM_ENTRAR);
       if (this.router.url === '/entrar') this.router.navigate(['/criado']);
       return;
     }
@@ -118,7 +118,7 @@ export class Entrar {
   }
 
   private correu_mal(erro: Error): void {
-    this.som_service.tocar(SOM_FRACASSO);
+    this.som_service.tocar_efeito(SOM_FRACASSO);
     this.a_enviar.set(false);
     this.erro.set(TRADUCOES[erro.message] ?? MENSAGEM_GENERICA);
   }

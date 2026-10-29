@@ -70,7 +70,7 @@ export class CriadoPorTi implements OnInit {
       error: () => {
         this.erro.set(true);
         this.a_carregar.set(false);
-        this.som_service.tocar(SOM_FRACASSO);
+        this.som_service.tocar_efeito(SOM_FRACASSO);
       },
     });
   }
@@ -89,7 +89,7 @@ export class CriadoPorTi implements OnInit {
   }
 
   apagar(id: number): void {
-    this.som_service.tocar(SOM_APAGAR);
+    this.som_service.tocar_efeito(SOM_APAGAR);
     this.criacoes_service.apagar(id).subscribe((restantes) => {
       this.criacoes.set(restantes);
     });
