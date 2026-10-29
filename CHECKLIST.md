@@ -75,9 +75,9 @@ Páginas: **Início · Explorar · Gerador · Escrever · Criado por ti** (+ edi
 | **qua 28** | 📱 **Responsividade no telemóvel**: testar o resto (Escrever, Criado por ti, Entrar, roleta, 404) | **OBRIG.** | 🟡 (ter 27: menu centrado, Explorar/Escrever/Criado por ti a 2 colunas, letra dos cartões, editor com o formulário em cima, letreiro no leitor, pré-visualização ao vivo no Escrever · falta ver a 404) |
 | | 🎬 Som do YouTube no leitor (IFrame API, iframe escondido + `effect()`) | extra | ✅ (ter 27) |
 | ~~qui 29~~ **ter 27** | 🔌 **APIs/dados**: templates → **Imgflip** · memes da internet → **meme-api** (sem filtro) · piadas, adivinhas e vídeos → **tabelas no Supabase** (`docs/supabase-conteudos.sql`, só leitura) com `ler_tabela<T>()` genérico · os JSON ficam como plano B (`timeout` + `catchError`) | extra | ✅ |
-| **qui 29** | 🔍 **Revisão de código** (parte 1): `models/` + `services/` + `dados/` | **OBRIG.** | ⬜ |
+| **qui 29** | 🔍 **Revisão de código** (parte 1): `models/` + `services/` + `dados/` · `tocar` → `tocar_efeito` · 📄 `docs/REQUISITOS.md` (requisitos → onde estão no código) | **OBRIG.** | ✅ |
 | **sex 30** | 🔍 **Revisão de código** (parte 2): `components/` + `pages/` | **OBRIG.** | ⬜ |
-| **sáb 31** | 🔍 **Revisão de código** (parte 3): `app.*`, `styles.css`, Supabase, limpezas + 📝 **README** + limpar criações de teste + criar contas de demonstração | **OBRIG.** | ⬜ |
+| **sáb 31** | 🔍 **Revisão de código** (parte 3): `app.*`, `styles.css`, Supabase, limpezas + 📝 **README** + copiar o código da Edge Function `gerar-piada_ia` para `docs/` (sem key) + recuperar `docs/supabase-conteudos.sql` do histórico do Git + limpar criações de teste + criar contas de demonstração | **OBRIG.** | ⬜ |
 | **dom 01** | ☀️ Manhã: últimos retoques → 🏁 **ENTREGA** · 🛋️ **Tarde: LIVRE!** | **OBRIG.** | ⬜ |
 | **seg 02** | 🎤 **Apresentação às 09:00** — ⚠️ antes, abrir o site e confirmar que as criações carregam (o Supabase grátis adormece ao fim de 7 dias sem uso → "Restore project") | | |
 

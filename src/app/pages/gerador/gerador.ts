@@ -72,7 +72,7 @@ export class Gerador implements OnDestroy {
 
   gerar(): void {
     if (this.form.invalid) return;
-    this.som_service.tocar(SOM_GERAR);
+    this.som_service.tocar_efeito(SOM_GERAR);
     this.a_pensar.set(true);
     this.resultado.set(undefined);
     this.rascunho.set(undefined);
@@ -91,7 +91,7 @@ export class Gerador implements OnDestroy {
 
     this.criacoes_service.criar(texto).subscribe({
       next: (criacao) => {
-        this.som_service.tocar(SOM_GUARDAR);
+        this.som_service.tocar_efeito(SOM_GUARDAR);
         this.resultado.set(criacao);
         this.rascunho.set(undefined);
         this.a_guardar.set(false);

@@ -14,7 +14,6 @@ const AUTOR_MODELOS = 'Frases-modelo';
 const MALDADE_MAXIMA_SUAVE = 3;
 const MALDADE_MAXIMA_MAROTA = 7;
 
-/* O que a IA (e as frases-modelo) devolvem */
 interface TextoGerado {
   pergunta: string;
   segunda_parte: string;

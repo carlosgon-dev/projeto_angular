@@ -22,7 +22,7 @@ export class Header {
 
   sair(): void {
     this.fechar_menu();
-    this.som_service.tocar(SOM_SAIR);
+    this.som_service.tocar_efeito(SOM_SAIR);
     this.auth_service.sair().subscribe(() => this.router.navigate(['/']));
   }
 
