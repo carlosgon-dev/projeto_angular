@@ -5,7 +5,6 @@ const ENDERECO_API_YOUTUBE = 'https://www.youtube.com/iframe_api';
 const ID_DO_REPRODUTOR = 'reprodutor-youtube';
 const ESTADO_TERMINOU = 0;
 
-/* Só os métodos do leitor do YouTube que usamos */
 interface ReprodutorYoutube {
   loadVideoById(youtube_id: string): void;
   cueVideoById(youtube_id: string): void;
@@ -17,7 +16,6 @@ interface ReprodutorYoutube {
   destroy(): void;
 }
 
-/* O script do YouTube cria o window.YT e, quando está pronto, chama o window.onYouTubeIframeAPIReady */
 declare global {
   interface Window {
     YT: { Player: new (id_do_elemento: string, opcoes: object) => ReprodutorYoutube };
@@ -35,8 +33,6 @@ export class Leitor implements AfterViewInit, OnDestroy {
   id_do_reprodutor = ID_DO_REPRODUTOR;
   private reprodutor = signal<ReprodutorYoutube | null>(null);
 
-  /* Os effect() correm sozinhos sempre que um signal que leem muda:
-     é assim que os botões da barra mandam no YouTube escondido */
   constructor(public leitor: LeitorService) {
     effect(() => this.mudar_de_faixa());
     effect(() => this.tocar_ou_pausar());
@@ -69,13 +65,11 @@ export class Leitor implements AfterViewInit, OnDestroy {
         onStateChange: (evento: { data: number }) => {
           if (evento.data === ESTADO_TERMINOU) this.leitor.seguinte();
         },
-        // Alguns vídeos não deixam ser tocados fora do YouTube: salta para a seguinte
         onError: () => this.leitor.seguinte(),
       },
     });
   }
 
-  /* Se já estava a tocar, a faixa nova começa logo; senão, fica só preparada */
   private mudar_de_faixa(): void {
     const reprodutor = this.reprodutor();
     const faixa = this.leitor.faixa_atual();

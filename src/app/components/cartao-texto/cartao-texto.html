@@ -2,13 +2,11 @@
   <p class="etiqueta">{{ criacao.tipo === 'adivinha' ? '🧩 ADIVINHA' : '😂 PIADA' }}</p>
 
   @if (criacao.tipo === 'piada') {
-    <!-- Piada: lê-se de seguida, como texto normal -->
     <div class="texto-piada">
       <p>{{ criacao.pergunta }}</p>
       <p>{{ criacao.remate }}</p>
     </div>
   } @else {
-    <!-- Adivinha: a pergunta em destaque e a resposta escondida -->
     <p class="pergunta">{{ criacao.pergunta }}</p>
     @if (criacao.dica) {
       @if (dica_visivel()) {

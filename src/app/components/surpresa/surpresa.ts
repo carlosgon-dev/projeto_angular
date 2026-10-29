@@ -14,7 +14,6 @@ import { YoutubePipe } from '../../pipes/youtube-pipe';
 const ESPERA_ANTES_DA_SURPRESA_MS = 3000;
 const UM_SEGUNDO_MS = 1000;
 
-/* Velocidades em graus por segundo */
 const VELOCIDADE_INICIAL = 420;
 const VELOCIDADE_MINIMA = 140;
 const VELOCIDADE_MAXIMA = 2520;
@@ -24,7 +23,6 @@ const TEMPO_DE_TRAVAGEM_S = 3;
 const FUMO_POR_SEGUNDO = 26;
 const FORCA_DAS_FAISCAS = 0.8;
 
-/* Sons (ficheiros em public/sons) */
 const SOM_MOTOR = 'sons/motor.mp3';
 const SOM_TRAVAGEM = 'sons/travagem.mp3';
 const SOM_MUSICA = 'sons/preco-certo.mp3';
@@ -103,8 +101,6 @@ export class Surpresa implements OnInit, OnDestroy {
     this.explorar_service.listar_piadas().subscribe((lista) => (this.piadas = lista));
     this.explorar_service.listar_adivinhas().subscribe((lista) => (this.adivinhas = lista));
     this.video_service.listar_videos().subscribe((lista) => (this.videos = lista));
-    // A surpresa aparece 3 segundos depois de a app abrir (ou de carregar no F5).
-    // Fica à espera de um clique, porque o browser só deixa tocar música depois de um clique.
     this.espera = window.setTimeout(() => this.abrir(false), ESPERA_ANTES_DA_SURPRESA_MS);
   }
 
@@ -117,7 +113,6 @@ export class Surpresa implements OnInit, OnDestroy {
     return this.velocidade() >= VELOCIDADE_MAXIMA && !this.a_travar();
   }
 
-  /* girar_ja = true quando foi um clique (botão 🎰): aí já pode girar com música */
   abrir(girar_ja = true): void {
     window.clearTimeout(this.espera);
     this.parar_tudo();
