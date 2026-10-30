@@ -3,7 +3,6 @@
   margin-top: 0;
 }
 
-/* Piada | VS | Piada */
 .duelo {
   display: grid;
   grid-template-columns: 1fr auto 1fr;

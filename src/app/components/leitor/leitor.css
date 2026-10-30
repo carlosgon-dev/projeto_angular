@@ -10,7 +10,6 @@
   padding: 0.6rem 1rem;
 }
 
-/* Capa | título | botões */
 .dentro {
   max-width: 62.5rem;
   margin: 0 auto;
@@ -30,7 +29,6 @@
   background: var(--destaque);
 }
 
-/* Fora da grelha e sem tamanho: o iframe do YouTube toca, mas não se vê */
 .escondido {
   position: absolute;
   width: 0;
@@ -64,7 +62,6 @@
     transform: translateX(-100%);
   }
 }
-
 
 .estado {
   font-size: 0.75rem;

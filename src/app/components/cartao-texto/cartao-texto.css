@@ -1,4 +1,3 @@
-/* O cartão ocupa a altura toda do espaço que lhe derem (para ficarem todos iguais na grelha) */
 :host {
   display: block;
   height: 100%;

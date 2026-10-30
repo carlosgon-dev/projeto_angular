@@ -6,8 +6,6 @@ import { AuthService } from '../../services/auth-service';
 const MINIMO_PASSWORD = 6;
 const MENSAGEM_GENERICA = 'Não foi possível mudar a password. Tenta outra vez.';
 
-/* Página aberta pelo link do email de recuperação.
-   Ao abrir o link, o Supabase já deixa a pessoa ligada: só falta escolher a password nova. */
 @Component({
   imports: [ReactiveFormsModule, RouterLink],
   selector: 'app-nova-password',
