@@ -34,24 +34,27 @@
       <label>{{ tipo() === 'adivinha' ? 'A adivinha' : 'A pergunta da piada' }}</label>
       <textarea formControlName="pergunta" rows="3"></textarea>
       @if (form_texto.get('pergunta')?.invalid && form_texto.get('pergunta')?.touched) {
-        <p class="erro">Escreve pelo menos 10 letras (máximo 150).</p>
+        <p class="erro">Escreve pelo menos {{ limites.minimo_pergunta }} letras (máximo {{ limites.maximo_pergunta }}).</p>
       }
 
       <label>{{ tipo() === 'adivinha' ? 'A resposta' : 'O remate' }}</label>
       <input formControlName="resposta" />
       @if (form_texto.get('resposta')?.invalid && form_texto.get('resposta')?.touched) {
-        <p class="erro">Escreve pelo menos 2 letras.</p>
+        <p class="erro">Escreve pelo menos {{ limites.minimo_resposta }} letras (máximo {{ limites.maximo_resposta }}).</p>
       }
 
       @if (tipo() === 'adivinha') {
         <label>Dica (opcional)</label>
         <input formControlName="dica" />
+        @if (form_texto.get('dica')?.invalid && form_texto.get('dica')?.touched) {
+          <p class="erro">A dica pode ter no máximo {{ limites.maximo_dica }} letras.</p>
+        }
       }
 
       <label>A tua assinatura</label>
       <input formControlName="autor" />
       @if (form_texto.get('autor')?.invalid && form_texto.get('autor')?.touched) {
-        <p class="erro">O nome é obrigatório (pelo menos 3 letras).</p>
+        <p class="erro">O nome é obrigatório (pelo menos {{ limites.minimo_autor }} letras).</p>
       }
 
       <label>Email (opcional)</label>

@@ -70,7 +70,7 @@ Os números de linha são de 29/10/2026 — se o código mudar, podem andar umas
 | Rotas configuradas | [app.routes.ts:14-23](../src/app/app.routes.ts#L14-L23) (incluindo rota com parâmetro `meme/:id` e página 404 `**`) | ✅ |
 | `router-outlet` | [app.html:9](../src/app/app.html#L9) | ✅ |
 | `RouterLink` | [header.html:9-18](../src/app/components/header/header.html#L9-L18) · [escrever.html:20](../src/app/pages/escrever/escrever.html#L20) (`[routerLink]` com id) | ✅ |
-| Pelo menos 3 vistas (incl. início e listagem/gestão) | Início, Explorar (listagem), Criado por ti (gestão: ver, editar, avaliar, apagar), Escrever / Editor de meme (criação), Gerador, Arena, Entrar, 404 | ✅ |
+| Pelo menos 3 vistas (incl. início e listagem/gestão) | Início, Explorar (listagem), Criado por ti (gestão: ver, editar, avaliar, apagar), Escrever / Criar meme (criação), Gerador, Arena, Entrar, 404 | ✅ |
 
 ## 7. Formulários Reativos e Validação
 
@@ -101,6 +101,6 @@ Os números de linha são de 29/10/2026 — se o código mudar, podem andar umas
 |---|---|---|
 | Repositório público no GitHub | https://github.com/carlosgon-dev/projeto_angular | ✅ |
 | Aplicação publicada e funcional | https://carlosgon-dev.github.io/projeto_angular/ | ✅ |
-| README: descrição, funcionalidades, link, instalação, API usada | [README.md](../README.md) | ⏳ **falta escrever (sábado 31)** |
+| README: descrição, funcionalidades, link, instalação, API usada | [README.md](../README.md) | ✅ |
 | Código organizado | ver secção 8 | ✅ |
 | Serviço externo acessível na demonstração | Supabase — confirmar na segunda antes das 09:00 que o projeto não está em pausa | ⏳ |

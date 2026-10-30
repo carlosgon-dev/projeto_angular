@@ -10,7 +10,7 @@ const TEMPO_MAXIMO_MS = 8000;
   providedIn: 'root',
 })
 export class SupabaseService {
-  readonly cliente = createClient(environment.supabaseURL, environment.supabaseKey);
+  readonly cliente = createClient(environment.supabase_url, environment.supabase_key);
 
   constructor(private http: HttpClient) {}
 

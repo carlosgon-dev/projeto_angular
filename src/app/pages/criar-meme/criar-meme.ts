@@ -1,42 +1,45 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MemeService } from '../../services/meme-service';
 import { TemplateMeme } from '../../models/template-meme';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { CriacoesService } from '../../services/criacoes-service';
 import { CartaoMeme } from '../../components/cartao-meme/cartao-meme';
 
+const MAXIMO_TEXTO_MEME = 40;
 
 @Component({
   imports: [ReactiveFormsModule, CartaoMeme],
-  selector: 'app-editor-meme',
-  styleUrl: './editor-meme.css',
-  templateUrl: './editor-meme.html',
+  selector: 'app-criar-meme',
+  styleUrl: './criar-meme.css',
+  templateUrl: './criar-meme.html',
 })
-export class EditorMeme implements OnInit {
+export class CriarMeme implements OnInit {
   template = signal<TemplateMeme | undefined>(undefined);
+  a_carregar = signal(true);
+  maximo_texto = MAXIMO_TEXTO_MEME;
 
   form = new FormGroup({
-    texto_cima: new FormControl('', [Validators.maxLength(40)]),
-    texto_baixo: new FormControl('', [Validators.maxLength(40)]),
+    texto_cima: new FormControl('', [Validators.maxLength(MAXIMO_TEXTO_MEME)]),
+    texto_baixo: new FormControl('', [Validators.maxLength(MAXIMO_TEXTO_MEME)]),
   });
 
   constructor(
     private rota: ActivatedRoute,
     private meme_service: MemeService,
     private criacoes_service: CriacoesService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     const id = this.rota.snapshot.paramMap.get('id');
     this.meme_service.listar_templates().subscribe((lista) => {
       this.template.set(lista.find((template) => template.id === id));
+      this.a_carregar.set(false);
     });
   }
 
-    guardar(): void {
+  guardar(): void {
     const escolhido = this.template();
     if (!escolhido || this.form.invalid) return;
 
@@ -51,5 +54,4 @@ export class EditorMeme implements OnInit {
         this.router.navigate(['/criado']);
       });
   }
-
 }
