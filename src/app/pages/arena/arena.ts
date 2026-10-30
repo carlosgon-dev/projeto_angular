@@ -2,12 +2,20 @@ import { Component, OnInit, signal } from '@angular/core';
 import { ExplorarService } from '../../services/explorar-service';
 import { Piada } from '../../models/piada';
 import { CartaoTexto } from '../../components/cartao-texto/cartao-texto';
+import { Janela } from '../../components/janela/janela';
 
 const PAUSA_DEPOIS_DO_VOTO_MS = 650;
 const LUGARES_NO_PODIO = 3;
+const PONTOS_PARA_VENCER = 5;
+const MEDALHAS = ['🥇', '🥈', '🥉'];
+
+interface LugarNoPodio {
+  piada: Piada;
+  pontos: number;
+}
 
 @Component({
-  imports: [CartaoTexto],
+  imports: [CartaoTexto, Janela],
   selector: 'app-arena',
   styleUrl: './arena.css',
   templateUrl: './arena.html',
@@ -17,14 +25,17 @@ export class Arena implements OnInit {
   pontos = signal<number[]>([]);
   par = signal<[number, number]>([0, 1]);
   vencedora = signal<number | null>(null);
+  piada_aberta = signal<Piada | undefined>(undefined);
+  final = signal(false);
+  medalhas = MEDALHAS;
+  pontos_para_vencer = PONTOS_PARA_VENCER;
 
   constructor(private explorar_service: ExplorarService) {}
 
   ngOnInit(): void {
     this.explorar_service.listar_piadas().subscribe((lista) => {
       this.piadas.set(lista);
-      this.pontos.set(lista.map(() => 0));
-      this.novo_duelo();
+      this.nova_ronda();
     });
   }
 
@@ -35,11 +46,21 @@ export class Arena implements OnInit {
     this.vencedora.set(lado);
     setTimeout(() => {
       this.vencedora.set(null);
+      if (this.pontos()[indice] >= PONTOS_PARA_VENCER) {
+        this.final.set(true);
+        return;
+      }
       this.novo_duelo();
     }, PAUSA_DEPOIS_DO_VOTO_MS);
   }
 
-  podio(): { piada: Piada; pontos: number }[] {
+  nova_ronda(): void {
+    this.pontos.set(this.piadas().map(() => 0));
+    this.final.set(false);
+    this.novo_duelo();
+  }
+
+  podio(): LugarNoPodio[] {
     return this.piadas()
       .map((piada, i) => ({ piada, pontos: this.pontos()[i] }))
       .filter((lugar) => lugar.pontos > 0)
@@ -49,6 +70,7 @@ export class Arena implements OnInit {
 
   private novo_duelo(): void {
     const total = this.piadas().length;
+    if (total < 2) return;
     const a = Math.floor(Math.random() * total);
     let b = Math.floor(Math.random() * total);
     while (b === a) b = Math.floor(Math.random() * total);

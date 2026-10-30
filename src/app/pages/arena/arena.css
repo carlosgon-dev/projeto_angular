@@ -44,6 +44,87 @@
   white-space: nowrap;
 }
 
+.linha {
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.linha:hover {
+  color: var(--rosa);
+  background: var(--fundo);
+}
+
+.final {
+  background: var(--cartao);
+  border-radius: 0.875rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.final h2 {
+  margin-top: 0;
+}
+
+.degraus {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: end;
+  margin-bottom: 1.25rem;
+}
+
+.degrau p {
+  margin: 0.25rem 0;
+  font-size: 0.75rem;
+}
+
+.degrau .pergunta {
+  font-weight: 700;
+}
+
+.degrau .remate {
+  color: var(--texto-suave);
+}
+
+.medalha-grande {
+  font-size: 2rem;
+}
+
+.bloco {
+  display: grid;
+  place-items: center;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: var(--destaque);
+  color: white;
+  font-weight: 800;
+}
+
+.lugar-1 {
+  order: 2;
+}
+
+.lugar-2 {
+  order: 1;
+}
+
+.lugar-3 {
+  order: 3;
+}
+
+.lugar-1 .bloco {
+  height: 6rem;
+}
+
+.lugar-2 .bloco {
+  height: 4rem;
+}
+
+.lugar-3 .bloco {
+  height: 2.5rem;
+}
+
 @media (max-width: 640px) {
   .duelo {
     grid-template-columns: 1fr;
@@ -52,5 +133,17 @@
   .vs {
     justify-self: center;
     font-size: 1.5rem;
+  }
+
+  .degraus {
+    grid-template-columns: 1fr;
+  }
+
+  .degrau {
+    order: 0;
+  }
+
+  .degrau .bloco {
+    height: 2rem;
   }
 }
