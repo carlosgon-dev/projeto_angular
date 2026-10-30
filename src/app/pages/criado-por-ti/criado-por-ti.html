@@ -16,7 +16,7 @@
     </a>
 
     @for (criacao of criacoes_filtradas(); track criacao.id) {
-      <div class="caixa">
+      <div class="caixa" [class.texto]="criacao.tipo !== 'meme'">
         @switch (criacao.tipo) {
           @case ('meme') {
             <app-cartao-meme

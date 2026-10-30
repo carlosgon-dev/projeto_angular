@@ -1,5 +1,8 @@
 <h1>Arena ⚔️</h1>
-<p class="intro">Qual destas tem mais graça? Clica nela. A vencedora ganha 1 ponto e entra outro duelo.</p>
+<p class="intro">
+  Qual destas tem mais graça? Clica nela. A vencedora ganha 1 ponto e entra outro duelo.
+  A primeira a chegar aos {{ pontos_para_vencer }} pontos é a campeã!
+</p>
 
 @if (piadas().length > 1) {
   <div class="duelo">
@@ -16,9 +19,39 @@
   <section class="caixa podio">
     <h2>🏆 Pódio da Arena</h2>
     @for (lugar of podio(); track lugar.piada.id; let i = $index) {
-      <p><span class="medalha">{{ ['🥇', '🥈', '🥉'][i] }}</span> {{ lugar.piada.pergunta }} <strong>{{ lugar.pontos }} pts</strong></p>
+      <p class="linha" (click)="piada_aberta.set(lugar.piada)">
+        <span class="medalha">{{ medalhas[i] }}</span> {{ lugar.piada.pergunta }}
+        <strong>{{ lugar.pontos }} pts</strong>
+      </p>
     } @empty {
       <p class="intro">Ainda não há campeões. Vota na primeira!</p>
     }
   </section>
+}
+
+@if (piada_aberta(); as piada) {
+  <app-janela (fechar)="piada_aberta.set(undefined)">
+    <app-cartao-texto [criacao]="piada" />
+  </app-janela>
+}
+
+@if (final()) {
+  <app-janela (fechar)="nova_ronda()">
+    <div class="final">
+      <h2>🏆 Temos campeã!</h2>
+
+      <div class="degraus">
+        @for (lugar of podio(); track lugar.piada.id; let i = $index) {
+          <div class="degrau lugar-{{ i + 1 }}">
+            <span class="medalha-grande">{{ medalhas[i] }}</span>
+            <p class="pergunta">{{ lugar.piada.pergunta }}</p>
+            <p class="remate">{{ lugar.piada.remate }}</p>
+            <div class="bloco">{{ lugar.pontos }} pts</div>
+          </div>
+        }
+      </div>
+
+      <button (click)="nova_ronda()">⚔️ Nova ronda</button>
+    </div>
+  </app-janela>
 }

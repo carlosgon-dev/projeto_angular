@@ -69,11 +69,30 @@ app-cartao-texto {
 @media (max-width: 600px) {
   .grelha {
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: dense;
+  }
+
+  .texto,
+  .criar-nova {
+    grid-column: span 2;
+  }
+
+  .criar-nova {
+    flex-direction: row;
+    padding: 0.75rem;
+  }
+
+  .criar-nova span {
+    font-size: 1.5rem;
   }
 
   .rodape {
     flex-direction: column;
     gap: 0.25rem;
+  }
+
+  .texto .rodape {
+    flex-direction: row;
   }
 
   .acoes button {
