@@ -13,6 +13,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Janela } from '../../components/janela/janela';
 import { SomService } from '../../services/som-service';
 import { CurrencyPipe, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 const MAXIMO_TEXTO = 150;
 const MAXIMO_DICA = 60;
@@ -27,7 +28,7 @@ const ROTULOS: Record<Criacao['tipo'], [string, string]> = {
 };
 
 @Component({
-  imports: [DatePipe, CartaoMeme, Estrelas, CartaoTexto, Filtro, ReactiveFormsModule, Janela, CurrencyPipe],
+  imports: [DatePipe, RouterLink, CartaoMeme, Estrelas, CartaoTexto, Filtro, ReactiveFormsModule, Janela, CurrencyPipe],
   selector: 'app-criado-por-ti',
   styleUrl: './criado-por-ti.css',
   templateUrl: './criado-por-ti.html',

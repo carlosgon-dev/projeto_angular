@@ -10,6 +10,11 @@
   </div>
 } @else {
   <div class="grelha duas-colunas">
+    <a class="caixa criar-nova" routerLink="/escrever">
+      <span>➕</span>
+      <p>Cria a tua piada, adivinha ou meme</p>
+    </a>
+
     @for (criacao of criacoes_filtradas(); track criacao.id) {
       <div class="caixa">
         @switch (criacao.tipo) {
