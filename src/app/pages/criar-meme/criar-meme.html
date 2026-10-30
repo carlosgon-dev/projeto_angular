@@ -1,0 +1,31 @@
+@if (a_carregar()) {
+  <p>A carregar o meme…</p>
+} @else if (template(); as escolhido) {
+  <h1>{{ escolhido.nome }}</h1>
+
+  <div class="lado-a-lado">
+    <app-cartao-meme
+      [imagem]="escolhido.imagem"
+      [texto_cima]="form.value.texto_cima ?? ''"
+      [texto_baixo]="form.value.texto_baixo ?? ''"
+    />
+
+    <form class="caixa" [formGroup]="form" (ngSubmit)="guardar()">
+      <label>Texto de cima</label>
+      <input formControlName="texto_cima" placeholder="Ex.: Fazer o CSS à mão" />
+      @if (form.get('texto_cima')?.invalid) {
+        <p class="erro">Máximo {{ maximo_texto }} letras.</p>
+      }
+
+      <label>Texto de baixo</label>
+      <input formControlName="texto_baixo" placeholder="Ex.: Usar as variáveis" />
+      @if (form.get('texto_baixo')?.invalid) {
+        <p class="erro">Máximo {{ maximo_texto }} letras.</p>
+      }
+
+      <button type="submit" [disabled]="form.invalid">Guardar meme</button>
+    </form>
+  </div>
+} @else {
+  <p>Este meme não existe.</p>
+}

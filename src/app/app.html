@@ -1,5 +1,12 @@
 <app-header />
 <main>
+  @if (auth_service.email_confirmado()) {
+    <p class="caixa aviso-confirmacao">
+      ✅ E-mail confirmado com sucesso! Bem-vindo à Arena.
+      <button (click)="auth_service.fechar_aviso_confirmacao()">✕</button>
+    </p>
+  }
+
   @if (!auth_service.sessao_verificada()) {
     <p class="a-verificar">⏳ Um momento…</p>
   } @else if (pagina_privada() && !auth_service.utilizador()) {
@@ -12,4 +19,3 @@
 
 <app-leitor />
 <app-surpresa />
-

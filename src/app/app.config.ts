@@ -3,11 +3,11 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt-PT';
+import locale_pt from '@angular/common/locales/pt-PT';
 
-registerLocaleData(localePt);
+registerLocaleData(locale_pt);
 
-export const appConfig: ApplicationConfig = {
+export const app_config: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),

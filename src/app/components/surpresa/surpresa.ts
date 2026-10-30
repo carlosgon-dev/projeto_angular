@@ -132,6 +132,7 @@ export class Surpresa implements OnInit, OnDestroy {
     this.velocidade.set(VELOCIDADE_INICIAL);
     this.ultimo_instante = performance.now();
     this.quadro = requestAnimationFrame((agora) => this.rodar(agora));
+    this.leitor_service.pausar_por_video();
     this.tocar_musica();
   }
 

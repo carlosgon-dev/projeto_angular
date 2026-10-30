@@ -22,12 +22,6 @@ form button[type='submit'] {
   margin-top: 0.6rem;
 }
 
-.erro {
-  color: var(--erro);
-  font-size: 0.875rem;
-  margin: 0;
-}
-
 .aviso {
   text-align: center;
   margin: 0;

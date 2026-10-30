@@ -127,6 +127,13 @@ textarea.ng-invalid.ng-touched {
   border-color: var(--erro);
 }
 
+/* Mensagem de erro por baixo de um campo */
+.erro {
+  color: var(--erro);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
 /* 5. UTILIDADES — classes que podes usar em qualquer página */
 
 .grelha {

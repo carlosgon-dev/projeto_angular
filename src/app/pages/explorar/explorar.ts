@@ -72,9 +72,8 @@ export class Explorar implements OnInit {
     return `${ENDERECO_IMAGEM_YOUTUBE}${video.youtube_id}/hqdefault.jpg`;
   }
 
-    abrir_video(video: Video): void {
+  abrir_video(video: Video): void {
     this.video_aberto.set(video);
     this.leitor_service.pausar_por_video();
   }
-
 }

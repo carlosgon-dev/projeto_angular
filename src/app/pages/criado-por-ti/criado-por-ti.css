@@ -61,12 +61,6 @@ app-cartao-texto {
   margin-top: 0;
 }
 
-.erro {
-  color: var(--erro);
-  font-size: 0.875rem;
-  margin: 0;
-}
-
 .aviso {
   color: var(--texto-suave);
   text-align: center;

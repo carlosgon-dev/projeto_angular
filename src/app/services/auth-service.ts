@@ -4,7 +4,7 @@ import { User } from '@supabase/supabase-js';
 import { SupabaseService } from './supabase-service';
 
 const NOME_VISITANTE = 'Visitante';
-
+const SINAL_DE_CONFIRMACAO = 'type=signup';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +12,7 @@ const NOME_VISITANTE = 'Visitante';
 export class AuthService {
   utilizador = signal<User | null>(null);
   sessao_verificada = signal(false);
+  email_confirmado = signal(window.location.hash.includes(SINAL_DE_CONFIRMACAO));
   nome = computed(() => {
     const utilizador = this.utilizador();
     if (!utilizador) return NOME_VISITANTE;
@@ -59,5 +60,9 @@ export class AuthService {
 
   private ok_ou_erro(erro: { message: string } | null): void {
     if (erro) throw new Error(erro.message);
+  }
+
+  fechar_aviso_confirmacao(): void {
+    this.email_confirmado.set(false);
   }
 }
