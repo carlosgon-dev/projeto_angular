@@ -1,3 +1,9 @@
+# Edge Function `gerar-piada_ia`
+
+Código da função que corre no Supabase (Deno) e fala com a IA Gemini.
+A chave `GEMINI_API_KEY` está guardada nos secrets do Supabase, nunca no código.
+
+```ts
 const CHAVE = Deno.env.get('GEMINI_API_KEY');
 const MODELO = 'gemini-2.5-flash';
 
@@ -52,3 +58,4 @@ Responde APENAS com JSON: {"pergunta": "o início da piada", "segunda_parte": "o
   const texto = dados.candidates?.[0]?.content?.parts?.[0]?.text ?? '{}';
   return new Response(texto, { headers: CABECALHOS });
 });
+```
