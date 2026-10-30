@@ -54,7 +54,6 @@ export class GeradorService {
     return modelo(pedido);
   }
 
-  /* O autor diz de onde veio: da IA ou das frases-modelo */
   private montar_criacao(pedido: PedidoGerador, texto: TextoGerado, autor: string): NovoTexto {
     const { pergunta, segunda_parte } = texto;
     return pedido.tipo === 'adivinha'

@@ -47,7 +47,6 @@ nav a.ativo {
   color: #2a2100;
 }
 
-/* O botão ☰ só existe no telemóvel */
 .burger {
   display: none;
 }

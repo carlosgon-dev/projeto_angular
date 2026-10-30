@@ -12,7 +12,6 @@ import { Estrelas } from '../../components/estrelas/estrelas';
 import { Estrelas as Nota } from '../../models/criacao-base';
 import { SomService } from '../../services/som-service';
 
-/* Campos que só fazem sentido nas piadas (nas adivinhas ficam escondidos) */
 const CAMPOS_SO_DA_PIADA = ['profissao', 'animal', 'superpoder', 'comida'] as const;
 const SOM_GERAR = 'sons/rufar.mp3';
 const SOM_GUARDAR = 'sons/ding.mp3';
@@ -83,7 +82,6 @@ export class Gerador implements OnDestroy {
     });
   }
 
-  /* Só guarda se o utilizador quiser (botão 💾 Guardar) */
   guardar(): void {
     const texto = this.rascunho();
     if (!texto) return;
@@ -105,7 +103,6 @@ export class Gerador implements OnDestroy {
     this.mudancas_de_tipo.unsubscribe();
   }
 
-  /* Campos desligados não contam para a validação: o formulário fica válido só com os 3 da adivinha */
   private mostrar_campos_de(tipo: 'piada' | 'adivinha'): void {
     for (const campo of CAMPOS_SO_DA_PIADA) {
       const controlo = this.form.controls[campo];

@@ -30,7 +30,6 @@ h2 {
   font-weight: 700;
 }
 
-/* Nos memes: os votos ficam sempre no fundo da caixa */
 .caixa.clicavel {
   display: flex;
   flex-direction: column;

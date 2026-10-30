@@ -29,8 +29,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Troca os marcadores __...__ do environment.ts pelas chaves do cofre do GitHub.
-      # O .trim() limpa espaços e "Enters" a mais que possam ter ido no copiar/colar.
       - name: Pôr as chaves do Supabase (vindas do cofre)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

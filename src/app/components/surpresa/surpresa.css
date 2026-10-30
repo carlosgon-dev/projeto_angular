@@ -26,7 +26,6 @@
   margin: 0;
 }
 
-/* A roleta: um círculo com 4 fatias de cores */
 .roleta-zona {
   position: relative;
   width: 14rem;
@@ -74,7 +73,6 @@
   border-radius: 0.875rem;
 }
 
-/* Barra da velocidade: do amarelo ao rosa */
 .velocimetro {
   width: 14rem;
   max-width: 100%;
@@ -104,7 +102,6 @@
   border: 1px solid var(--linha);
 }
 
-/* Fumo: uma bolinha cinzenta que sobe, cresce e desaparece */
 .fumo {
   position: absolute;
   z-index: 3;
@@ -116,7 +113,6 @@
   animation: fumo-sobe 1.2s ease-out forwards;
 }
 
-/* Faísca: pequenina, amarela e rápida */
 .fumo.faisca {
   width: 0.5rem;
   height: 0.5rem;
@@ -135,7 +131,6 @@
   }
 }
 
-/* Na velocidade máxima, a roleta treme */
 .roleta-zona.tremer {
   animation: tremer 0.12s infinite;
 }

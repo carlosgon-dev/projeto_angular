@@ -221,8 +221,6 @@ export class Surpresa implements OnInit, OnDestroy {
     this.silenciar();
   }
 
-  /* ---------- Sons ---------- */
-
   private volume_do_leitor(): number {
     return this.leitor_service.mudo() ? 0 : this.leitor_service.volume() / 100;
   }
@@ -258,7 +256,6 @@ export class Surpresa implements OnInit, OnDestroy {
     if (duracao_ms) this.corte_travagem = window.setTimeout(() => this.travagem.pause(), duracao_ms);
   }
 
-  /* Quando a roleta pára de vez: CRASH! 💥 */
   private bater(): void {
     this.acidente.currentTime = 0;
     this.acidente.volume = this.volume_do_leitor();
