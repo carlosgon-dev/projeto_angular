@@ -81,3 +81,21 @@ app-cartao-texto {
     font-size: 0.8rem;
   }
 }
+
+.criar-nova {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--texto-suave);
+  border: 2px dashed var(--linha);
+}
+
+.criar-nova span {
+  font-size: 2.5rem;
+}
+
+.criar-nova:hover {
+  color: var(--rosa);
+  border-color: var(--rosa);
+}

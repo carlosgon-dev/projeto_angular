@@ -101,7 +101,7 @@ export class Surpresa implements OnInit, OnDestroy {
     this.explorar_service.listar_piadas().subscribe((lista) => (this.piadas = lista));
     this.explorar_service.listar_adivinhas().subscribe((lista) => (this.adivinhas = lista));
     this.video_service.listar_videos().subscribe((lista) => (this.videos = lista));
-    this.espera = window.setTimeout(() => this.abrir(false), ESPERA_ANTES_DA_SURPRESA_MS);
+    this.espera = window.setTimeout(() => this.abrir(), ESPERA_ANTES_DA_SURPRESA_MS);
   }
 
   ngOnDestroy(): void {
@@ -113,18 +113,14 @@ export class Surpresa implements OnInit, OnDestroy {
     return this.velocidade() >= VELOCIDADE_MAXIMA && !this.a_travar();
   }
 
-  abrir(girar_ja = true): void {
+  abrir(): void {
     window.clearTimeout(this.espera);
     this.parar_tudo();
     this.aberta.set(true);
     this.fatia.set(null);
     this.a_travar.set(false);
     this.velocidade.set(0);
-    if (!girar_ja) {
-      this.pronta.set(true);
-      return;
-    }
-    this.girar();
+    this.pronta.set(true);
   }
 
   girar(): void {
