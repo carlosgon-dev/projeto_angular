@@ -38,6 +38,7 @@ export class CriadoPorTi implements OnInit {
   templates = signal<TemplateMeme[]>([]);
   filtro = signal<TipoFiltro>('meme');
   em_edicao = signal<Criacao | null>(null);
+  aberta = signal<Criacao | null>(null);
   a_carregar = signal(true);
   erro = signal(false);
   maximo_texto = MAXIMO_TEXTO;

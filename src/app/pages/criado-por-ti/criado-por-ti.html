@@ -17,18 +17,20 @@
 
     @for (criacao of criacoes_filtradas(); track criacao.id) {
       <div class="caixa" [class.texto]="criacao.tipo !== 'meme'">
-        @switch (criacao.tipo) {
-          @case ('meme') {
-            <app-cartao-meme
-              [imagem]="imagem_do_template(criacao.template_id)"
-              [texto_cima]="criacao.texto_cima"
-              [texto_baixo]="criacao.texto_baixo"
-            />
+        <div class="clicavel" (click)="aberta.set(criacao)">
+          @switch (criacao.tipo) {
+            @case ('meme') {
+              <app-cartao-meme
+                [imagem]="imagem_do_template(criacao.template_id)"
+                [texto_cima]="criacao.texto_cima"
+                [texto_baixo]="criacao.texto_baixo"
+              />
+            }
+            @default {
+              <app-cartao-texto [criacao]="criacao" />
+            }
           }
-          @default {
-            <app-cartao-texto [criacao]="criacao" />
-          }
-        }
+        </div>
 
         <div class="rodape">
           <p>{{ criacao.data_criacao | date: 'dd/MM/yyyy' }}</p>
@@ -67,5 +69,22 @@
 
       <button type="submit" [disabled]="form_edicao.invalid">Guardar alterações</button>
     </form>
+  </app-janela>
+}
+
+@if (aberta(); as criacao) {
+  <app-janela (fechar)="aberta.set(null)">
+    @switch (criacao.tipo) {
+      @case ('meme') {
+        <app-cartao-meme
+          [imagem]="imagem_do_template(criacao.template_id)"
+          [texto_cima]="criacao.texto_cima"
+          [texto_baixo]="criacao.texto_baixo"
+        />
+      }
+      @default {
+        <app-cartao-texto [criacao]="criacao" />
+      }
+    }
   </app-janela>
 }
