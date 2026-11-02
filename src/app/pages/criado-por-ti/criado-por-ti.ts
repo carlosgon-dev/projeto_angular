@@ -15,7 +15,7 @@ import { SomService } from '../../services/som-service';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-const MAXIMO_TEXTO = 150;
+const MAXIMO_TEXTO = 500;
 const MAXIMO_DICA = 60;
 const SOM_FRACASSO = 'sons/fracasso.mp3';
 const SOM_APAGAR = 'sons/grito.mp3';
@@ -40,6 +40,7 @@ export class CriadoPorTi implements OnInit {
   em_edicao = signal<Criacao | null>(null);
   a_carregar = signal(true);
   erro = signal(false);
+  maximo_texto = MAXIMO_TEXTO;
 
   form_edicao = new FormGroup({
     parte_1: new FormControl('', [Validators.required, Validators.maxLength(MAXIMO_TEXTO)]),

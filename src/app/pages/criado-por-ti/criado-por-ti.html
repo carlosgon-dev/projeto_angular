@@ -62,7 +62,7 @@
       }
 
       @if (form_edicao.invalid && form_edicao.touched) {
-        <p class="erro">Os dois primeiros campos são obrigatórios (máximo 150 letras).</p>
+        <p class="erro">Os dois primeiros campos são obrigatórios (máximo {{ maximo_texto }} letras).</p>
       }
 
       <button type="submit" [disabled]="form_edicao.invalid">Guardar alterações</button>
