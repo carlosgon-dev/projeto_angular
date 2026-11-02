@@ -4,6 +4,19 @@
   gap: 0.5rem;
 }
 
+.clicavel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  cursor: pointer;
+  border-radius: 0.875rem;
+  transition: transform 0.15s;
+}
+
+.clicavel:hover {
+  transform: translateY(-4px);
+}
+
 app-cartao-meme,
 app-cartao-texto {
   flex-grow: 1;
